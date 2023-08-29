@@ -1,0 +1,69 @@
+---
+
+# Device Management
+
+- name: Creation of a FortiManager Device Group
+  fortinet.fortimanager.fmgr_dvmdb_group:
+    adom: "{{ domain }}"
+    dvmdb_group:
+      name: Group1
+      os_type: unknown
+      type: normal
+    state: present
+
+- name: Add FortiAnalyzer as a Group member
+  fortinet.fortimanager.fmgr_dvmdb_group_objectmember:
+    adom: "{{ domain }}"
+    dvmdb_group_objectmember:
+      name: "{{ fortianalyzer_name }}"
+      vdom: "{{ domain }}"
+    group: Group1
+    state: present
+
+# System Settings
+
+- name: Config System Settings (Admin -> Admin Settings)
+  fortinet.fortimanager.fmgr_system_admin_setting:
+    system_admin_setting:
+      idle_timeout: 28800
+      idle_timeout_api: 28800
+      idle_timeout_gui: 28800
+      webadmin_language: english
+      https_port: 443
+      http_port: 80
+      gui-theme: red
+      access-banner: disable
+      admin-https-redirect: disable
+      objects-force-deletion: disable
+      shell-access: disable
+      show-add-multiple: disable
+      show-checkbox-in-table: disable
+      show-device-import-export: disable
+      show-fct-manager: disable
+      show-hostname: disable
+
+- name: Create System Settings profile (Admin -> Profile)
+  fortinet.fortimanager.fmgr_system_admin_profile:
+    system_admin_profile:
+      profileid: MyProfile
+      description: This is MyProfile created by Ansible
+      system-setting: read
+      adom-lock: read
+      adom-policy-packages: read-write
+      device-config: read-write
+      device-manager: read-write
+      fgd_center: read-write
+      fgd-center-licensing: read-write
+      fgd-center-fmw-mgmt: read-write
+    state: present
+
+- name: Create System Settings admin (Admin -> Administrators)
+  fortinet.fortimanager.fmgr_system_admin_user:
+    system_admin_user:
+      userid: myadmin
+      description: 'My admin user created by Ansible'
+      change-password: disable
+      email-address: 'myadmin@ansible.com'
+      profileid: MyProfile
+      two-factor-auth: disable
+    state: present

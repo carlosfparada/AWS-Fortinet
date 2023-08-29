@@ -1,0 +1,185 @@
+---
+
+# Create Execution Environment
+
+- name: Create Execution Environment
+  awx.awx.execution_environment:
+    validate_certs: no
+    controller_host: "{{ controller_host }}"
+    controller_username: "{{ controller_username }}"
+    controller_password: "{{ controller_password }}"
+    name: "(auto) Fortinet Execution Environment"
+    image: quay.io/rh_ee_cparada/ee-supported-rh-cparada-fortinet
+    pull: always
+    credential: "Credentials: quay.io"
+    state: present
+
+# Create Project
+
+- name: Create Project
+  awx.awx.project:
+    validate_certs: no
+    controller_host: "{{ controller_host }}"
+    controller_username: "{{ controller_username }}"
+    controller_password: "{{ controller_password }}"
+    name: "(auto) Fortinet Project"
+    description: Created by Ansible Automation
+    organization: Default
+    scm_update_on_launch: True
+    scm_type: git
+    scm_url: "https://github.com/carlosfparada/Fortinet.git"
+    state: present
+
+# Create Credentials
+
+- name: Create Credentials
+  awx.awx.credential:
+    validate_certs: no
+    controller_host: "{{ controller_host }}"
+    controller_username: "{{ controller_username }}"
+    controller_password: "{{ controller_password }}"
+    name: "(auto) Fortinet Credentials"
+    description: Created by Ansible Automation
+    organization: Default
+    credential_type: Machine
+    inputs:
+      username: "{{ fortinet_username }}"
+      password: "{{ fortinet_password }}"
+    state: present
+
+# Create Templates
+
+- name: Create Job Template 1. wmware
+  awx.awx.job_template:
+    validate_certs: no
+    controller_host: "{{ controller_host }}"
+    controller_username: "{{ controller_username }}"
+    controller_password: "{{ controller_password }}"
+    name: "(auto) Fortinet Job Template 1. vmware"
+    description: Created by Ansible Automation
+    organization: Default
+    job_type: run
+    execution_environment: "(auto) Fortinet Execution Environment"
+    inventory: "Inventory: Fortinet"
+    project: "(auto) Fortinet Project"
+    playbook: vmware.yml
+    credentials:
+      - "(auto) Fortinet Credentials"
+    state: present
+
+- name: Create Job Template 2. fortigate
+  awx.awx.job_template:
+    validate_certs: no
+    controller_host: "{{ controller_host }}"
+    controller_username: "{{ controller_username }}"
+    controller_password: "{{ controller_password }}"
+    name: "(auto) Fortinet Job Template 2. fortigate"
+    description: Created by Ansible Automation
+    organization: Default
+    job_type: run
+    execution_environment: "(auto) Fortinet Execution Environment"
+    inventory: "Inventory: Fortinet"
+    project: "(auto) Fortinet Project"
+    playbook: fortigate.yml
+    credentials:
+      - "(auto) Fortinet Credentials"
+    state: present
+
+- name: Create Job Template 3. fortianalyzer
+  awx.awx.job_template:
+    validate_certs: no
+    controller_host: "{{ controller_host }}"
+    controller_username: "{{ controller_username }}"
+    controller_password: "{{ controller_password }}"
+    name: "(auto) Fortinet Job Template 3. fortianalyzer"
+    description: Created by Ansible Automation
+    organization: Default
+    job_type: run
+    execution_environment: "(auto) Fortinet Execution Environment"
+    inventory: "Inventory: Fortinet"
+    project: "(auto) Fortinet Project"
+    playbook: fortianalyzer.yml
+    credentials:
+      - "(auto) Fortinet Credentials"
+    state: present
+
+- name: Create Job Template 4. fortianalyzer-wa
+  awx.awx.job_template:
+    validate_certs: no
+    controller_host: "{{ controller_host }}"
+    controller_username: "{{ controller_username }}"
+    controller_password: "{{ controller_password }}"
+    name: "(auto) Fortinet Job Template 4. fortianalyzer-wa"
+    description: Created by Ansible Automation
+    organization: Default
+    job_type: run
+    execution_environment: "(auto) Fortinet Execution Environment"
+    inventory: "Inventory: Fortinet"
+    project: "(auto) Fortinet Project"
+    playbook: fortianalyzer-wa.yml
+    credentials:
+      - "(auto) Fortinet Credentials"
+    state: present
+
+- name: Create Job Template 5. fortimanager
+  awx.awx.job_template:
+    validate_certs: no
+    controller_host: "{{ controller_host }}"
+    controller_username: "{{ controller_username }}"
+    controller_password: "{{ controller_password }}"
+    name: "(auto) Fortinet Job Template 5. fortimanager"
+    description: Created by Ansible Automation
+    organization: Default
+    job_type: run
+    execution_environment: "(auto) Fortinet Execution Environment"
+    inventory: "Inventory: Fortinet"
+    project: "(auto) Fortinet Project"
+    playbook: fortimanager.yml
+    credentials:
+      - "(auto) Fortinet Credentials"
+    state: present
+
+- name: Create Job Workflow Template
+  awx.awx.workflow_job_template:
+    validate_certs: no
+    controller_host: "{{ controller_host }}"
+    controller_username: "{{ controller_username }}"
+    controller_password: "{{ controller_password }}"
+    name: "(auto) Fortinet Job Template workflow"
+    description: Created by Ansible Automation
+    organization: Default
+    inventory: "Inventory: Fortinet"
+    workflow_nodes:
+      - identifier: "(auto) Fortinet Job Template 1. vmware"
+        unified_job_template:
+          name: "(auto) Fortinet Job Template 1. vmware"
+          type: job_template
+        related:
+          success_nodes:
+            - identifier: "(auto) Fortinet Job Template 2. fortigate"
+      - identifier: "(auto) Fortinet Job Template 2. fortigate"
+        unified_job_template:
+          name: "(auto) Fortinet Job Template 2. fortigate"
+          type: job_template
+        related:
+          success_nodes:
+            - identifier: "(auto) Fortinet Job Template 3. fortianalyzer"
+      - identifier: "(auto) Fortinet Job Template 3. fortianalyzer"
+        unified_job_template:
+          name: "(auto) Fortinet Job Template 3. fortianalyzer"
+          type: job_template
+        related:
+          success_nodes:
+            - identifier: "(auto) Fortinet Job Template 4. fortianalyzer-wa"
+      - identifier: "(auto) Fortinet Job Template 4. fortianalyzer-wa"
+        unified_job_template:
+          name: "(auto) Fortinet Job Template 4. fortianalyzer-wa"
+          type: job_template
+        related:
+          success_nodes:
+            - identifier: "(auto) Fortinet Job Template 5. fortimanager"
+      - identifier: "(auto) Fortinet Job Template 5. fortimanager"
+        unified_job_template:
+          name: "(auto) Fortinet Job Template 5. fortimanager"
+          type: job_template
+    state: present
