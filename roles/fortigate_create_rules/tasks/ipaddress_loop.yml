@@ -8,7 +8,6 @@
 - name: "Create IPv4 address entry for {{ _address.name }}"
   fortinet.fortios.fortios_firewall_address:
     vdom: "{{ domain }}"
-    access_token: bnq3rkngfn5cp6y3fdmq8f0t7yybp5
     state: present
     firewall_address:
       name: "{{ _address.name }}"
