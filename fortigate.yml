@@ -33,7 +33,7 @@
   hosts: fortigate
   connection: httpapi
   gather_facts: no
-  vars_files: 
+  vars_files:
     - main.yml
     - "{{infra}}.yml"  
   roles:
