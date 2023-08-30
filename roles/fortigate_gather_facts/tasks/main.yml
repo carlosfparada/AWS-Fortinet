@@ -3,7 +3,7 @@
 - name: Gather facts from Fortinet FortiGate
   fortinet.fortios.fortios_configuration_fact:
     vdom: "{{ domain }}"
-    #access_token: "{{ fortigate_token }}"
+    access_token: tdnc600nb8gwmmNkHw9zph3pj0pNjy
     selectors:
       - selector: "firewall_policy"
     #  - selector: "system_interface"
