@@ -65,6 +65,7 @@
 - name: Gather policy ids from Fortigate
   fortinet.fortios.fortios_configuration_fact: 
     vdom: "{{ domain }}"
+    access_token: "{{ fortigate_token }}"
     selectors:
       - selector: firewall_policy
   register: _fg_facts
@@ -81,6 +82,7 @@
   fortinet.fortios.fortios_firewall_policy:
     vdom: "{{ domain }}"
     state: present
+    access_token: "{{ fortigate_token }}"
     firewall_policy: 
       policyid: "{{ _next_policyid }}"
       name: "{{ _rule.name }}" 
