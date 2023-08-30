@@ -6,7 +6,6 @@
     access_token: "{{ fortigate_token }}"
     state: present
     system_interface:
-      mode: static
       "{{ item }}"
   loop: "{{ ipv4_address }}"
 
