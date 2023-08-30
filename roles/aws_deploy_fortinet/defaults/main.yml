@@ -28,9 +28,9 @@ ec2_fgt_key_name: "KeyPair-Virginia"
 ec2_fgt_instance_name: fortigate-1
 # Instance
 ec2_fgt_instances:
-  - id: "port1"
-  - id: "port2"
-  - id: "port3"
+  - id: "eni-port1"
+  - id: "eni-port2"
+  - id: "eni-port3"
 ec2_fgt_groups:
   - id: "SG1"
   - id: "SG1"
