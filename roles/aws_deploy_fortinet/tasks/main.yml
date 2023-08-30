@@ -122,8 +122,11 @@
   amazon.aws.ec2_eni:
     name: "{{ ec2_eni_name2 }}"
     instance_id: "{{ ec2_instance.instances[0].instance_id }}"
+    device_index: 1
     subnet_id: "{{ subnet2.subnet.id }}"
     region: "{{ ec2_vpc_region }}"
+    delete_on_termination: true
+
     state: present
   register: eni2
 
