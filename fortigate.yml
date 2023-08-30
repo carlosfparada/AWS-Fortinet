@@ -28,6 +28,8 @@
   - include_role: 
       name: fortigate_setup_aws
     when: infra == 'aws'
+    ignore_errors: true 
+
     
 - name: Fortinet FortiGate roles
   hosts: fortigate
