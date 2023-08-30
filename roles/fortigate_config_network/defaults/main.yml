@@ -34,11 +34,10 @@ ansible_connection: httpapi
 ansible_httpapi_use_ssl: yes
 ansible_httpapi_validate_certs: no
 ansible_httpapi_port: 443
-fortigate_token: bnq3rkngfn5cp6y3fdmq8f0t7yybp5
-
 # ansible_httpapi_use_ssl: no
 # ansible_httpapi_validate_certs: no
 # ansible_httpapi_port: 80
+fortigate_token: bnq3rkngfn5cp6y3fdmq8f0t7yybp5
 
 ipv4_address:
   - name: port2
