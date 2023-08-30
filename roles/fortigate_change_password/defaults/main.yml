@@ -27,7 +27,6 @@
 #   CLI: show firewall policy 
 
 domain: "root"
-fortigate_token: 83zs6c433HxzrnGGz7qNkywQm5bnk9
 
 ansible_network_os: fortinet.fortios.fortios
 ansible_connection: httpapi
