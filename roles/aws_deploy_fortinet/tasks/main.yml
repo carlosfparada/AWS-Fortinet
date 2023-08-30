@@ -77,21 +77,21 @@
     region: "{{ ec2_vpc_region }}"
   register: ami_fgt_find
 
-- name: Create ENI 1
-  amazon.aws.ec2_eni:
-    name: "{{ ec2_eni_name1 }}"
-    subnet_id: "{{ subnet1.subnet.id }}"
-    region: "{{ ec2_vpc_region }}"
-    state: present
-  register: eni1
+# - name: Create ENI 1
+#   amazon.aws.ec2_eni:
+#     name: "{{ ec2_eni_name1 }}"
+#     subnet_id: "{{ subnet1.subnet.id }}"
+#     region: "{{ ec2_vpc_region }}"
+#     state: present
+#   register: eni1
 
-- name: Create ENI 2
-  amazon.aws.ec2_eni:
-    name: "{{ ec2_eni_name2 }}"
-    subnet_id: "{{ subnet2.subnet.id }}"
-    region: "{{ ec2_vpc_region }}"
-    state: present
-  register: eni2
+# - name: Create ENI 2
+#   amazon.aws.ec2_eni:
+#     name: "{{ ec2_eni_name2 }}"
+#     subnet_id: "{{ subnet2.subnet.id }}"
+#     region: "{{ ec2_vpc_region }}"
+#     state: present
+#   register: eni2
 
 - name: Create FortiGate instance
   amazon.aws.ec2_instance:
@@ -114,6 +114,18 @@
       name: "{{ ec2_fgt_instance_name }}"
     state: running
   register: ec2_instance
+
+- debug:
+    var: ec2_instance
+
+- name: Create ENI 2
+  amazon.aws.ec2_eni:
+    name: "{{ ec2_eni_name2 }}"
+    instance_id: "{{ ec2_instance.instances[0].instance_id }}"
+    subnet_id: "{{ subnet2.subnet.id }}"
+    region: "{{ ec2_vpc_region }}"
+    state: present
+  register: eni2
 
 - name: Print FortiGate instance details
   ansible.builtin.debug:
