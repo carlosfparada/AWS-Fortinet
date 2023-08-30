@@ -38,8 +38,8 @@ ansible_httpapi_port: 443
 # ansible_httpapi_validate_certs: no
 # ansible_httpapi_port: 80
 fortigate_token: tdnc600nb8gwmmNkHw9zph3pj0pNjy
-ansible_user: admin
-ansible_password: adminadmin
+# ansible_user: admin
+# ansible_password: adminadmin
 
 ipv4_address:
   - name: port2
