@@ -118,7 +118,7 @@
     subnet_id: "{{ subnet1.subnet.id }}"
     #private_ip_address: 10.0.0.6
     delete_on_termination: true
-    attach: true
+    attached: true
     state: present
 
 - name: Create and Attach ENI 2
@@ -130,7 +130,7 @@
     subnet_id: "{{ subnet2.subnet.id }}"
     #private_ip_address: 10.0.1.6
     delete_on_termination: true
-    attach: true
+    attached: true
     state: present
 
 - name: Print FortiGate instance details
