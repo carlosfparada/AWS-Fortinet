@@ -61,7 +61,7 @@
 - name: Delete ENI1
   amazon.aws.ec2_eni:
     #private_ip_address: 172.31.0.20
-    subnet_id: "{{ subnet1.subnet.id }}"
+    subnet_id: "{{ subnet1.subnets[0].subnet_id }}"
     region: "{{ ec2_vpc_region }}"
     state: absent
   register: eni1
@@ -69,7 +69,7 @@
 - name: Delete ENI2
   amazon.aws.ec2_eni:
     #private_ip_address: 172.31.0.20
-    subnet_id: "{{ subnet2.subnet.id }}"
+    subnet_id: "{{ subnet2.subnets[0].subnet_id }}"
     region: "{{ ec2_vpc_region }}"
     state: absent
   register: eni2
