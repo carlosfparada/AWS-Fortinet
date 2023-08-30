@@ -31,7 +31,10 @@ ec2_fgt_instances:
   - id: "port1"
   - id: "port2"
   - id: "port3"
-
+ec2_fgt_groups:
+  - id: "SG1"
+  - id: "SG1"
+  - id: "SG1"
 
 # FortiAnalyzer
 # AMI

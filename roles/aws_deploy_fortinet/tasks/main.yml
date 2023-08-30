@@ -78,7 +78,7 @@
     network:
       #assign_public_ip: true
       interfaces: "{{ ec2_fgt_instances }}"
-      security_group: "{{ ec2_sg_name }}"
+      groups: "{{ ec2_fgt_groups }}"
     tags:
       name: "{{ ec2_fgt_instance_name }}"
     state: running
