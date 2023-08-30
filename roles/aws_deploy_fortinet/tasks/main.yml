@@ -97,11 +97,11 @@
   amazon.aws.ec2_instance:
     image_id: "{{ ami_fgt_find.images[-1].image_id | default('') }}"
     instance_type: "{{ ec2_fgt_flavor_name }}"
-    #security_group: "{{ ec2_sg_name }}"
+    security_group: "{{ ec2_sg_name }}"
     name: "{{ ec2_fgt_instance_name }}"
     key_name: "{{ ec2_fgt_key_name }}"
     region: "{{ ec2_vpc_region }}"
-    #vpc_subnet_id: "{{ subnet1.subnet.id }}"
+    vpc_subnet_id: "{{ subnet1.subnet.id }}"
     network:
       assign_public_ip: true
       interfaces:
