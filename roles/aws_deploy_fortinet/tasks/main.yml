@@ -116,7 +116,6 @@
     instance_id: "{{ ec2_instance.instances[0].instance_id }}"
     device_index: 1
     subnet_id: "{{ subnet1.subnet.id }}"
-    #private_ip_address: 10.0.0.6
     delete_on_termination: true
     attached: true
     state: present
@@ -128,7 +127,6 @@
     instance_id: "{{ ec2_instance.instances[0].instance_id }}"
     device_index: 2
     subnet_id: "{{ subnet2.subnet.id }}"
-    #private_ip_address: 10.0.1.6
     delete_on_termination: true
     attached: true
     state: present
