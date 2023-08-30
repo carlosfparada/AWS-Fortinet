@@ -111,7 +111,7 @@
     name: "{{ ec2_fgt_instance_name }}"
     key_name: "{{ ec2_fgt_key_name }}"
     region: "{{ ec2_vpc_region }}"
-    vpc_subnet_id: "{{ subnet1.subnet.id }}"
+    #vpc_subnet_id: "{{ subnet1.subnet.id }}"
     network:
       assign_public_ip: true
       interfaces:
