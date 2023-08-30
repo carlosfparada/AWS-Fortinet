@@ -104,12 +104,12 @@
     vpc_subnet_id: "{{ subnet1.subnet.id }}"
     network:
       assign_public_ip: true
-      interfaces:
-        #- id: "{{ eni1.interface.id }}"
-        - id: "{{ eni2.interface.id }}"
-      # groups:
+      # interfaces:
+      #   #- id: "{{ eni1.interface.id }}"
+      #   - id: "{{ eni2.interface.id }}"
+      # # groups:
+      # #   - group_id: "{{ ec2_sg_name }}"
       #   - group_id: "{{ ec2_sg_name }}"
-        - group_id: "{{ ec2_sg_name }}"
     tags:
       name: "{{ ec2_fgt_instance_name }}"
     state: running
