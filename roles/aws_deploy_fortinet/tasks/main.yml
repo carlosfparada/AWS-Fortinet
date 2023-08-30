@@ -10,7 +10,18 @@
       name: "{{ ec2_vpc_name }}"
   register: vpc
 
-- name: Create Subnet in VPC 1
+- name: Create Subnet in VPC
+  amazon.aws.ec2_vpc_subnet:
+    vpc_id: "{{ vpc.vpc.id }}"
+    cidr: "{{ ec2_subnet_cidr }}"
+    region: "{{ ec2_vpc_region }}"
+    az: "{{ ec2_vpc_az }}"
+    state: present
+    tags:
+      name: "{{ ec2_subnet_name }}"
+  register: subnet
+
+- name: Create Subnet 1 in VPC
   amazon.aws.ec2_vpc_subnet:
     vpc_id: "{{ vpc.vpc.id }}"
     cidr: "{{ ec2_subnet_cidr1 }}"
@@ -21,7 +32,7 @@
       name: "{{ ec2_subnet_name1 }}"
   register: subnet1
 
-- name: Create Subnet in VPC 2
+- name: Create Subnet 2 in VPC
   amazon.aws.ec2_vpc_subnet:
     vpc_id: "{{ vpc.vpc.id }}"
     cidr: "{{ ec2_subnet_cidr2 }}"
@@ -49,7 +60,7 @@
     tags:
       name: "{{ ec2_rt_name }}"
     subnets:
-      - "{{ subnet1.subnet.id }}"
+      - "{{ subnet.subnet.id }}"
     routes:
       - dest: 0.0.0.0/0
         gateway_id: "{{ igw.gateway_id }}"
@@ -77,22 +88,6 @@
     region: "{{ ec2_vpc_region }}"
   register: ami_fgt_find
 
-# - name: Create ENI 1
-#   amazon.aws.ec2_eni:
-#     name: "{{ ec2_eni_name1 }}"
-#     subnet_id: "{{ subnet1.subnet.id }}"
-#     region: "{{ ec2_vpc_region }}"
-#     state: present
-#   register: eni1
-
-# - name: Create ENI 2
-#   amazon.aws.ec2_eni:
-#     name: "{{ ec2_eni_name2 }}"
-#     subnet_id: "{{ subnet2.subnet.id }}"
-#     region: "{{ ec2_vpc_region }}"
-#     state: present
-#   register: eni2
-
 - name: Create FortiGate instance
   amazon.aws.ec2_instance:
     image_id: "{{ ami_fgt_find.images[-1].image_id | default('') }}"
@@ -101,7 +96,7 @@
     name: "{{ ec2_fgt_instance_name }}"
     key_name: "{{ ec2_fgt_key_name }}"
     region: "{{ ec2_vpc_region }}"
-    vpc_subnet_id: "{{ subnet1.subnet.id }}"
+    vpc_subnet_id: "{{ subnet.subnet.id }}"
     network:
       assign_public_ip: true
     tags:
@@ -135,10 +130,10 @@
   ansible.builtin.debug:
     msg: "Instance DNS name is: {{ ec2_instance.instances[0].public_dns_name }} with IP address {{ ec2_instance.instances[0].public_ip_address }}"
 
-- name: Sleep for 300 seconds and continue with play
-  wait_for:
-    timeout: 300
-  delegate_to: localhost
+# - name: Sleep for 300 seconds and continue with play
+#   wait_for:
+#     timeout: 300
+#   delegate_to: localhost
     
 # # FortiAnalyzer
 # - name: Get AMI by Name (FortiAnalyzer)
