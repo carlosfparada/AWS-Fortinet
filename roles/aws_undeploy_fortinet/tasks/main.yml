@@ -55,6 +55,9 @@
     region: "{{ ec2_vpc_region }}"
     state: absent
 
+- debug:
+    var: subnet1
+
 - name: Delete ENI1
   amazon.aws.ec2_eni:
     #private_ip_address: 172.31.0.20
