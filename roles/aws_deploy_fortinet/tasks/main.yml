@@ -126,15 +126,6 @@
     delete_on_termination: true
     state: present
 
-- name: Print FortiGate instance details
-  ansible.builtin.debug:
-    msg: "Instance DNS name is: {{ ec2_instance.instances[0].public_dns_name }} with IP address {{ ec2_instance.instances[0].public_ip_address }}"
-
-- name: Sleep for 300 seconds and continue with play
-  wait_for:
-    timeout: 300
-  delegate_to: localhost
-
 - name: Create and Attach ENI 2
   amazon.aws.ec2_eni:
     name: "{{ ec2_eni_name2 }}"
@@ -145,6 +136,15 @@
     private_ip_address: 10.0.1.6
     delete_on_termination: true
     state: present
+
+- name: Print FortiGate instance details
+  ansible.builtin.debug:
+    msg: "Instance DNS name is: {{ ec2_instance.instances[0].public_dns_name }} with IP address {{ ec2_instance.instances[0].public_ip_address }}"
+
+- name: Sleep for 300 seconds and continue with play
+  wait_for:
+    timeout: 300
+  delegate_to: localhost
     
 # # FortiAnalyzer
 # - name: Get AMI by Name (FortiAnalyzer)
