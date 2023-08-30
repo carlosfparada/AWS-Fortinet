@@ -69,19 +69,19 @@
     region: "{{ ec2_vpc_region }}"
     state: absent
 
-# - name: Delete ENI 1
-#   amazon.aws.ec2_eni:
-#     name: "{{ ec2_eni_name1 }}"
-#     subnet_id: "{{ subnet1.subnets[0].subnet_id }}"
-#     region: "{{ ec2_vpc_region }}"
-#     state: absent
+- name: Delete ENI 1
+  amazon.aws.ec2_eni:
+    name: "{{ ec2_eni_name1 }}"
+    subnet_id: "{{ subnet1.subnets[0].subnet_id }}"
+    region: "{{ ec2_vpc_region }}"
+    state: absent
 
-# - name: Delete ENI 2
-#   amazon.aws.ec2_eni:
-#     name: "{{ ec2_eni_name2 }}"
-#     subnet_id: "{{ subnet2.subnets[0].subnet_id }}"
-#     region: "{{ ec2_vpc_region }}"
-#     state: absent
+- name: Delete ENI 2
+  amazon.aws.ec2_eni:
+    name: "{{ ec2_eni_name2 }}"
+    subnet_id: "{{ subnet2.subnets[0].subnet_id }}"
+    region: "{{ ec2_vpc_region }}"
+    state: absent
 
 - name: Delete Subnet in VPC 1
   amazon.aws.ec2_vpc_subnet:
