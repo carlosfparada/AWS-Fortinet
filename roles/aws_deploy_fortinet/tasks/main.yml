@@ -115,8 +115,8 @@
     network:
       #assign_public_ip: true
       interfaces:
-        - id: eni1.interface.id
-        - id: eni2.interface.id
+        - id: "{{ eni1.interface.id }}"
+        - id: "{{ eni2.interface.id }}"
       groups:
         - group_id: "{{ ec2_sg_name }}"
         - group_id: "{{ ec2_sg_name }}"
