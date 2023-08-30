@@ -21,6 +21,20 @@
       "tag:name": "{{ ec2_subnet_name2 }}"
   register: subnet2
 
+- name: Query ENI 1
+  amazon.aws.ec2_eni_info:
+    region: "{{ ec2_vpc_region }}"
+    filters:
+      "tag:name": "{{ ec2_eni_name1 }}"
+  register: eni1
+
+- name: Query ENI 2
+  amazon.aws.ec2_eni_info:
+    region: "{{ ec2_vpc_region }}"
+    filters:
+      "tag:name": "{{ ec2_eni_name2 }}"
+  register: eni2
+
 - name: Query Route Tables
   amazon.aws.ec2_vpc_route_table_info:
     region: "{{ ec2_vpc_region }}"
@@ -57,19 +71,17 @@
 
 - name: Delete ENI1
   amazon.aws.ec2_eni:
-    #private_ip_address: 172.31.0.20
+    name: "{{ ec2_eni_name1 }}"
     subnet_id: "{{ subnet1.subnets[0].subnet_id }}"
     region: "{{ ec2_vpc_region }}"
     state: absent
-  register: eni1
 
 - name: Delete ENI2
   amazon.aws.ec2_eni:
-    #private_ip_address: 172.31.0.20
+    name: "{{ ec2_eni_name2 }}"
     subnet_id: "{{ subnet2.subnets[0].subnet_id }}"
     region: "{{ ec2_vpc_region }}"
     state: absent
-  register: eni2
 
 - name: Delete Subnet in VPC 1
   amazon.aws.ec2_vpc_subnet:

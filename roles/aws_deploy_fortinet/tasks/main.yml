@@ -79,7 +79,7 @@
 
 - name: Create ENI1
   amazon.aws.ec2_eni:
-    #private_ip_address: 172.31.0.20
+    name: "{{ ec2_eni_name1 }}"
     subnet_id: "{{ subnet1.subnet.id }}"
     region: "{{ ec2_vpc_region }}"
     state: present
@@ -87,7 +87,7 @@
 
 - name: Create ENI1
   amazon.aws.ec2_eni:
-    #private_ip_address: 172.31.0.20
+    name: "{{ ec2_eni_name2 }}"
     subnet_id: "{{ subnet2.subnet.id }}"
     region: "{{ ec2_vpc_region }}"
     state: present
@@ -105,11 +105,11 @@
     network:
       assign_public_ip: true
       interfaces:
-        - id: "{{ eni1.interface.id }}"
+        #- id: "{{ eni1.interface.id }}"
         - id: "{{ eni2.interface.id }}"
-      groups:
-        - group_id: "{{ ec2_sg_name }}"
-        - group_id: "{{ ec2_sg_name }}"
+      # groups:
+      #   - group_id: "{{ ec2_sg_name }}"
+      #   - group_id: "{{ ec2_sg_name }}"
     tags:
       name: "{{ ec2_fgt_instance_name }}"
     state: running
