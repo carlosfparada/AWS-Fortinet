@@ -77,31 +77,21 @@
     region: "{{ ec2_vpc_region }}"
   register: ami_fgt_find
 
-- amazon.aws.ec2_eni:
+- name: Create ENI1
+  amazon.aws.ec2_eni:
     #private_ip_address: 172.31.0.20
     subnet_id: "{{ subnet1.subnet.id }}"
     region: "{{ ec2_vpc_region }}"
     state: present
   register: eni1
 
-- debug: 
-    var: eni1
-
-- debug: 
-    var: eni1.interface.id
-
-- amazon.aws.ec2_eni:
+- name: Create ENI1
+  amazon.aws.ec2_eni:
     #private_ip_address: 172.31.0.20
     subnet_id: "{{ subnet2.subnet.id }}"
     region: "{{ ec2_vpc_region }}"
     state: present
   register: eni2
-
-- debug: 
-    var: eni2
-
-- debug: 
-    var: eni2.interface.id
 
 - name: Create FortiGate instance
   amazon.aws.ec2_instance:
