@@ -27,7 +27,6 @@
 #   CLI: show firewall policy 
 
 domain: "root"
-#fortigate_token: 8dxz00ht3jstbs84Hfr0NHjr151Njf
 
 ansible_network_os: fortinet.fortios.fortios
 ansible_connection: httpapi
@@ -37,7 +36,7 @@ ansible_httpapi_port: 443
 # ansible_httpapi_use_ssl: no
 # ansible_httpapi_validate_certs: no
 # ansible_httpapi_port: 80
-fortigate_token: ts4tfwz19xjsnQ9dhbm65Q1378kzxc
+fortigate_token: 83zs6c433HxzrnGGz7qNkywQm5bnk9
 # ansible_user: admin
 # ansible_password: adminadmin
 
