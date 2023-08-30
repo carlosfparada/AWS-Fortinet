@@ -10,16 +10,27 @@
       name: "{{ ec2_vpc_name }}"
   register: vpc
 
-- name: Create Subnet in VPC
+- name: Create Subnet in VPC 1
   amazon.aws.ec2_vpc_subnet:
     vpc_id: "{{ vpc.vpc.id }}"
-    cidr: "{{ ec2_subnet_cidr }}"
+    cidr: "{{ ec2_subnet_cidr1 }}"
     region: "{{ ec2_vpc_region }}"
     az: "{{ ec2_vpc_az }}"
     state: present
     tags:
-      name: "{{ ec2_subnet_name }}"
-  register: subnet
+      name: "{{ ec2_subnet_name1 }}"
+  register: subnet1
+
+- name: Create Subnet in VPC 2
+  amazon.aws.ec2_vpc_subnet:
+    vpc_id: "{{ vpc.vpc.id }}"
+    cidr: "{{ ec2_subnet_cidr2 }}"
+    region: "{{ ec2_vpc_region }}"
+    az: "{{ ec2_vpc_az }}"
+    state: present
+    tags:
+      name: "{{ ec2_subnet_name2 }}"
+  register: subnet2
 
 - name: Create Internet Gateway (IGW)
   amazon.aws.ec2_vpc_igw:
@@ -38,7 +49,7 @@
     tags:
       name: "{{ ec2_rt_name }}"
     subnets:
-      - "{{ subnet.subnet.id }}"
+      - "{{ subnet1.subnet.id }}"
     routes:
       - dest: 0.0.0.0/0
         gateway_id: "{{ igw.gateway_id }}"
@@ -66,19 +77,41 @@
     region: "{{ ec2_vpc_region }}"
   register: ami_fgt_find
 
+- amazon.aws.ec2_eni:
+    #private_ip_address: 172.31.0.20
+    subnet_id: "{{ subnet1.subnet.id }}"
+    state: present
+  register: eni1
+
+- debug: 
+    var: eni1
+
+- amazon.aws.ec2_eni:
+    #private_ip_address: 172.31.0.20
+    subnet_id: "{{ subnet2.subnet.id }}"
+    state: present
+  register: eni2
+
+- debug: 
+    var: eni2
+
 - name: Create FortiGate instance
   amazon.aws.ec2_instance:
     image_id: "{{ ami_fgt_find.images[-1].image_id | default('') }}"
     instance_type: "{{ ec2_fgt_flavor_name }}"
-    #security_group: "{{ ec2_sg_name }}"
+    security_group: "{{ ec2_sg_name }}"
     name: "{{ ec2_fgt_instance_name }}"
     key_name: "{{ ec2_fgt_key_name }}"
     region: "{{ ec2_vpc_region }}"
-    vpc_subnet_id: "{{ subnet.subnet.id }}"
+    vpc_subnet_id: "{{ subnet1.subnet.id }}"
     network:
       #assign_public_ip: true
-      interfaces: "{{ ec2_fgt_instances }}"
-      groups: "{{ ec2_fgt_groups }}"
+      interfaces:
+        - id: eni1
+        - id: eni2
+      groups:
+        - group_id: "{{ ec2_sg_name }}"
+        - group_id: "{{ ec2_sg_name }}"
     tags:
       name: "{{ ec2_fgt_instance_name }}"
     state: running
@@ -104,7 +137,7 @@
 #     name: "{{ ec2_faz_instance_name }}"
 #     key_name: "{{ ec2_faz_key_name }}"
 #     region: "{{ ec2_vpc_region }}"
-#     vpc_subnet_id: "{{ subnet.subnet.id }}"
+#     vpc_subnet_id: "{{ subnet1.subnet.id }}"
 #     network:
 #       assign_public_ip: true
 #     tags:
@@ -132,7 +165,7 @@
 #     name: "{{ ec2_fmg_instance_name }}"
 #     key_name: "{{ ec2_fmg_key_name }}"
 #     region: "{{ ec2_vpc_region }}"
-#     vpc_subnet_id: "{{ subnet.subnet.id }}"
+#     vpc_subnet_id: "{{ subnet1.subnet.id }}"
 #     network:
 #       assign_public_ip: true
 #     tags:
