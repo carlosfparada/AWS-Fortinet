@@ -118,11 +118,20 @@
 - debug:
     var: ec2_instance
 
-- name: Create ENI 2
+- name: Create and Attach ENI 1
+  amazon.aws.ec2_eni:
+    name: "{{ ec2_eni_name1 }}"
+    instance_id: "{{ ec2_instance.instances[0].instance_id }}"
+    device_index: 1
+    subnet_id: "{{ subnet1.subnet.id }}"
+    region: "{{ ec2_vpc_region }}"
+    delete_on_termination: true
+
+- name: Create and Attach ENI 2
   amazon.aws.ec2_eni:
     name: "{{ ec2_eni_name2 }}"
     instance_id: "{{ ec2_instance.instances[0].instance_id }}"
-    device_index: 1
+    device_index: 2
     subnet_id: "{{ subnet2.subnet.id }}"
     region: "{{ ec2_vpc_region }}"
     delete_on_termination: true
