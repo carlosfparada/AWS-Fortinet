@@ -26,6 +26,12 @@ ec2_fgt_flavor_name: t2.small
 ec2_fgt_key_name: "KeyPair-Virginia"
 # Instance
 ec2_fgt_instance_name: fortigate-1
+# Instance
+ec2_fgt_instances:
+  - id: "port1"
+  - id: "port2"
+  - id: "port3"
+
 
 # FortiAnalyzer
 # AMI

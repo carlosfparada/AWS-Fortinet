@@ -77,10 +77,7 @@
     vpc_subnet_id: "{{ subnet.subnet.id }}"
     network:
       #assign_public_ip: true
-      interfaces:
-        - id: "port1"
-        - id: "port2"
-        - id: "port3"
+      interfaces: "{{ ec2_fgt_instances }}"
     tags:
       name: "{{ ec2_fgt_instance_name }}"
     state: running
