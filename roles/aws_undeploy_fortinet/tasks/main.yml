@@ -55,6 +55,22 @@
     region: "{{ ec2_vpc_region }}"
     state: absent
 
+- name: Delete ENI1
+  amazon.aws.ec2_eni:
+    #private_ip_address: 172.31.0.20
+    subnet_id: "{{ subnet1.subnet.id }}"
+    region: "{{ ec2_vpc_region }}"
+    state: present
+  register: eni1
+
+- name: Delete ENI2
+  amazon.aws.ec2_eni:
+    #private_ip_address: 172.31.0.20
+    subnet_id: "{{ subnet2.subnet.id }}"
+    region: "{{ ec2_vpc_region }}"
+    state: present
+  register: eni2
+
 - name: Delete Subnet in VPC 1
   amazon.aws.ec2_vpc_subnet:
     vpc_id: "{{ vpc.vpcs[0].id }}"
