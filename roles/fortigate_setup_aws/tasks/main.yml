@@ -24,34 +24,13 @@
       'FGT': "{{ api_config }}"
   register: output
 
-- name: Set Fortigate Token variable -3
-  debug:
-    msg: "{{ item }}"
+- name: Store Fortigate Token in file
+  copy:
+    content: "fortigate_token: {{ item.split(' ')[3] }}"
+    dest: ../vars/token.yml
   loop: "{{ output.stdout_lines }}"
   when: "'New API key' in item"
-  #when: item | regex_search("^New[ ]API[ ]key:[ ](.*)$")
-
-- name: Set Fortigate Token variable -2
-  debug:
-    msg: "{{ item }}"
-  loop: "{{ output.stdout_lines }}"
-  when: "'New API key' in item"
-  #when: item | regex_search("^New[ ]API[ ]key:[ ](.*)$")
-
-- name: Set Fortigate Token variable -1
-  debug:
-    msg: "{{ item.split(': ')[1] }}"
-  loop: "{{ output.stdout_lines }}"
-  when: "'New API key' in item"
-  #when: item | regex_search("^New[ ]API[ ]key:[ ](.*)$")
-
-- name: Set Fortigate Token variable
-  set_fact:
-    fortigate_token: "{{ item.split(' ')[3] }}"
-  loop: "{{ output.stdout_lines }}"
-  when: "'New API key' in item"
-  #when: item | regex_search("^New[ ]API[ ]key:[ ](.*)$")
-
+  
 - debug:
     var: fortigate_token
 
