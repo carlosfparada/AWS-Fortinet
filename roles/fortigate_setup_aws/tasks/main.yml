@@ -14,6 +14,7 @@
 #       'FGT': "exit"
 #   no_log: false # hide passwords on logs
 #   ignore_errors: true
+#   delegate_to: localhost
 
 - name: Wait 5 seconds
   wait_for:
@@ -28,13 +29,14 @@
       'password:': "{{ new_password }}" 
       'FGT': "{{ api_config }}"
   register: output
+  delegate_to: localhost
 
 - name: Set Fortigate Token variable
   set_fact:
     fortigate_token: "{{ item.split(' ')[3] }}"
   loop: "{{ output.stdout_lines }}"
   when: "'New API key' in item"
-
+  delegate_to: localhost
 
 # - name: Change admin password
 #   ansible.builtin.expect:
