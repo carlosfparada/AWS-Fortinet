@@ -27,7 +27,9 @@
 - name: Set Fortigate Token variable -3
   debug:
     msg: "{{ item }}"
-  when: item | regex_search("^New[ ]API[ ]key:[ ](.*)$")
+  loop: "{{ output.stdout_lines }}"
+  when: "'New API key' in item"
+  #when: item | regex_search("^New[ ]API[ ]key:[ ](.*)$")
 
 - name: Set Fortigate Token variable -2
   debug:
