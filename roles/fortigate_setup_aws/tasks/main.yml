@@ -72,7 +72,7 @@
   debug:
     msg: "Line is {{ item }}, Token is {{ item.split(': ')[1] }}"
   loop: "{{ output.stdout_lines }}"
-  #when: item | regex_search("^New[ ]API[ ]key:[ ](.*)$")
+  when: item | regex_search("^New[ ]API[ ]key:[ ](.*)$")
   #when: item | regex_search("^fortigate-(.*)$")
 
 # - name: Set Fortigate Token
