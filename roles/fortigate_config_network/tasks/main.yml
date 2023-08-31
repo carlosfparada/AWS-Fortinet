@@ -8,6 +8,7 @@
     system_interface:
       "{{ item }}"
   loop: "{{ ipv4_address }}"
+  delegate_to: localhost
 
 - name: Configure IPv4 static routing
   fortinet.fortios.fortios_router_static:
