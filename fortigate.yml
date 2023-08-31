@@ -29,7 +29,6 @@
       name: fortigate_setup_aws
     when: infra == 'aws'
 
-    
 - name: Fortinet FortiGate roles
   hosts: fortigate
   connection: httpapi
