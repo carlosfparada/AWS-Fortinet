@@ -14,7 +14,7 @@
       'FGT': "exit"
   no_log: false # hide passwords on logs
   ignore_errors: true
-  delegate_to: localhost
+  #delegate_to: localhost
 
 - name: Wait 5 seconds
   wait_for:
