@@ -27,7 +27,7 @@
 - name: Store Fortigate Token in file
   copy:
     content: "fortigate_token: {{ item.split(' ')[3] }}"
-    dest: ../../vars/token.yml
+    dest: ../../../vars/token.yml
   loop: "{{ output.stdout_lines }}"
   when: "'New API key' in item"
 
