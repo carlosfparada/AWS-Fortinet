@@ -60,7 +60,13 @@
   register: output
 
 - debug:
-    var: output
+    msg: "Token is  {{ item }}"
+  loop: "{{ output }}"
+  when: regex_search("^New API key: (.*)$")
+
+
+
+
 
 # - name: Change admin password
 #   ansible.builtin.expect:
