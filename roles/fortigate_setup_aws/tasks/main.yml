@@ -59,6 +59,10 @@
         - exit
   register: output
 
+- name: Var
+  debug:
+    var: output
+
 - name: Var item
   debug:
     var: item
