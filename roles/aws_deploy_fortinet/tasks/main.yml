@@ -197,5 +197,5 @@
     state: started
     timeout: 600
     delay: 30
-    host: "{{ ansible_host }}"
+    host: "{{ ec2_instance.instances[0].public_dns_name }}"
   connection: local
