@@ -43,12 +43,12 @@ ansible_httpapi_port: 443
 ipv4_address:
   - name: port2
     interface: port2
-    mode: static
+    #mode: static
     ip: 10.0.1.16 255.255.255.0
     allowaccess: ping
   - name: port3
     interface: port3
-    mode: static
+    #mode: static
     ip: 10.0.2.16 255.255.255.0
     allowaccess: ping
 
