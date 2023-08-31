@@ -24,12 +24,14 @@
       'FGT': "{{ api_config }}"
   register: output
 
-- name: Store Fortigate Token in file
-  copy:
-    content: "fortigate_token: {{ item.split(' ')[3] }}"
-    dest: ../../../vars/token.yml
+- name: Set Fortigate Token variable
+  set_fact:
+    fortigate_token: "{{ item.split(' ')[3] }}"
   loop: "{{ output.stdout_lines }}"
   when: "'New API key' in item"
+
+- debug:
+    var: fortigate_token
 
 # - name: Change admin password
 #   ansible.builtin.expect:
