@@ -59,11 +59,16 @@
         - exit
   register: output
 
+- name: Var item
+  debug:
+    var: item
+  loop: "{{ output }}"
+
 - debug:
     msg: "Line is {{ item }}, Token is {{ item.split(': ')[1] }}"
   loop: "{{ output }}"
-  #when: item | regex_search("^New API key\: (.*)$")
-  when: item | regex_search("^fortigate-(.*)$")
+  when: item | regex_search("^New API key: .*$")
+  #when: item | regex_search("^fortigate-(.*)$")
 
 # - name: Set Fortigate Token
 #   set_fact:
