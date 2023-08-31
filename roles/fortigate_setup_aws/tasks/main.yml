@@ -30,9 +30,6 @@
     dest: ../vars/token.yml
   loop: "{{ output.stdout_lines }}"
   when: "'New API key' in item"
-  
-- debug:
-    var: fortigate_token
 
 # - name: Change admin password
 #   ansible.builtin.expect:
