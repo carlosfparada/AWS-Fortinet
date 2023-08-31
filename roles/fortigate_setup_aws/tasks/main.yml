@@ -20,7 +20,7 @@
   ansible.builtin.expect:
     command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortigate'][0] }}"
     responses:
-      'Password:': "{{ new_password }}" 
+      'password:': "{{ new_password }}" 
       'FGT': config system 
       'accprofile': edit api-profile
         # # API Admin Profile - api-profile
@@ -43,7 +43,7 @@
         # - config system api-user
         # - edit api-admin
         # - set comments 'api for admin access'
-        # - set accprofile "API profile"
+        # - set accprofile api-profile
         # - set vdom root
         # - config trusthost
         # - edit 1
