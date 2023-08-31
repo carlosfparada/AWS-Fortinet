@@ -2,22 +2,22 @@
 
 # https://docs.ansible.com/ansible/latest/collections/ansible/builtin/expect_module.html
 # https://www.mail-archive.com/ansible-project@googlegroups.com/msg39525.html 
-- name: Set admin initial password
-  ansible.builtin.expect:
-    command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortigate'][0] }}"
-    responses:
-      # 'Are you sure you want to continue connecting (yes/no/[fingerprint])': "yes"
-      # 'You are forced to change your password. Please input a new password.'
-      's password:': "{{ hostvars[groups['fortigate'][0]].instance_id }}" 
-      'New Password:': "{{ new_password }}" 
-      'Confirm Password:': "{{ new_password }}"
-      'FGT': "exit"
-  no_log: false # hide passwords on logs
-  ignore_errors: true
+# - name: Set admin initial password
+#   ansible.builtin.expect:
+#     command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortigate'][0] }}"
+#     responses:
+#       # 'Are you sure you want to continue connecting (yes/no/[fingerprint])': "yes"
+#       # 'You are forced to change your password. Please input a new password.'
+#       's password:': "{{ hostvars[groups['fortigate'][0]].instance_id }}" 
+#       'New Password:': "{{ new_password }}" 
+#       'Confirm Password:': "{{ new_password }}"
+#       'FGT': "exit"
+#   no_log: false # hide passwords on logs
+#   ignore_errors: true
 
-- name: Wait 10 seconds
-  wait_for:
-    timeout: 10
+# - name: Wait 10 seconds
+#   wait_for:
+#     timeout: 10
 
 #https://docs.fortinet.com/document/fortigate/7.4.0/administration-guide/399023/rest-api-administrator
 #https://docs.fortinet.com/document/fortigate/6.2.15/cookbook/294491/administrator-profiles
