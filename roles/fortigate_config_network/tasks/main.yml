@@ -3,7 +3,7 @@
 - name: Configure IPv4 addresses
   fortinet.fortios.fortios_system_interface:
     vdom: "{{ domain }}"
-    access_token: "{{ fortigate_token }}"
+    access_token: "GhjnHptpwQd3Gbrkb7t1Q6mdb701mN" #"{{ fortigate_token }}"
     state: present
     system_interface:
       "{{ item }}"
