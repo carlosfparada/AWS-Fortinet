@@ -21,10 +21,10 @@
     command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortigate'][0] }}"
     responses:
       'Password:': "{{ new_password }}" 
-      'FGT': "config system accprofile"
-      'FGT': "edit api-profile"
       'FGT':
         # API Admin Profile - api-profile
+        - config system accprofile
+        - edit api-profile
         - set secfabgrp read-write
         - set ftviewgrp read-write
         - set authgrp read-write
