@@ -62,11 +62,11 @@
 - debug:
     msg: "Line is {{ item }}, Token is {{ item.split(': ')[1] }}"
   loop: "{{ output }}"
-  when: regex_search("^New API key: (.*)$")
+  when: item | regex_search("^New API key: (.*)$")
 
 - name: Set Fortigate Token
   set_fact:
-    fortigate_token: "{{ item.split(': ')[1] }} $1"
+    fortigate_token: "{{ item.split(': ')[1] }}"
   loop: "{{ output }}"
   when: item | regex_search("^New API key: (.*)$")
 
