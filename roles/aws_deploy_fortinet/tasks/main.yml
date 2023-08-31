@@ -191,7 +191,11 @@
 #   ansible.builtin.debug:
 #     msg: "Instance DNS name is: {{ ec2_instance.instances[0].public_dns_name }} with IP address {{ ec2_instance.instances[0].public_ip_address }}"
 
-- name: Sleep for 300 seconds and continue with play
+- name: Wait until the device boots up
   wait_for:
-    timeout: 300
-  delegate_to: localhost
+    port: 22
+    state: started
+    timeout: 600
+    delay: 30
+    host: "{{ ansible_host }}"
+  connection: local
