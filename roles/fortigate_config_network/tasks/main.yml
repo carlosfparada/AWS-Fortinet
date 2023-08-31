@@ -1,5 +1,8 @@
 ---
 
+- debug:
+    var: fortigate_token
+    
 - name: Configure IPv4 addresses
   fortinet.fortios.fortios_system_interface:
     vdom: "{{ domain }}"
