@@ -33,7 +33,7 @@ ansible_connection: httpapi
 ansible_httpapi_use_ssl: yes
 ansible_httpapi_validate_certs: no
 ansible_httpapi_port: 443
-fortigate_token: 83zs6c433HxzrnGGz7qNkywQm5bnk9
+#fortigate_token: 83zs6c433HxzrnGGz7qNkywQm5bnk9
 
 fg_services:
   dns-tcp: service-dns-tcp
