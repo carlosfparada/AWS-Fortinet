@@ -57,7 +57,6 @@ api_config:
   # API Admin User - api-admin
   - "config system api-user"
   - "edit api-admin"
-  - "set comments AdministratorspiForAdminAccess"
   - "set accprofile api-profile"
   - "set vdom root"
   # - "config trusthost"
