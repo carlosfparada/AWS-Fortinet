@@ -40,7 +40,6 @@ api_config:
   - "config system accprofile"
   - "edit api-profile"
   # API Admin Profile - api-profile
-  - "config system accprofile"
   - "edit api-profile"
   - "set secfabgrp read-write"
   - "set ftviewgrp read-write"
@@ -58,14 +57,14 @@ api_config:
   # API Admin User - api-admin
   - "config system api-user"
   - "edit api-admin"
-  - "set comments apiForAdminAccess"
+  - "set comments AdministratorspiForAdminAccess"
   - "set accprofile api-profile"
   - "set vdom root"
-  - "config trusthost"
-  - "edit 1"
-  - "set ipv4-trusthost 0.0.0.0/0"
-  - "next"
-  - "end"
+  # - "config trusthost"
+  # - "edit 1"
+  # - "set ipv4-trusthost 0.0.0.0/0"
+  # - "next"
+  # - "end"
   - "next"
   - "end"
   # Get Token
