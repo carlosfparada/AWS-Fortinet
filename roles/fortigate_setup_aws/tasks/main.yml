@@ -54,7 +54,7 @@
         # Get Token
         - execute api-user generate-key api-admin
         #New API key: fwx8w4473HdGGzrswr0jG6rxHQ3mcj
-register: output
+  register: output
 
 - debug:
     var: output
