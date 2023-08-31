@@ -60,13 +60,15 @@
   register: output
 
 - debug:
-    msg: "Token is  {{ item }}"
+    msg: "Line is {{ item }}, Token is {{ item.split(': ')[1] }}"
   loop: "{{ output }}"
   when: regex_search("^New API key: (.*)$")
 
-
-
-
+- name: Set Fortigate Token
+  set_fact:
+    fortigate_token: "{{ item.split(': ')[1] }} $1"
+  loop: "{{ output }}"
+  when: regex_search("^New API key: (.*)$")
 
 # - name: Change admin password
 #   ansible.builtin.expect:
