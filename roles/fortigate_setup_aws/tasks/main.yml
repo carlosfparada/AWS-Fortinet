@@ -24,6 +24,48 @@
       'FGT': "exit"
   no_log: false # hide passwords on logs
 
+#https://docs.fortinet.com/document/fortigate/7.4.0/administration-guide/399023/rest-api-administrator
+#https://docs.fortinet.com/document/fortigate/6.2.15/cookbook/294491/administrator-profiles
+- name: Create a REST API administrator (CLI)
+  ansible.builtin.expect:
+    command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortigate'][0] }}"
+    responses:
+      'Password:': "{{ new_password }}" 
+      'FGT':
+#       config system accprofile
+#     edit api-profile
+#         set secfabgrp read-write
+#         set ftviewgrp read-write
+#         set authgrp read-write
+#         set sysgrp read-write
+#         set netgrp read-write
+#         set loggrp read-write
+#         set fwgrp read-write
+#         set vpngrp read-write
+#         set utmgrp read-write
+#         set wanoptgrp read-write
+#         set wifi read-write
+#     next
+# end
+
+#     config system api-user
+#       edit "api-admin"
+#         set comments <string>
+#         set api-key ************
+#         set accprofile "API profile"
+#         set vdom "root"
+#         config trusthost
+#             edit 1
+#                 set ipv4-trusthost <class_ip&net_netmask>
+#             next
+#             ...
+#         end
+#     next
+# end
+
+# execute api-user generate-key <API username>
+
+
 # - name: Change admin password
 #   ansible.builtin.expect:
 #     command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortigate'][0] }}"
@@ -46,45 +88,3 @@
 #   no_log: false # hide passwords on logs 
 #   timeout: 60
 #   ignore_errors: yes
-
-#https://docs.fortinet.com/document/fortigate/7.4.0/administration-guide/399023/rest-api-administrator
-#https://docs.fortinet.com/document/fortigate/6.2.15/cookbook/294491/administrator-profiles
-- Create a REST API administrator (CLI)
-- name: Set admin initial password
-  ansible.builtin.expect:
-    command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortigate'][0] }}"
-    responses:
-      'Password:': "{{ new_password }}" 
-      'FGT':
-#       config system accprofile
-#     edit api-profile
-#         set secfabgrp read-write
-#         set ftviewgrp read-write
-#         set authgrp read-write
-#         set sysgrp read-write
-#         set netgrp read-write
-#         set loggrp read-write
-#         set fwgrp read-write
-#         set vpngrp read-write
-#         set utmgrp read-write
-#         set wanoptgrp read-write
-#         set wifi read-write
-#     next
-# end
-
-    config system api-user
-      edit "api-admin"
-        set comments <string>
-        set api-key ************
-        set accprofile "API profile"
-        set vdom "root"
-        config trusthost
-            edit 1
-                set ipv4-trusthost <class_ip&net_netmask>
-            next
-            ...
-        end
-    next
-end
-
-# execute api-user generate-key <API username>
