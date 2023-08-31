@@ -23,8 +23,6 @@
       'Password:': "{{ new_password }}" 
       'FGT': "config system accprofile"
       'FGT': "edit api-profile"
-      'FGT': "next"
-      'FGT': "end"
       'FGT':
         # API Admin Profile - api-profile
         - set secfabgrp read-write
