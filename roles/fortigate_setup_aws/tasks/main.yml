@@ -22,40 +22,40 @@
     responses:
       'password:': "{{ new_password }}" 
       'FGT': 
-        - config system accprofile
-        - edit api-profile
-        # API Admin Profile - api-profile
-        - config system accprofile
-        - edit api-profile
-        - set secfabgrp read-write
-        - set ftviewgrp read-write
-        - set authgrp read-write
-        - set sysgrp read-write
-        - set netgrp read-write
-        - set loggrp read-write
-        - set fwgrp read-write
-        - set vpngrp read-write
-        - set utmgrp read-write
-        - set wanoptgrp read-write
-        - set wifi read-write
-        - next
-        - end
-        # API Admin User - api-admin
-        - config system api-user
-        - edit api-admin
-        - set comments 'api for admin access'
-        - set accprofile api-profile
-        - set vdom root
-        - config trusthost
-        - edit 1
-        - set ipv4-trusthost 0.0.0.0/0
-        - next
-        - end
-        - next
-        - end
-        # Get Token
-        - execute api-user generate-key api-admin
-        #New API key: fwx8w4473HdGGzrswr0jG6rxHQ3mcj
+        # - config system accprofile
+        # - edit api-profile
+        # # API Admin Profile - api-profile
+        # - config system accprofile
+        # - edit api-profile
+        # - set secfabgrp read-write
+        # - set ftviewgrp read-write
+        # - set authgrp read-write
+        # - set sysgrp read-write
+        # - set netgrp read-write
+        # - set loggrp read-write
+        # - set fwgrp read-write
+        # - set vpngrp read-write
+        # - set utmgrp read-write
+        # - set wanoptgrp read-write
+        # - set wifi read-write
+        # - next
+        # - end
+        # # API Admin User - api-admin
+        # - config system api-user
+        # - edit api-admin
+        # - set comments 'api for admin access'
+        # - set accprofile api-profile
+        # - set vdom root
+        # - config trusthost
+        # - edit 1
+        # - set ipv4-trusthost 0.0.0.0/0
+        # - next
+        # - end
+        # - next
+        # - end
+        # # Get Token
+        # - execute api-user generate-key api-admin
+        # #New API key: fwx8w4473HdGGzrswr0jG6rxHQ3mcj
   register: output
 
 - debug:
