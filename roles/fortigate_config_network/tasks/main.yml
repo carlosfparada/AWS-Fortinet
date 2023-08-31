@@ -3,14 +3,14 @@
 - debug:
     var: fortigate_token
     
-# - name: Configure IPv4 addresses
-#   fortinet.fortios.fortios_system_interface:
-#     vdom: "{{ domain }}"
-#     access_token: "{{ fortigate_token }}"
-#     state: present
-#     system_interface:
-#       "{{ item }}"
-#   loop: "{{ ipv4_address }}"
+- name: Configure IPv4 addresses
+  fortinet.fortios.fortios_system_interface:
+    vdom: "{{ domain }}"
+    access_token: "{{ fortigate_token }}"
+    state: present
+    system_interface:
+      "{{ item }}"
+  loop: "{{ ipv4_address }}"
 
 - name: Configure IPv4 static routing
   fortinet.fortios.fortios_router_static:
