@@ -12,7 +12,7 @@
       'New Password:': "{{ new_password }}" 
       'Confirm Password:': "{{ new_password }}"
       'FGT': "exit"
-  no_log: true # hide passwords on logs
+  no_log: false # hide passwords on logs
 
 #https://docs.fortinet.com/document/fortigate/7.4.0/administration-guide/399023/rest-api-administrator
 #https://docs.fortinet.com/document/fortigate/6.2.15/cookbook/294491/administrator-profiles
