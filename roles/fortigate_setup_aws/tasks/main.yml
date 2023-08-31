@@ -68,7 +68,7 @@
   set_fact:
     fortigate_token: "{{ item.split(': ')[1] }} $1"
   loop: "{{ output }}"
-  when: regex_search("^New API key: (.*)$")
+  when: item | regex_search("^New API key: (.*)$")
 
 # - name: Change admin password
 #   ansible.builtin.expect:
