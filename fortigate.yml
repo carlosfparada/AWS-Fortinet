@@ -29,6 +29,9 @@
         name: fortigate_setup_aws
       when: infra == 'aws'
     - include_role: 
+        name: fortigate_token_aws
+      when: infra == 'aws'
+    - include_role: 
         name: fortigate_config_network
     - include_role: 
         name: fortigate_create_rules

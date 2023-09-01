@@ -1,0 +1,19 @@
+---
+
+#https://docs.fortinet.com/document/fortigate/7.4.0/administration-guide/399023/rest-api-administrator
+#https://docs.fortinet.com/document/fortigate/6.2.15/cookbook/294491/administrator-profiles
+- name: Create a REST API administrator (CLI)
+  ansible.builtin.expect:
+    command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortigate'][0] }}"
+    responses:
+      'password:': "{{ new_password }}" 
+      'FGT': "{{ api_config }}"
+  register: output
+  delegate_to: localhost
+
+- name: Set Fortigate Token variable
+  set_fact:
+    fortigate_token: "{{ item.split(' ')[3] }}"
+  loop: "{{ output.stdout_lines }}"
+  when: "'New API key' in item"
+  delegate_to: localhost
