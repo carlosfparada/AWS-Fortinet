@@ -108,6 +108,7 @@
   amazon.aws.ec2_eni:
     name: "{{ ec2_eni_name1 }}"
     region: "{{ ec2_vpc_region }}"
+    private_ip_address: 10.0.1.20
     instance_id: "{{ ec2_instance.instances[0].instance_id }}"
     device_index: 2
     subnet_id: "{{ subnet1.subnet.id }}"
