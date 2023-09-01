@@ -81,62 +81,62 @@
       name: "{{ ec2_sg_name }}"
 
 # FortiGate
-- name: Get AMI by Name (FortiGate)
-  amazon.aws.ec2_ami_info:
-    filters:
-      name: "{{ ec2_fgt_image_name }}"
-    region: "{{ ec2_vpc_region }}"
-  register: ami_fgt_find
+# - name: Get AMI by Name (FortiGate)
+#   amazon.aws.ec2_ami_info:
+#     filters:
+#       name: "{{ ec2_fgt_image_name }}"
+#     region: "{{ ec2_vpc_region }}"
+#   register: ami_fgt_find
 
-- name: Create FortiGate instance
-  amazon.aws.ec2_instance:
-    image_id: "{{ ami_fgt_find.images[-1].image_id | default('') }}"
-    instance_type: "{{ ec2_fgt_flavor_name }}"
-    security_group: "{{ ec2_sg_name }}"
-    name: "{{ ec2_fgt_instance_name }}"
-    key_name: "{{ ec2_fgt_key_name }}"
-    region: "{{ ec2_vpc_region }}"
-    vpc_subnet_id: "{{ subnet.subnet.id }}"
-    network:
-      assign_public_ip: true
-    tags:
-      name: "{{ ec2_fgt_instance_name }}"
-    state: running
-  register: ec2_fgt_instance
+# - name: Create FortiGate instance
+#   amazon.aws.ec2_instance:
+#     image_id: "{{ ami_fgt_find.images[-1].image_id | default('') }}"
+#     instance_type: "{{ ec2_fgt_flavor_name }}"
+#     security_group: "{{ ec2_sg_name }}"
+#     name: "{{ ec2_fgt_instance_name }}"
+#     key_name: "{{ ec2_fgt_key_name }}"
+#     region: "{{ ec2_vpc_region }}"
+#     vpc_subnet_id: "{{ subnet.subnet.id }}"
+#     network:
+#       assign_public_ip: true
+#     tags:
+#       name: "{{ ec2_fgt_instance_name }}"
+#     state: running
+#   register: ec2_fgt_instance
 
-- name: Create and Attach ENI 1
-  amazon.aws.ec2_eni:
-    name: "{{ ec2_eni_name1 }}"
-    region: "{{ ec2_vpc_region }}"
-    instance_id: "{{ ec2_fgt_instance.instances[0].instance_id }}"
-    device_index: 2
-    subnet_id: "{{ subnet1.subnet.id }}"
-    delete_on_termination: true
-    attached: true
-    state: present
+# - name: Create and Attach ENI 1
+#   amazon.aws.ec2_eni:
+#     name: "{{ ec2_eni_name1 }}"
+#     region: "{{ ec2_vpc_region }}"
+#     instance_id: "{{ ec2_fgt_instance.instances[0].instance_id }}"
+#     device_index: 2
+#     subnet_id: "{{ subnet1.subnet.id }}"
+#     delete_on_termination: true
+#     attached: true
+#     state: present
 
-- name: Create and Attach ENI 2
-  amazon.aws.ec2_eni:
-    name: "{{ ec2_eni_name2 }}"
-    region: "{{ ec2_vpc_region }}"
-    instance_id: "{{ ec2_fgt_instance.instances[0].instance_id }}"
-    device_index: 3
-    subnet_id: "{{ subnet2.subnet.id }}"
-    delete_on_termination: true
-    attached: true
-    state: present
+# - name: Create and Attach ENI 2
+#   amazon.aws.ec2_eni:
+#     name: "{{ ec2_eni_name2 }}"
+#     region: "{{ ec2_vpc_region }}"
+#     instance_id: "{{ ec2_fgt_instance.instances[0].instance_id }}"
+#     device_index: 3
+#     subnet_id: "{{ subnet2.subnet.id }}"
+#     delete_on_termination: true
+#     attached: true
+#     state: present
 
-- name: Print FortiGate instance details
-  ansible.builtin.debug:
-    msg: "Instance DNS name is: {{ ec2_fgt_instance.instances[0].public_dns_name }} with IP address {{ ec2_fgt_instance.instances[0].public_ip_address }}"
+# - name: Print FortiGate instance details
+#   ansible.builtin.debug:
+#     msg: "Instance DNS name is: {{ ec2_fgt_instance.instances[0].public_dns_name }} with IP address {{ ec2_fgt_instance.instances[0].public_ip_address }}"
 
-- name: Wait until FortiGate boots up
-  wait_for:
-    port: 22
-    state: started
-    timeout: 600
-    delay: 30
-    host: "{{ ec2_fgt_instance.instances[0].public_dns_name }}"
+# - name: Wait until FortiGate boots up
+#   wait_for:
+#     port: 22
+#     state: started
+#     timeout: 600
+#     delay: 30
+#     host: "{{ ec2_fgt_instance.instances[0].public_dns_name }}"
 
 # FortiAnalyzer
 - name: Get AMI by Name (FortiAnalyzer)
