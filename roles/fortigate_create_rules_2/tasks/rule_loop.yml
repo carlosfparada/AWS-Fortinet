@@ -97,4 +97,3 @@
       ips_sensor: "{{ _rule.rule.ips_sensor | default(omit) }}"
       utm_status: "{{ _utm_status | default(omit) }}"
       schedule: always
-      

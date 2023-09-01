@@ -26,7 +26,6 @@
     vpc_id: "{{ vpc.vpc.id }}"
     cidr: "{{ ec2_subnet_cidr1 }}"
     region: "{{ ec2_vpc_region }}"
-    #az: "{{ ec2_vpc_az }}"
     state: present
     tags:
       name: "{{ ec2_subnet_name1 }}"
@@ -37,7 +36,6 @@
     vpc_id: "{{ vpc.vpc.id }}"
     cidr: "{{ ec2_subnet_cidr2 }}"
     region: "{{ ec2_vpc_region }}"
-    #az: "{{ ec2_vpc_az }}"
     state: present
     tags:
       name: "{{ ec2_subnet_name2 }}"
@@ -108,7 +106,6 @@
   amazon.aws.ec2_eni:
     name: "{{ ec2_eni_name1 }}"
     region: "{{ ec2_vpc_region }}"
-    private_ip_address: 10.0.1.20
     instance_id: "{{ ec2_instance.instances[0].instance_id }}"
     device_index: 2
     subnet_id: "{{ subnet1.subnet.id }}"
@@ -131,10 +128,13 @@
   ansible.builtin.debug:
     msg: "Instance DNS name is: {{ ec2_instance.instances[0].public_dns_name }} with IP address {{ ec2_instance.instances[0].public_ip_address }}"
 
-# - name: Sleep for 300 seconds and continue with play
-#   wait_for:
-#     timeout: 300
-#   delegate_to: localhost
+- name: Wait until the device boots up
+  wait_for:
+    port: 22
+    state: started
+    timeout: 600
+    delay: 30
+    host: "{{ ec2_instance.instances[0].public_dns_name }}"
     
 # # FortiAnalyzer
 # - name: Get AMI by Name (FortiAnalyzer)
@@ -192,10 +192,3 @@
 #   ansible.builtin.debug:
 #     msg: "Instance DNS name is: {{ ec2_instance.instances[0].public_dns_name }} with IP address {{ ec2_instance.instances[0].public_ip_address }}"
 
-- name: Wait until the device boots up
-  wait_for:
-    port: 22
-    state: started
-    timeout: 600
-    delay: 30
-    host: "{{ ec2_instance.instances[0].public_dns_name }}"
