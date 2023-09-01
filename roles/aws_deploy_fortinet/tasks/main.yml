@@ -130,14 +130,6 @@
   ansible.builtin.debug:
     msg: "Instance DNS name is: {{ ec2_fgt_instance.instances[0].public_dns_name }} with IP address {{ ec2_fgt_instance.instances[0].public_ip_address }}"
 
-# - name: Wait until FortiGate boots up
-#   wait_for:
-#     port: 22
-#     state: started
-#     timeout: 600
-#     delay: 30
-#     host: "{{ ec2_fgt_instance.instances[0].public_dns_name }}"
-
 # FortiAnalyzer
 - name: Get AMI by Name (FortiAnalyzer)
   amazon.aws.ec2_ami_info:
@@ -165,14 +157,6 @@
 - name: Print FortiAnalyzer instance details
   ansible.builtin.debug:
     msg: "Instance DNS name is: {{ ec2_faz_instance.instances[0].public_dns_name }} with IP address {{ ec2_faz_instance.instances[0].public_ip_address }}"
-
-# - name: Wait until FortiAnalyzer boots up
-#   wait_for:
-#     port: 22
-#     state: started
-#     timeout: 600
-#     delay: 30
-#     host: "{{ ec2_faz_instance.instances[0].public_dns_name }}"
 
 # FortiManager
 - name: Get AMI by Name (FortiManager)
@@ -202,11 +186,26 @@
   ansible.builtin.debug:
     msg: "Instance DNS name is: {{ ec2_instance.instances[0].public_dns_name }} with IP address {{ ec2_instance.instances[0].public_ip_address }}"
 
-# - name: Wait until #https://docs.fortinet.com/document/fortigate/7.4.0/administration-guide/399023/rest-api-administrator boots up
-#   wait_for:
-#     port: 22
-#     state: started
-#     timeout: 600
-#     delay: 30
-#     host: "{{ ec2_fmg_instance.instances[0].public_dns_name }}"
+- name: Wait until FortiGate boots up
+  wait_for:
+    port: 22
+    state: started
+    timeout: 600
+    delay: 30
+    host: "{{ ec2_fgt_instance.instances[0].public_dns_name }}"
 
+- name: Wait until FortiAnalyzer boots up
+  wait_for:
+    port: 22
+    state: started
+    timeout: 600
+    delay: 30
+    host: "{{ ec2_faz_instance.instances[0].public_dns_name }}"
+
+- name: Wait until #https://docs.fortinet.com/document/fortigate/7.4.0/administration-guide/399023/rest-api-administrator boots up
+  wait_for:
+    port: 22
+    state: started
+    timeout: 600
+    delay: 30
+    host: "{{ ec2_fmg_instance.instances[0].public_dns_name }}"
