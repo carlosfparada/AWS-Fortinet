@@ -15,7 +15,7 @@
     vpc_id: "{{ vpc.vpc.id }}"
     cidr: "{{ ec2_subnet_cidr }}"
     region: "{{ ec2_vpc_region }}"
-    #az: "{{ ec2_vpc_az }}"
+    az: "{{ ec2_subnet_az }}"
     state: present
     tags:
       name: "{{ ec2_subnet_name }}"
@@ -26,6 +26,7 @@
     vpc_id: "{{ vpc.vpc.id }}"
     cidr: "{{ ec2_subnet_cidr1 }}"
     region: "{{ ec2_vpc_region }}"
+    az: "{{ ec2_subnet_az }}"
     state: present
     tags:
       name: "{{ ec2_subnet_name1 }}"
@@ -36,6 +37,7 @@
     vpc_id: "{{ vpc.vpc.id }}"
     cidr: "{{ ec2_subnet_cidr2 }}"
     region: "{{ ec2_vpc_region }}"
+    az: "{{ ec2_subnet_az }}"
     state: present
     tags:
       name: "{{ ec2_subnet_name2 }}"
@@ -94,6 +96,7 @@
     name: "{{ ec2_fgt_instance_name }}"
     key_name: "{{ ec2_fgt_key_name }}"
     region: "{{ ec2_vpc_region }}"
+    availability_zone: "{{ ec2_subnet_az }}"
     vpc_subnet_id: "{{ subnet.subnet.id }}"
     network:
       assign_public_ip: true
@@ -135,7 +138,7 @@
     timeout: 600
     delay: 30
     host: "{{ ec2_fgt_instance.instances[0].public_dns_name }}"
-    
+
 # FortiAnalyzer
 - name: Get AMI by Name (FortiAnalyzer)
   amazon.aws.ec2_ami_info:
@@ -152,6 +155,7 @@
     name: "{{ ec2_faz_instance_name }}"
     key_name: "{{ ec2_faz_key_name }}"
     region: "{{ ec2_vpc_region }}"
+    availability_zone: "{{ ec2_subnet_az }}"
     vpc_subnet_id: "{{ subnet1.subnet.id }}"
     network:
       assign_public_ip: true
