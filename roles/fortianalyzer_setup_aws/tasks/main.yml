@@ -1,0 +1,37 @@
+---
+
+# https://docs.ansible.com/ansible/latest/collections/ansible/builtin/expect_module.html
+# https://www.mail-archive.com/ansible-project@googlegroups.com/msg39525.html 
+- name: Set admin initial password
+  ansible.builtin.expect:
+    command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortianalyzer'][0] }}"
+    responses:
+      # cparada@cparada-mac ~ % ssh -o StrictHostKeyChecking=no admin@ec2-3-91-235-22.compute-1.amazonaws.com
+      # Warning: Permanently added 'ec2-3-91-235-22.compute-1.amazonaws.com' (ED25519) to the list of known hosts.
+      # Please login with username=admin and password=[instance-id]
+      # (admin@ec2-3-91-235-22.compute-1.amazonaws.com) Password: 
+      # (admin@ec2-3-91-235-22.compute-1.amazonaws.com) Password: 
+      # Password Update
+      # New password must conform to the following policy: 
+      # (admin@ec2-3-91-235-22.compute-1.amazonaws.com) Enter old password: 
+      # (admin@ec2-3-91-235-22.compute-1.amazonaws.com) Enter new password: 
+      # (admin@ec2-3-91-235-22.compute-1.amazonaws.com) Enter it again: 
+      # FAZVM64-AWSOnDemand # 
+      'Password:': "{{ hostvars[groups['fortianalyzer'][0]].instance_id }}" 
+      'Enter old password:': "{{ hostvars[groups['fortianalyzer'][0]].instance_id }}" 
+      'Enter new password:': "{{ new_password }}"
+      'Enter it again:': "{{ new_password }}"
+      'FAZ': "exit"
+  no_log: false # hide passwords on logs
+
+# - name: Change admin password
+#   ansible.builtin.expect:
+#     command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortigate'][0] }}"
+#     responses:
+#       '.* password:': "{{ init_password }}" 
+#       'FortiGate-VM64 # ': "config system admin"
+#       'FortiGate-VM64 \(admin\) #':
+#         - "edit admin"
+#         - "set password {{ new_password }}"
+#         - "end"
+#   no_log: false # hide passwords on logs 
