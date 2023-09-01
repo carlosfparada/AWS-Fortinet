@@ -96,7 +96,6 @@
     name: "{{ ec2_fgt_instance_name }}"
     key_name: "{{ ec2_fgt_key_name }}"
     region: "{{ ec2_vpc_region }}"
-    availability_zone: "{{ ec2_subnet_az }}"
     vpc_subnet_id: "{{ subnet.subnet.id }}"
     network:
       assign_public_ip: true
@@ -155,7 +154,6 @@
     name: "{{ ec2_faz_instance_name }}"
     key_name: "{{ ec2_faz_key_name }}"
     region: "{{ ec2_vpc_region }}"
-    availability_zone: "{{ ec2_subnet_az }}"
     vpc_subnet_id: "{{ subnet1.subnet.id }}"
     network:
       assign_public_ip: true
