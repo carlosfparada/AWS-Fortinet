@@ -202,10 +202,11 @@
     delay: 30
     host: "{{ ec2_faz_instance.instances[0].public_dns_name }}"
 
-- name: Wait until #https://docs.fortinet.com/document/fortigate/7.4.0/administration-guide/399023/rest-api-administrator boots up
+- name: Wait until FortiManager boots up
   wait_for:
     port: 22
     state: started
     timeout: 600
     delay: 30
     host: "{{ ec2_fmg_instance.instances[0].public_dns_name }}"
+
