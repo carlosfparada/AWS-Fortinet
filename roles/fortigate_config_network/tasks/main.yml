@@ -3,7 +3,7 @@
 - name: Configure IPv4 addresses
   fortinet.fortios.fortios_system_interface:
     vdom: "{{ domain }}"
-    access_token: NscgGzhznfj49bQk41fsjH47f0czdk #"{{ fortigate_token }}"
+    access_token: G39k7zyjnpssdd0r64hkr1b85z9ff3 #"{{ fortigate_token }}"
     state: present
     system_interface:
       "{{ item }}"
@@ -12,7 +12,7 @@
 - name: Configure IPv4 static routing
   fortinet.fortios.fortios_router_static:
     vdom: "{{ domain }}"
-    access_token: NscgGzhznfj49bQk41fsjH47f0czdk #"{{ fortigate_token }}"
+    access_token: G39k7zyjnpssdd0r64hkr1b85z9ff3 #"{{ fortigate_token }}"
     state: present
     router_static:
       "{{ item }}"
