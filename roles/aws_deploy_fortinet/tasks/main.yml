@@ -180,11 +180,11 @@
     tags:
       name: "{{ ec2_fmg_instance_name }}"
     state: running
-  register: ec2_instance
+  register: ec2_fmg_instance
 
 - name: Print FortiManager instance details
   ansible.builtin.debug:
-    msg: "Instance DNS name is: {{ ec2_instance.instances[0].public_dns_name }} with IP address {{ ec2_instance.instances[0].public_ip_address }}"
+    msg: "Instance DNS name is: {{ ec2_fmg_instance.instances[0].public_dns_name }} with IP address {{ ec2_fmginstance.instances[0].public_ip_address }}"
 
 - name: Wait until FortiGate boots up
   wait_for:
