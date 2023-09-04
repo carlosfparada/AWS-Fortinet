@@ -5,6 +5,7 @@
 - name: Creation of a FortiAnalyzer Device Group
   fortinet.fortianalyzer.faz_dvmdb_group:
     adom: "{{ domain }}"
+    access_token: "{{ fortigate_token }}"
     dvmdb_group:
       name: Group1
       os_type: unknown
@@ -14,6 +15,7 @@
 - name: Add FortiGate as Group member
   fortinet.fortianalyzer.faz_dvmdb_group_objectmember:
     adom: "{{ domain }}"
+    access_token: "{{ fortigate_token }}"
     dvmdb_group_objectmember:
       name: "{{ fortigate_name }}"
       vdom: "{{ domain }}"
@@ -24,6 +26,7 @@
 
 - name: Config System Settings (Admin -> Admin Settings)
   fortinet.fortianalyzer.faz_cli_system_admin_setting:
+    access_token: "{{ fortigate_token }}"
     cli_system_admin_setting:
       idle_timeout: 28800
       idle_timeout_api: 28800
@@ -45,6 +48,7 @@
 
 - name: Create System Settings profile (Admin -> Profile)
   fortinet.fortianalyzer.faz_cli_system_admin_profile:
+    access_token: "{{ fortigate_token }}"
     cli_system_admin_profile:
       profileid: MyProfile
       description: This is MyProfile created by Ansible
@@ -62,6 +66,7 @@
 
 - name: Create System Settings admin (Admin -> Administrators)
   fortinet.fortianalyzer.faz_cli_system_admin_user:
+    access_token: "{{ fortigate_token }}"
     cli_system_admin_user:
       userid: myadmin
       description: 'My admin user created by Ansible'
@@ -73,6 +78,7 @@
 
 - name: Create System Settings Log File Management (Advanced -> File Management)
   fortinet.fortianalyzer.faz_cli_system_autodelete:
+    access_token: "{{ fortigate_token }}"
     cli_system_autodelete:
       log-auto-deletion:
         retention: days
