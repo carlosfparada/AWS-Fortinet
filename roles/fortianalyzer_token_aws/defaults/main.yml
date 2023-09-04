@@ -11,7 +11,6 @@ ansible_httpapi_port: 443
 new_password: adminadmin
 
 api_config:
-  - "show"
   - "config system admin user"
   - "show"
   - "edit api-admin"
