@@ -6,7 +6,7 @@
   ansible.builtin.expect:
     command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortianalyzer'][0] }}"
     responses:
-      'password:': "{{ new_password }}" 
+      'Password:': "{{ new_password }}" 
       'FAZ': "{{ api_config }}"
   register: output
   delegate_to: localhost
