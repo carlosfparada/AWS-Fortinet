@@ -11,13 +11,13 @@ ansible_httpapi_port: 443
 new_password: adminadmin
 
 api_config:
-  # API Admin User - api-admin
   - "show"
   - "config system admin user"
   - "show"
   - "show"
   - "edit api-admin"
   - "show"
+  # API Admin User - api-admin
   - "set profileid Super_User"
   - "set user_type api"
   - "set rpc-permit read-write"
