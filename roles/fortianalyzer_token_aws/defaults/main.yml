@@ -21,4 +21,4 @@ api_config:
   # Get Token
   - "execute api-user generate-key api-admin"
   #New API key: fwx8w4473HdGGzrswr0jG6rxHQ3mcj
-  - exit
+  - "exit"
