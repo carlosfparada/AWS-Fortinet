@@ -2,7 +2,7 @@
 
 - name: Config System Global (needed > Fortinet 6.0)
   fortinet.fortianalyzer.faz_cli_system_global:
-    access_token: "{{ fortigate_token }}"
+    access_token: "{{ fortianalyzer_token }}"
     cli_system_global:
       enc-algorithm: low
       ssl-low-encryption: enable
@@ -10,7 +10,7 @@
 
 - name: FortiAnalyzer to Authorize Fortigate add
   fortinet.fortianalyzer.faz_dvm_cmd_add_device:
-    access_token: "{{ fortigate_token }}"
+    access_token: "{{ fortianalyzer_token }}"
     dvm_cmd_add_device:
       adom: "{{ domain }}"
       device:

@@ -78,7 +78,7 @@
 
 - name: Create System Settings Log File Management (Advanced -> File Management)
   fortinet.fortianalyzer.faz_cli_system_autodelete:
-    access_token: "{{ fortigate_token }}"
+    access_token: "{{ fortianalyzer_token }}"
     cli_system_autodelete:
       log-auto-deletion:
         retention: days
