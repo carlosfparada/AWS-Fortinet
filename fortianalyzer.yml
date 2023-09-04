@@ -22,7 +22,7 @@
     - main.yml
     - "{{infra}}.yml"
   roles:
-    - fortianalyzer_setup_aws
-    - fortianalyzer_device_authorization
-    - fortianalyzer_config_settings
+    # - fortianalyzer_setup_aws
+    # - fortianalyzer_device_authorization
+    # - fortianalyzer_config_settings
     - fortianalyzer_gather_facts
