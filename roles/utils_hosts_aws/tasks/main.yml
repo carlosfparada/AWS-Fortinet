@@ -8,6 +8,7 @@
     fortigate: "{{ item }}"
   loop: "{{ groups['all'] }}"
   when: hostvars[item].tags.name | regex_search("^fortigate-(.*)$")
+  ignore_errors: true
 
 - name: Add FortiGate node to the fortigate group
   add_host:
@@ -20,6 +21,7 @@
     fortianalyzer: "{{ item }}"
   loop: "{{ groups['all'] }}"
   when: hostvars[item].tags.name | regex_search("^fortianalyzer-(.*)$")
+  ignore_errors: true
 
 - name: Add FortiAnalyzer node to the fortianalyzer group
   add_host:
@@ -32,6 +34,7 @@
     fortimanager: "{{ item }}"
   loop: "{{ groups['all'] }}"
   when: hostvars[item].tags.name | regex_search("^fortimanager-(.*)$")
+  ignore_errors: true
 
 - name: Add FortiManager node to the fortimanager group
   add_host:
