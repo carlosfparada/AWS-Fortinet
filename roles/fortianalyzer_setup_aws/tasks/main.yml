@@ -23,15 +23,3 @@
       'Enter it again:': "{{ new_password }}"
       'FAZ': "exit"
   no_log: false # hide passwords on logs
-
-# - name: Change admin password
-#   ansible.builtin.expect:
-#     command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortigate'][0] }}"
-#     responses:
-#       '.* password:': "{{ init_password }}" 
-#       'FortiGate-VM64 # ': "config system admin"
-#       'FortiGate-VM64 \(admin\) #':
-#         - "edit admin"
-#         - "set password {{ new_password }}"
-#         - "end"
-#   no_log: false # hide passwords on logs 
