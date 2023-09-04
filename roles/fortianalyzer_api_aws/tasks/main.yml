@@ -11,9 +11,3 @@
   register: output
   delegate_to: localhost
 
-- name: Set FortiAnalyzer Token variable
-  set_fact:
-    fortianalyzer_token: "{{ item.split(' ')[3] }}"
-  loop: "{{ output.stdout_lines }}"
-  when: "'New API key' in item"
-  delegate_to: localhost

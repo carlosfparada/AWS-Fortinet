@@ -15,11 +15,9 @@ api_config:
   - "edit api-admin"
   # API Admin User - api-admin
   - "set profileid Super_User"
+  - "set password {{ new_password }}"
   - "set user_type api"
   - "set rpc-permit read-write"
   - "next"
   - "end"
-  # Get Token
-  - "execute api-user generate-key api-admin"
-  # New API key: fwx8w4473HdGGzrswr0jG6rxHQ3mcj
   - "exit"
