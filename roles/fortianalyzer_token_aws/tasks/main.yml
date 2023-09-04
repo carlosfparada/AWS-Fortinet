@@ -7,7 +7,7 @@
     command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortianalyzer'][0] }}"
     responses:
       'Password:': "{{ new_password }}" 
-      'FAZ': "{{ api_config }}"
+      '#': "{{ api_config }}"
   register: output
   delegate_to: localhost
 
