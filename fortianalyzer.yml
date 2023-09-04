@@ -21,8 +21,19 @@
   vars_files: 
     - main.yml
     - "{{infra}}.yml"
-  roles:
-    # - fortianalyzer_setup_aws
-    # - fortianalyzer_device_authorization
-    # - fortianalyzer_config_settings
-    - fortianalyzer_gather_facts
+  tasks:
+    - include_role: 
+        name: fortianalyzer_setup_wmware
+      when: infra == 'vmware'
+    - include_role: 
+        name: fortianalyzer_setup_aws
+      when: infra == 'aws'
+    - include_role: 
+        name: fortianalyzer_token_aws
+      when: infra == 'aws'
+    - include_role: 
+        name: fortianalyzer_device_authorization
+    - include_role: 
+        name: fortianalyzer_config_settings
+    - include_role: 
+        name: fortianalyzer_gather_facts
