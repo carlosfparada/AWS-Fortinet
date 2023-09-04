@@ -14,7 +14,6 @@ api_config:
   - "show"
   - "config system admin user"
   - "show"
-  - "show"
   - "edit api-admin"
   - "show"
   # API Admin User - api-admin
@@ -23,6 +22,7 @@ api_config:
   - "set rpc-permit read-write"
   - "next"
   - "end"
+  - "show"
   # Get Token
   - "execute api-user generate-key api-admin"
   #New API key: fwx8w4473HdGGzrswr0jG6rxHQ3mcj
