@@ -17,6 +17,7 @@ api_config:
   - "set profileid Super_User"
   - "set user_type api"
   - "set rpc-permit read-write"
+  - "next"
   - "end"
   # Get Token
   - "execute api-user generate-key api-admin"
