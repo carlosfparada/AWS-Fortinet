@@ -12,16 +12,13 @@ new_password: adminadmin
 
 api_config:
   - "config system admin user"
-  - "show"
   - "edit api-admin"
-  - "show"
   # API Admin User - api-admin
   - "set profileid Super_User"
   - "set user_type api"
   - "set rpc-permit read-write"
   - "next"
   - "end"
-  - "show"
   # Get Token
   - "execute api-user generate-key api-admin"
   #New API key: fwx8w4473HdGGzrswr0jG6rxHQ3mcj
