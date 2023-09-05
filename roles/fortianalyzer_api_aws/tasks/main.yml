@@ -11,7 +11,3 @@
   register: output
   delegate_to: localhost
 
-- name: Sleep for 5 seconds and continue with play
-  wait_for:
-    timeout: 5
-  delegate_to: localhost
