@@ -15,7 +15,8 @@ api_config:
   - "edit admin"
   - "set rpc-permit read-write"
   - "next"
-  - "end"  
+  - "end"
+  - "config system admin user"
   - "edit api-admin"
   # API Admin User - api-admin
   - "set profileid Super_User"
