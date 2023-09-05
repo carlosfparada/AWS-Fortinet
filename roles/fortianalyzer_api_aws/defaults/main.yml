@@ -12,12 +12,20 @@ new_password: adminadmin
 
 api_config:
   - "config system admin user"
-  - "edit api-admin"
-  # API Admin User - api-admin
-  - "set profileid Super_User"
-  - "set password {{ new_password }}"
-  - "set user_type api"
+  - "edit admin"
   - "set rpc-permit read-write"
   - "next"
   - "end"
   - "exit"
+  
+  # - "config system admin user"
+  # - "edit api-admin"
+  # # API Admin User - api-admin
+  # - "set profileid Super_User"
+  # - "set password {{ new_password }}"
+  # - "set user_type api"
+  # - "set rpc-permit read-write"
+  # - "next"
+  # - "end"
+  # - "exit"
+
