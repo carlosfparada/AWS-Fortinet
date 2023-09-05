@@ -23,3 +23,8 @@
       'Enter it again:': "{{ new_password }}"
       'FAZ': "exit"
   no_log: false # hide passwords on logs
+
+- name: Sleep for 30 seconds and continue with play
+  wait_for:
+    timeout: 30
+  delegate_to: localhost
