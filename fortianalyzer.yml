@@ -22,7 +22,7 @@
     - main.yml
     - "{{infra}}.yml"
   tasks:
-    - include_role: 
+    # - include_role: 
     #     name: fortianalyzer_setup_wmware
     #   when: infra == 'vmware'
     # - include_role: 
