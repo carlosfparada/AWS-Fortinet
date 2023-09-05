@@ -11,14 +11,14 @@
       type: normal
     state: present
 
-- name: Add FortiGate as Group member
-  fortinet.fortianalyzer.faz_dvmdb_group_objectmember:
-    adom: "{{ domain }}"
-    dvmdb_group_objectmember:
-      name: "{{ fortigate_name }}"
-      vdom: "{{ domain }}"
-    group: Group1
-    state: present
+# - name: Add FortiGate as Group member
+#   fortinet.fortianalyzer.faz_dvmdb_group_objectmember:
+#     adom: "{{ domain }}"
+#     dvmdb_group_objectmember:
+#       name: "{{ fortigate_name }}"
+#       vdom: "{{ domain }}"
+#     group: Group1
+#     state: present
 
 # System Settings
 
