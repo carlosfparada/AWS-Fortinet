@@ -25,9 +25,9 @@
     - include_role: 
         name: fortianalyzer_setup_wmware
       when: infra == 'vmware'
-    - include_role: 
-        name: fortianalyzer_setup_aws
-      when: infra == 'aws'
+    # - include_role: 
+    #     name: fortianalyzer_setup_aws
+    #   when: infra == 'aws'
     - include_role: 
         name: fortianalyzer_api_aws
       when: infra == 'aws'
