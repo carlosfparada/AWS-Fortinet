@@ -17,3 +17,7 @@
   loop: "{{ output.stdout_lines }}"
   when: "'New API key' in item"
   delegate_to: localhost
+
+- name: Fortigate Token
+  debug:
+    var: fortigate_token
