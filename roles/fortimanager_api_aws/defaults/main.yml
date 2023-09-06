@@ -1,0 +1,29 @@
+---
+
+domain: "root"
+
+ansible_network_os: fortinet.fortios.fortios
+ansible_connection: httpapi
+ansible_httpapi_use_ssl: yes
+ansible_httpapi_validate_certs: no
+ansible_httpapi_port: 443
+
+new_password: adminadmin
+
+api_config:
+  - "config system admin user"
+  - "edit admin"
+  - "set rpc-permit read-write"
+  - "next"
+  - "end"
+  # - "config system admin user"
+  # - "edit api-admin"
+  # # API Admin User - api-admin
+  # - "set profileid Super_User"
+  # - "set password {{ new_password }}"
+  # - "set user_type api"
+  # - "set rpc-permit read-write"
+  # - "next"
+  # - "end"
+  - "exit"
+
