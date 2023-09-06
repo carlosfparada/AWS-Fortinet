@@ -34,12 +34,9 @@
     # to generate and get fortigate token
     # and get fortigate serial
     - include_role: 
-        name: item
+        name: fortigate_get_serial
         apply: "{{ item }}"
           delegate_to: "{{ fortigate }}"
-      loop:
-        - fortigate_api_aws
-        - fortigate_gather_facts
       when: infra == 'aws'
     - include_role: 
         name: fortianalyzer_device_authorization

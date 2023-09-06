@@ -1,0 +1,50 @@
+---
+
+# https://docs.fortinet.com/document/fortigate/7.4.0/administration-guide/399023/rest-api-administrator
+# https://docs.fortinet.com/document/fortigate/6.2.15/cookbook/294491/administrator-profiles
+- name: Enable REST API (CLI)
+  ansible.builtin.expect:
+    command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortigate'][0] }}"
+    responses:
+      'password:': "{{ new_password }}"
+      '# ': "{{ api_config }}"
+  register: output
+  delegate_to: localhost
+
+- name: Set Fortigate Token variable
+  set_fact:
+    fortigate_token: "{{ item.split(' ')[3] }}"
+  loop: "{{ output.stdout_lines }}"
+  when: "'New API key' in item"
+  delegate_to: localhost
+
+- name: Fortigate Token
+  debug:
+    var: fortigate_token
+
+- name: Debug FortiGate Facts
+  debug:
+    var: fortinet_serial
+
+- name: Gather facts from Fortinet FortiGate
+  fortinet.fortios.fortios_configuration_fact:
+    vdom: "{{ domain }}"
+    access_token: "{{ fortigate_token }}"
+    selectors:
+      - selector: "firewall_policy"
+    #  - selector: "system_interface"
+    #  - selector: "firewall_address"
+  register: _fortinet_facts
+  ignore_errors: yes
+
+- name: Debug FortiGate Facts
+  debug:
+    var: _fortinet_facts
+
+- name: Set FortiGate Serial Number variable
+  set_fact:
+    fortigate_serial: "{{ _fortinet_facts.meta[0].serial }}"
+
+- name: Debug FortiGate Serial Number
+  debug:
+    var: _fortinet_facts.meta[0].serial

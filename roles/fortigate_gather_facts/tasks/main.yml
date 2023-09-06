@@ -1,13 +1,5 @@
 ---
 
-- name: Debug FortiGate Facts
-  debug:
-    var: fortinet_token
-
-- name: Debug FortiGate Facts
-  debug:
-    var: fortinet_serial
-
 - name: Gather facts from Fortinet FortiGate
   fortinet.fortios.fortios_configuration_fact:
     vdom: "{{ domain }}"
@@ -23,10 +15,3 @@
   debug:
     var: _fortinet_facts
 
-- name: Set FortiGate Serial Number variable
-  set_fact:
-    fortigate_serial: "{{ _fortinet_facts.meta[0].serial }}"
-
-- name: Debug FortiGate Serial Number
-  debug:
-    var: _fortinet_facts.meta[0].serial
