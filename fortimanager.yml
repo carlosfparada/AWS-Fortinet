@@ -31,8 +31,8 @@
     # - include_role: 
     #     name: fortimanager_api_aws
     #   when: infra == 'aws'
-    # - include_role: 
-    #     name: fortimanager_add_fortianalyzer
+    - include_role: 
+        name: fortimanager_add_fortianalyzer
     # - include_role:
     #     name: fortimanager_add_fortigate
     - include_role: 
