@@ -3,6 +3,9 @@
 domain: "root"
 fortigate_name: "FortiGate-VM64"
 
+adm_usr: admin
+adm_pass: adminadmin
+
 ansible_network_os: fortinet.fortianalyzer.fortianalyzer
 ansible_connection: httpapi
 ansible_httpapi_use_ssl: yes
