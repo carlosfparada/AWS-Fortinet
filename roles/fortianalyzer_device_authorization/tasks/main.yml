@@ -11,6 +11,7 @@
 - include_role: 
     name: fortigate_api_aws
   when: infra == 'aws'
+  delegate_to: "{{ fortigate }}"
 
 - debug:
     var: fortigate_token
