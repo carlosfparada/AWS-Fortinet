@@ -38,5 +38,5 @@
     - include_role: 
         name: fortimanager_config_settings
     - include_role: 
-      - name: fortimanager_gather_facts
+        name: fortimanager_gather_facts
   
