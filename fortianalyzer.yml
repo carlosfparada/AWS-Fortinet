@@ -32,6 +32,11 @@
         name: fortianalyzer_api_aws
       when: infra == 'aws'
     - include_role: 
+        name: fortigate_api_aws
+        apply:
+          delegate_to: "{{ fortigate }}"
+      when: infra == 'aws'
+    - include_role: 
         name: fortianalyzer_device_authorization
     - include_role: 
         name: fortianalyzer_config_settings
