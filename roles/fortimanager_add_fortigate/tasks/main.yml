@@ -4,8 +4,8 @@
   fortinet.fortimanager.fmgr_dvm_cmd_discover_device:
     dvm_cmd_discover_device:
       device:
-        adm_pass: admin
-        adm_usr: admin
+        adm_pass: "{{ adm_pass }}"
+        adm_usr: "{{ adm_usr }}"
         ip: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
   register: _probed_fortigate
   ignore_errors: true
