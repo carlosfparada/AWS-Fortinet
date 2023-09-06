@@ -9,6 +9,3 @@ ansible_httpapi_validate_certs: no
 ansible_httpapi_port: 443
 
 new_password: adminadmin
-
-lic_filemame: FVVM040000010871.lic
-lic_ftp_server: 192.0.2.23
