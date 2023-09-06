@@ -5,7 +5,7 @@
     dvm_cmd_discover_device:
       device:
         adm_pass: admin
-        adm_usr: admin
+        adm_usr: adminadmin
         ip: "{{ groups['fortianalyzer'][0] }}"
   register: _probed_fortianalyzer
 
