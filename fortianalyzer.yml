@@ -31,10 +31,17 @@
     - include_role: 
         name: fortianalyzer_api_aws
       when: infra == 'aws'
+    # to generate and get fortigate token
     - include_role: 
         name: fortigate_api_aws
         apply:
           delegate_to: "{{ fortigate }}"
+      when: infra == 'aws'
+    # to get fortigate serial
+    - include_role: 
+        apply:
+          delegate_to: "{{ fortigate }}"
+        name: fortigate_gather_facts
       when: infra == 'aws'
     - include_role: 
         name: fortianalyzer_device_authorization
