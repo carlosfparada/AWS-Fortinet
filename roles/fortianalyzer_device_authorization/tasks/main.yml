@@ -8,6 +8,13 @@
       oftp-ssl-protocol: tlsv1.0
   ignore_errors: true
 
+- include_role: 
+    name: fortigate_api_aws
+  when: infra == 'aws'
+
+- debug:
+    var: fortigate_token
+
 - name: Gather facts from Fortinet FortiGate
   fortinet.fortios.fortios_configuration_fact:
     vdom: "{{ domain }}"
