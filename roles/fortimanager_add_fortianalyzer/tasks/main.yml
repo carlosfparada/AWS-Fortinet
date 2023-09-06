@@ -11,8 +11,8 @@
         adm_pass: "{{ adm_pass }}"
         adm_usr: "{{ adm_usr }}"
         ip: "{{ hostvars[groups['fortianalyzer'][0]].private_ip_address }}"
-      enable_log: true
-      bypass_validation: true
+    enable_log: true
+    bypass_validation: true
   register: _probed_fortianalyzer
 
 - name: Debug FortiAnalyzer device discovery
