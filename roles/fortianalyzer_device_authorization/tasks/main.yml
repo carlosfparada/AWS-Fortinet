@@ -15,7 +15,7 @@
     selectors:
       - selector: "firewall_policy"
   register: _fortinet_facts
-  delegate_to: fortigate
+  delegate_to: "{{ fortigate }}"
   ignore_errors: yes
 
 - name: Set FortiGate Serial Number variable
