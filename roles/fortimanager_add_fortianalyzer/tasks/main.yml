@@ -4,8 +4,8 @@
   fortinet.fortimanager.fmgr_dvm_cmd_discover_device:
     dvm_cmd_discover_device:
       device:
-        adm_pass: admin
-        adm_usr: adminadmin
+        adm_pass: "{{ adm_pass }}"
+        adm_usr: "{{ adm_usr }}"
         ip: "{{ groups['fortianalyzer'][0] }}"
   register: _probed_fortianalyzer
 
