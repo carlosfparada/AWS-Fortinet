@@ -6,7 +6,7 @@
       device:
         adm_pass: admin
         adm_usr: admin
-        ip: "{{ hostvars[groups['fortigate'][0]].ansible_host }}"
+        ip: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
   register: _probed_fortigate
   ignore_errors: true
 

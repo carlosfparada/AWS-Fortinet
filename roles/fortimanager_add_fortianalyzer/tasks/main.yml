@@ -10,7 +10,7 @@
       device:
         adm_pass: "{{ adm_pass }}"
         adm_usr: "{{ adm_usr }}"
-        ip: "10.0.0.37"
+        ip: "{{ hostvars[groups['fortianalyzer'][0]].private_ip_address }}"
   register: _probed_fortianalyzer
 
 - name: Debug FortiAnalyzer device discovery
