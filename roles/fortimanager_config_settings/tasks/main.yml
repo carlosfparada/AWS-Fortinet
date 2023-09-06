@@ -18,8 +18,11 @@
 #   register: system_global
 #   delegate_to: fortianalyzer
 
-# - debug:
-#     msg: "{{ fortianalyzer_name }}"
+- debug:
+    var: "{{ system_global }}"
+
+- debug:
+    msg: "{{ fortianalyzer_name }}"
 
 # - name: Add FortiAnalyzer as a Group member
 #   fortinet.fortimanager.fmgr_dvmdb_group_objectmember:
