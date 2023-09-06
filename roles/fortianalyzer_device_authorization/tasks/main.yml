@@ -8,12 +8,6 @@
       oftp-ssl-protocol: tlsv1.0
   ignore_errors: true
 
-- debug:
-    var: fortigate_token
-
-- debug:
-    var: fortigate_serial
-
 - name: FortiAnalyzer to Authorize Fortigate add
   fortinet.fortianalyzer.faz_dvm_cmd_add_device:
     dvm_cmd_add_device:
@@ -23,7 +17,7 @@
         adm_usr: "{{ adm_usr }}"
         ip: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
         name: "{{ fortigate_name }}"
-        sn: "{{ fortigate_serial }}" # FGTAWSOJEMW22M2E
+        sn: "{{ fortigate_serial }}"
         mgmt_mode: faz
         device action: "promote_unreg"
   register: _add_fortigate
