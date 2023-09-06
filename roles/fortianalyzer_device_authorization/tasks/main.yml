@@ -11,6 +11,9 @@
 - debug:
     var: fortigate_token
 
+- debug:
+    var: fortigate_serial
+
 - name: FortiAnalyzer to Authorize Fortigate add
   fortinet.fortianalyzer.faz_dvm_cmd_add_device:
     dvm_cmd_add_device:
