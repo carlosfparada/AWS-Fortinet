@@ -8,19 +8,19 @@
       oftp-ssl-protocol: tlsv1.0
   ignore_errors: true
 
-# - name: Gather facts from Fortinet FortiGate
-#   fortinet.fortios.fortios_configuration_fact:
-#     vdom: "{{ domain }}"
-#     access_token: "{{ fortigate_token }}"
-#     selectors:
-#       - selector: "firewall_policy"
-#   register: _fortinet_facts
-#   delegate_to: fortigate
-#   ignore_errors: yes
+- name: Gather facts from Fortinet FortiGate
+  fortinet.fortios.fortios_configuration_fact:
+    vdom: "{{ domain }}"
+    access_token: "{{ fortigate_token }}"
+    selectors:
+      - selector: "firewall_policy"
+  register: _fortinet_facts
+  delegate_to: fortigate
+  ignore_errors: yes
 
-# - name: Set FortiGate Serial Number variable
-#   set_fact:
-#     fortigate_serial: _fortinet_facts.meta[0].serial
+- name: Set FortiGate Serial Number variable
+  set_fact:
+    fortigate_serial: _fortinet_facts.meta[0].serial
 
 - name: FortiAnalyzer to Authorize Fortigate add
   fortinet.fortianalyzer.faz_dvm_cmd_add_device:
