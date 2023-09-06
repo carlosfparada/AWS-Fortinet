@@ -22,12 +22,12 @@
     - main.yml
     - "{{infra}}.yml"
   tasks:
-    - include_role: 
-        name: fortimanager_setup_wmware
-      when: infra == 'vmware'
-    - include_role: 
-        name: fortimanager_setup_aws
-      when: infra == 'aws'
+    # - include_role: 
+    #     name: fortimanager_setup_wmware
+    #   when: infra == 'vmware'
+    # - include_role: 
+    #     name: fortimanager_setup_aws
+    #   when: infra == 'aws'
     - include_role: 
         name: fortimanager_api_aws
       when: infra == 'aws'
