@@ -4,18 +4,18 @@
   debug:
     var: groups['fortianalyzer'][0]
 
-# - name: Discovering FortiAnalyzer device from FortiManager 
-#   fortinet.fortimanager.fmgr_dvm_cmd_discover_device:
-#     dvm_cmd_discover_device:
-#       device:
-#         adm_pass: "{{ adm_pass }}"
-#         adm_usr: "{{ adm_usr }}"
-#         ip: "{{ hostvars[groups['fortianalyzer'][0]].private_ip_address }}"
-#   register: _probed_fortianalyzer
+- name: Discovering FortiAnalyzer device from FortiManager 
+  fortinet.fortimanager.fmgr_dvm_cmd_discover_device:
+    dvm_cmd_discover_device:
+      device:
+        adm_pass: "{{ adm_pass }}"
+        adm_usr: "{{ adm_usr }}"
+        ip: "{{ hostvars[groups['fortianalyzer'][0]].private_ip_address }}"
+  register: _probed_fortianalyzer
 
-# - name: Debug FortiAnalyzer device discovery
-#   debug:
-#     var: _probed_fortianalyzer
+- name: Debug FortiAnalyzer device discovery
+  debug:
+    var: _probed_fortianalyzer
 
 - name: Add FortiAnalyzer device to FortiManager
   fortinet.fortimanager.fmgr_dvm_cmd_add_device:
