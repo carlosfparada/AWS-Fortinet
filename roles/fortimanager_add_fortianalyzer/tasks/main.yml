@@ -6,7 +6,7 @@
       device:
         adm_pass: admin
         adm_usr: admin
-        ip: "{{ hostvars[groups['fortianalyzer'][0]].ansible_host }}"
+        ip: "{{ groups['fortianalyzer'][0] }}"
   register: _probed_fortianalyzer
 
 - name: Debug FortiAnalyzer device discovery
