@@ -2,25 +2,8 @@
 
 - name: Debug FortiAnalyzer device discovery
   debug:
-    var: groups
-
-- name: Debug FortiAnalyzer device discovery
-  debug:
-    var: groups['fortianalyzer']
-
-- name: Debug FortiAnalyzer device discovery
-  debug:
     var: groups['fortianalyzer'][0]
 
-- name: Creation of a FortiManager Device Group
-  fortinet.fortimanager.fmgr_dvmdb_group:
-    adom: "{{ domain }}"
-    dvmdb_group:
-      name: Group1
-      os_type: unknown
-      type: normal
-    state: present
-    
 - name: Discovering FortiAnalyzer device from FortiManager 
   fortinet.fortimanager.fmgr_dvm_cmd_discover_device:
     dvm_cmd_discover_device:
