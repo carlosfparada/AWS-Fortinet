@@ -2,7 +2,15 @@
 
 - name: Debug FortiAnalyzer device discovery
   debug:
-    var: "{{ groups['fortianalyzer'][0] }}"
+    var: groups
+
+- name: Debug FortiAnalyzer device discovery
+  debug:
+    var: groups['fortianalyzer']
+
+- name: Debug FortiAnalyzer device discovery
+  debug:
+    var: groups['fortianalyzer'][0]
 
 - name: Discovering FortiAnalyzer device from FortiManager 
   fortinet.fortimanager.fmgr_dvm_cmd_discover_device:
