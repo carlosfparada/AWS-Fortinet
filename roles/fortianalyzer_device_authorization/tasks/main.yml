@@ -8,11 +8,6 @@
       oftp-ssl-protocol: tlsv1.0
   ignore_errors: true
 
-- include_role: 
-    name: fortigate_api_aws
-  when: infra == 'aws'
-  delegate_to: "{{ fortigate }}"
-
 - debug:
     var: fortigate_token
 
