@@ -39,9 +39,9 @@
       when: infra == 'aws'
     # to get fortigate serial
     - include_role: 
+        name: fortigate_gather_facts
         apply:
           delegate_to: "{{ fortigate }}"
-        name: fortigate_gather_facts
       when: infra == 'aws'
     - include_role: 
         name: fortianalyzer_device_authorization
