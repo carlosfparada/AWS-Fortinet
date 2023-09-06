@@ -2,23 +2,23 @@
 
 # Device Management
 
-- name: Creation of a FortiManager Device Group
-  fortinet.fortimanager.fmgr_dvmdb_group:
-    adom: "{{ domain }}"
-    dvmdb_group:
-      name: Group1
-      os_type: unknown
-      type: normal
-    state: present
+# - name: Creation of a FortiManager Device Group
+#   fortinet.fortimanager.fmgr_dvmdb_group:
+#     adom: "{{ domain }}"
+#     dvmdb_group:
+#       name: Group1
+#       os_type: unknown
+#       type: normal
+#     state: present
 
-- name: Add FortiAnalyzer as a Group member
-  fortinet.fortimanager.fmgr_dvmdb_group_objectmember:
-    adom: "{{ domain }}"
-    dvmdb_group_objectmember:
-      name: "{{ fortianalyzer_name }}"
-      vdom: "{{ domain }}"
-    group: Group1
-    state: present
+# - name: Add FortiAnalyzer as a Group member
+#   fortinet.fortimanager.fmgr_dvmdb_group_objectmember:
+#     adom: "{{ domain }}"
+#     dvmdb_group_objectmember:
+#       name: "{{ fortianalyzer_name }}"
+#       vdom: "{{ domain }}"
+#     group: Group1
+#     state: present
 
 # System Settings
 
