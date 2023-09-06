@@ -11,9 +11,15 @@
   register: output
   delegate_to: localhost
 
+- debug:
+    var: output
+
 - name: Set Fortigate Token variable
   set_fact:
     fortigate_token: "{{ item.split(' ')[3] }}"
   loop: "{{ output.stdout_lines }}"
   when: "'New API key' in item"
   delegate_to: localhost
+
+- debug:
+    var: fortigate_token

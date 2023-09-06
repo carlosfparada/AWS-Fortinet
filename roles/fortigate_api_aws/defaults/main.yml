@@ -38,7 +38,6 @@ new_password: adminadmin
 
 api_config:
   - "config system accprofile"
-  - "edit api-profile"
   # API Admin Profile - api-profile
   - "edit api-profile"
   - "set secfabgrp read-write"
@@ -68,8 +67,5 @@ api_config:
   - "end"
   # Get Token
   - "execute api-user generate-key api-admin"
-  #New API key: fwx8w4473HdGGzrswr0jG6rxHQ3mcj
+  # e.g. New API key: fwx8w4473HdGGzrswr0jG6rxHQ3mcj
   - exit
-
-lic_filemame: FVVM040000010871.lic
-lic_ftp_server: 192.0.2.23
