@@ -27,7 +27,7 @@
 #   CLI: show firewall policy 
 
 domain: "root"
-fortianalyzer_name: "FAZVM64-AWS"
+fortianalyzer_name: FAZVM64-AWS
 
 ansible_network_os: fortinet.fortimanager.fortimanager
 ansible_connection: httpapi
