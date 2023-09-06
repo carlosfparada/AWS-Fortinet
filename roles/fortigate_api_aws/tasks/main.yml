@@ -7,7 +7,7 @@
     command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortigate'][0] }}"
     responses:
       'password:': "{{ new_password }}" 
-      'FGT': "{{ api_config }}"
+      '# ': "{{ api_config }}"
   register: output
   delegate_to: localhost
 
