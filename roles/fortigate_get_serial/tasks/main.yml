@@ -32,7 +32,7 @@
     #  - selector: "firewall_address"
   register: _fortinet_facts
   ignore_errors: yes
-  delegate_to: "{{ groups['fortigate'][0] }}"
+  #delegate_to: "{{ groups['fortigate'][0] }}"
 
 - name: Debug FortiGate Facts
   debug:
