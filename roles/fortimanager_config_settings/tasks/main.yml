@@ -11,14 +11,21 @@
       type: normal
     state: present
 
-# - name: Add FortiAnalyzer as a Group member
-#   fortinet.fortimanager.fmgr_dvmdb_group_objectmember:
-#     adom: "{{ domain }}"
-#     dvmdb_group_objectmember:
-#       name: "{{ fortianalyzer_name }}"
-#       vdom: "{{ domain }}"
-#     group: Group1
-#     state: present
+- name: Get FortiAnalyzer facts cli_system_global
+  fortinet.fortianalyzer.faz_fact:
+    facts:
+        selector: cli_system_global
+  register: system_global
+  delegate_to: fortianalyzer
+  
+- name: Add FortiAnalyzer as a Group member
+  fortinet.fortimanager.fmgr_dvmdb_group_objectmember:
+    adom: "{{ domain }}"
+    dvmdb_group_objectmember:
+      name: "{{ fortianalyzer.meta.response_data.hostname }}"
+      vdom: "{{ domain }}"
+    group: Group1
+    state: present
 
 # System Settings
 
