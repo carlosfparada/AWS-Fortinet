@@ -29,9 +29,9 @@ ec2_sg_openports:
 
 # Fortigate
 # AMI
-#ec2_fgt_image_name: FortiGate-VM64-AWSONDEMAND build2463 (7.4.1) GA-3124a694-441c-4ff1-8bf7-4d153be424a6
+ec2_fgt_image_name: FortiGate-VM64-AWSONDEMAND build2463 (7.4.1) GA-3124a694-441c-4ff1-8bf7-4d153be424a6
 # AMI - byol
-ec2_fgt_image_name: FortiGate-VM64-AWS build2463 (7.4.1) GA-e5936f4a-0d69-479f-919c-d5e158bd4d12
+#ec2_fgt_image_name: FortiGate-VM64-AWS build2463 (7.4.1) GA-e5936f4a-0d69-479f-919c-d5e158bd4d12
 # Flavour 
 ec2_fgt_flavor_name: c6i.xlarge
 # Key Pair
