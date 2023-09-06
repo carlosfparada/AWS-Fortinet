@@ -1,5 +1,13 @@
 ---
 
+- name: Debug FortiGate Facts
+  debug:
+    var: fortinet_token
+
+- name: Debug FortiGate Facts
+  debug:
+    var: fortinet_serial
+
 - name: Gather facts from Fortinet FortiGate
   fortinet.fortios.fortios_configuration_fact:
     vdom: "{{ domain }}"
