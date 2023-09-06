@@ -19,9 +19,6 @@
 #   delegate_to: fortianalyzer
 
 - debug:
-    var: system_global
-
-- debug:
     msg: "{{ fortianalyzer_name }}"
 
 # - name: Add FortiAnalyzer as a Group member
