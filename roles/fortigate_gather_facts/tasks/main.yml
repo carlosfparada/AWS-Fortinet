@@ -17,7 +17,7 @@
 
 - name: Set FortiGate Serial Number variable
   set_fact:
-    fortigate_serial: _fortinet_facts.meta[0].serial
+    fortigate_serial: "{{ _fortinet_facts.meta[0].serial }}"
 
 - name: Debug FortiGate Serial Number
   debug:
