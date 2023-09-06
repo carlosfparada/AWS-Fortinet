@@ -14,7 +14,7 @@
 - name: Get FortiAnalyzer facts cli_system_global
   fortinet.fortianalyzer.faz_fact:
     facts:
-        selector: cli_system_global
+      selector: cli_system_global
   register: system_global
   delegate_to: fortianalyzer
   
