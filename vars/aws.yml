@@ -3,7 +3,7 @@ fortianalyzer: fortianalyzer-1
 fortimanager: fortimanager-1
 domain: "root"
 
-fortigate_name: "FortiGate-VM64"
+fortigate_name: "FortiGate-VM64-AWS"
 fortianalyzer_name: "FAZVM64-AWS"
 fortimanager_name: "FortiManager-VM64"
 
