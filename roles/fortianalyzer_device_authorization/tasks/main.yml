@@ -33,8 +33,8 @@
         adm_pass: "{{ adm_pass }}"
         adm_usr: "{{ adm_usr }}"
         ip: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
-        name: "{{ fortigate_name }}" # FGTAWSOJEMW22M2E
-        sn: "{{ fortigate_serial }}"
+        name: "{{ fortigate_name }}"
+        sn: "{{ fortigate_serial }}" # FGTAWSOJEMW22M2E
         mgmt_mode: faz
         device action: "promote_unreg"
   register: _add_fortigate
