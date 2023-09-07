@@ -19,7 +19,7 @@
       vdom: "{{ domain }}"
     group: Group1
     state: present
-    ignore_errors: true
+  ignore_errors: true
 
 # System Settings
 
