@@ -8,7 +8,9 @@
     responses:
       # 'Are you sure you want to continue connecting (yes/no/[fingerprint])': "yes"
       # 'You are forced to change your password. Please input a new password.'
-      's password:': "{{ hostvars[groups['fortigate'][0]].instance_id }}" 
+      's password:':
+        - "{{ hostvars[groups['fortigate'][0]].instance_id }}"
+        - "{{ new_password }}"  # in case setup was already run
       'New Password:': "{{ new_password }}" 
       'Confirm Password:': "{{ new_password }}"
       'FGT': "exit"

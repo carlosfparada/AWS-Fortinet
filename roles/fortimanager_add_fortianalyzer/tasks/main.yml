@@ -14,6 +14,8 @@
       - ssh
       - http
       - fgfm
+      status: up
+    state: present
   delegate_to: "{{ groups['fortianalyzer'][0] }}"
 
 - name: Discovering FortiAnalyzer device from FortiManager 

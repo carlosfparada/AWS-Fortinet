@@ -17,7 +17,9 @@
       # (admin@ec2-3-91-235-22.compute-1.amazonaws.com) Enter new password: 
       # (admin@ec2-3-91-235-22.compute-1.amazonaws.com) Enter it again: 
       # FAZVM64-AWSOnDemand # 
-      'Password:': "{{ hostvars[groups['fortianalyzer'][0]].instance_id }}" 
+      'Password:': 
+        - "{{ hostvars[groups['fortianalyzer'][0]].instance_id }}" 
+        - "{{ new_password }}"  # in case setup was already run
       'Enter old password:': "{{ hostvars[groups['fortianalyzer'][0]].instance_id }}" 
       'Enter new password:': "{{ new_password }}"
       'Enter it again:': "{{ new_password }}"
