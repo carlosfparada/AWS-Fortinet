@@ -16,7 +16,7 @@
     facts:
       selector: cli_system_global
   register: system_global
-  delegate_to: "{{ hostvars[groups['fortianalyzer'][0]].private_ip_address }}"
+  delegate_to: "{{ groups['fortianalyzer'][0]] }}"
 
 - name: fortianalyzer_name var
   debug:
