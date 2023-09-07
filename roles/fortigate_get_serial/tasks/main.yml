@@ -11,6 +11,11 @@
   register: output
   delegate_to: localhost
 
+- name: Sleep for 30 seconds and continue with play
+  wait_for:
+    timeout: 30
+  delegate_to: localhost
+  
 - name: Set Fortigate Token variable
   set_fact:
     fortigate_token: "{{ item.split(' ')[3] }}"
