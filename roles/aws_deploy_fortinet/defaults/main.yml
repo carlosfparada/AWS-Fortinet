@@ -28,6 +28,7 @@ ec2_sg_openports:
   - 22
   - 514
   - 541
+  - 542
 
 # Fortigate
 # AMI
