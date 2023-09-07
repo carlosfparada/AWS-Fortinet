@@ -16,8 +16,7 @@
       - fgfm
       status: up
     state: present
-  ignore_errors: true
-  delegate_to: "{{ groups['fortigate'][0] }}"
+  delegate_to: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
 
 - name: Discovering FortiGate device from FortiManager 
   fortinet.fortimanager.fmgr_dvm_cmd_discover_device:
@@ -27,7 +26,6 @@
         adm_usr: "{{ adm_usr }}"
         ip: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
   register: _probed_fortigate
-  ignore_errors: true
 
 - name: Debug FortiGate device discovery
   debug:
@@ -45,4 +43,3 @@
         mgmt_mode: 'fmg'
         name: '{{ _probed_fortigate.meta.response_data.device.name }}'
         sn: '{{ _probed_fortigate.meta.response_data.device.sn }}'
-  ignore_errors: true # will fail

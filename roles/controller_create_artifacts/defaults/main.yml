@@ -3,4 +3,4 @@
 controller_host: 172.16.1.34:443
 controller_username: admin
 fortinet_username: admin
-fortinet_password: admin
+fortinet_password: adminadmin

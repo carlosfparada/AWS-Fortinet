@@ -16,14 +16,5 @@ api_config:
   - "set rpc-permit read-write"
   - "next"
   - "end"
-  # - "config system admin user"
-  # - "edit api-admin"
-  # # API Admin User - api-admin
-  # - "set profileid Super_User"
-  # - "set password {{ new_password }}"
-  # - "set user_type api"
-  # - "set rpc-permit read-write"
-  # - "next"
-  # - "end"
   - "exit"
 

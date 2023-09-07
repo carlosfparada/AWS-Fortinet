@@ -1,22 +1,5 @@
 ---
 
-# - name: Config System Global
-#   fortinet.fortianalyzer.faz_cli_system_global:
-#     cli_system_global:
-#       enc-algorithm: low
-#       ssl-low-encryption: enable
-#       oftp-ssl-protocol: tlsv1.0
-#   ignore_errors: true
-
-# - name: Reset ssh connection
-#   ansible.builtin.meta: reset_connection
-
-# - name: Sleep for 30 seconds and continue with play
-#   wait_for:
-#     timeout: 30
-#   delegate_to: localhost
-
-
 - name: FortiAnalyzer to Authorize Fortigate add
   fortinet.fortianalyzer.faz_dvm_cmd_add_device:
     dvm_cmd_add_device:

@@ -11,25 +11,25 @@
       type: normal
     state: present
 
-# - name: Get FortiAnalyzer facts cli_system_global
-#   fortinet.fortianalyzer.faz_fact:
-#     facts:
-#       selector: cli_system_global
-#   register: system_global
-#   delegate_to: fortianalyzer
+- name: Get FortiAnalyzer facts cli_system_global
+  fortinet.fortianalyzer.faz_fact:
+    facts:
+      selector: cli_system_global
+  register: system_global
+  delegate_to: "{{ hostvars[groups['fortianalyzer'][0]].private_ip_address }}"
 
 - name: fortianalyzer_name var
   debug:
-    msg: "{{ fortianalyzer_name }}"
+    msg: "{{ system_global.meta.system_information.Hostname }}"
 
-# - name: Add FortiAnalyzer as a Group member
-#   fortinet.fortimanager.fmgr_dvmdb_group_objectmember:
-#     adom: "{{ domain }}"
-#     dvmdb_group_objectmember:
-#       name: "{{ fortianalyzer_name }}"
-#       vdom: "{{ domain }}"
-#     group: Group1
-#     state: present
+- name: Add FortiAnalyzer as a Group member
+  fortinet.fortimanager.fmgr_dvmdb_group_objectmember:
+    adom: "{{ domain }}"
+    dvmdb_group_objectmember:
+      name: "{{ system_global.meta.system_information.Hostname }}"
+      vdom: "{{ domain }}"
+    group: Group1
+    state: present
 
 # System Settings
 

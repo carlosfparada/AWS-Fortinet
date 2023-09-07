@@ -58,14 +58,8 @@ api_config:
   - "edit api-admin"
   - "set accprofile api-profile"
   - "set vdom root"
-  # - "config trusthost"
-  # - "edit 1"
-  # - "set ipv4-trusthost 0.0.0.0/0"
-  # - "next"
-  # - "end"
   - "next"
   - "end"
-  # Get Token
+  # Get Token, e.g. New API key: fwx8w4473HdGGzrswr0jG6rxHQ3mcj
   - "execute api-user generate-key api-admin"
-  # e.g. New API key: fwx8w4473HdGGzrswr0jG6rxHQ3mcj
   - exit
