@@ -15,7 +15,7 @@
   wait_for:
     timeout: 30
   delegate_to: localhost
-  
+
 - name: Set Fortigate Token variable
   set_fact:
     fortigate_token: "{{ item.split(' ')[3] }}"
@@ -37,7 +37,6 @@
     #  - selector: "firewall_address"
   register: _fortinet_facts
   ignore_errors: yes
-  #delegate_to: "{{ groups['fortigate'][0] }}"
 
 - name: Debug FortiGate Facts
   debug:
