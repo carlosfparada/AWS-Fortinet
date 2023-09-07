@@ -16,6 +16,7 @@
       - fgfm
     state: present
   delegate_to: "{{ hostvars[groups['fortianalyzer'][0]].private_ip_address }}"
+  ignore_errors: true
 
 - name: Discovering FortiAnalyzer device from FortiManager 
   fortinet.fortimanager.fmgr_dvm_cmd_discover_device:
