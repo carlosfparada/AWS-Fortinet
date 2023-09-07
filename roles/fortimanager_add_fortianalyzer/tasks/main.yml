@@ -2,11 +2,19 @@
 
 - name: Debug FortiAnalyzer device discovery
   debug:
-    var: groups['fortianalyzer'][0]
-
-- name: Debug FortiAnalyzer device discovery
-  debug:
     var: hostvars[groups['fortianalyzer'][0]].private_ip_address
+
+- name: Enable FortiAnalyzer discovery access (fgfm)
+  fortinet.fortianalyzer.faz_cli_system_interface:
+    cli_system_interface:
+      name: port1
+      allowaccess:
+      - ping
+      - https
+      - ssh
+      - http
+      - fgfm
+  delegate_to: "{{ groups['fortianalyzer'][0] }}"
 
 - name: Discovering FortiAnalyzer device from FortiManager 
   fortinet.fortimanager.fmgr_dvm_cmd_discover_device:

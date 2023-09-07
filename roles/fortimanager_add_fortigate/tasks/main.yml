@@ -1,5 +1,21 @@
 ---
 
+- name: Debug FortiGate device discovery
+  debug:
+    var: hostvars[groups['fortigate'][0]].private_ip_address
+
+- name: Enable FortiGate discovery access (fgfm)
+  fortinet.fortianalyzer.faz_cli_system_interface:
+    cli_system_interface:
+      name: port1
+      allowaccess:
+      - ping
+      - https
+      - ssh
+      - http
+      - fgfm
+  delegate_to: "{{ groups['fortigate'][0] }}"
+
 - name: Discovering FortiGate device from FortiManager 
   fortinet.fortimanager.fmgr_dvm_cmd_discover_device:
     dvm_cmd_discover_device:
