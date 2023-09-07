@@ -16,6 +16,7 @@
         adm_usr: "{{ adm_usr }}"
         ip: "{{ hostvars[groups['fortianalyzer'][0]].private_ip_address }}"
   register: _probed_fortianalyzer
+  ignore_errors: true
 
 - name: Debug FortiAnalyzer device discovery
   debug:
