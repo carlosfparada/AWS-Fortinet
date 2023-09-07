@@ -19,7 +19,7 @@
       # FAZVM64-AWSOnDemand # 
       'Password:': 
         - "{{ hostvars[groups['fortimanager'][0]].instance_id }}" 
-        - "{{ new_password }}"
+        - "{{ new_password }}"  # in case setup was already run
       'Enter old password:': "{{ hostvars[groups['fortimanager'][0]].instance_id }}" 
       'Enter new password:': "{{ new_password }}"
       'Enter it again:': "{{ new_password }}"
