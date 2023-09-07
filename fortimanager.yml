@@ -29,7 +29,7 @@
         name: fortimanager_setup_aws
       when: infra == 'aws'
     - include_role: 
-        name: fortimanager_api_aws
+        name: fortimanager_access_aws
       when: infra == 'aws'
     - include_role: 
         name: fortimanager_add_fortianalyzer

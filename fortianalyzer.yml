@@ -29,7 +29,7 @@
         name: fortianalyzer_setup_aws
       when: infra == 'aws'
     - include_role: 
-        name: fortianalyzer_api_aws
+        name: fortianalyzer_access_aws
       when: infra == 'aws'
     # to generate and fortigate token and serial
     - include_role: 
