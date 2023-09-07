@@ -13,7 +13,8 @@
       'Confirm Password:': "{{ new_password }}"
       'FGT': "exit"
   no_log: false # hide passwords on logs
-
+  ignore_errors: true
+  
 # - name: Change admin password
 #   ansible.builtin.expect:
 #     command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortigate'][0] }}"
