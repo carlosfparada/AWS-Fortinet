@@ -22,10 +22,6 @@ ec2_igw_name: IGW1
 ec2_rt_name: RT1
 # RHEL Open ports
 ec2_sg_name: SG1
-ec2_sg_openports:
-  - 80
-  - 443
-  - 22
 
 # Fortigate
 # Instance
