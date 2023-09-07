@@ -10,15 +10,3 @@
       '# ': "{{ api_config }}"
   register: output
   delegate_to: localhost
-
-- name: Enable FortiAnalyzer discovery port (fgfm)
-  fortinet.fortianalyzer.faz_cli_system_interface:
-    cli_system_interface:
-      name: port1
-      allowaccess:
-      - ping
-      - ssh
-      - https
-      - http
-      - fgfm
-    state: present

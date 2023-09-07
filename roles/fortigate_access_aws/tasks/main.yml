@@ -22,17 +22,3 @@
   debug:
     var: fortigate_token
 
-- name: Enable FortiGate discovery port (fgfm)
-  fortinet.fortios.fortios_system_interface:
-    vdom: "{{ domain }}"
-    access_token: "{{ fortigate_token }}"
-    state: present
-    system_interface:
-      name: port1
-      interface: port1
-      allowaccess:
-      - ping
-      - https
-      - ssh
-      - http
-      - fgfm

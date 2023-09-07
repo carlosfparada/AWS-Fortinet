@@ -11,16 +11,29 @@
       type: normal
     state: present
 
-# - name: Add FortiGate as Group member
-#   fortinet.fortianalyzer.faz_dvmdb_group_objectmember:
-#     adom: "{{ domain }}"
-#     dvmdb_group_objectmember:
-#       name: "{{ fortigate_name }}"   <-----
-#       vdom: "{{ domain }}"
-#     group: Group1
-#     state: present
+- name: Add FortiGate as Group member
+  fortinet.fortianalyzer.faz_dvmdb_group_objectmember:
+    adom: "{{ domain }}"
+    dvmdb_group_objectmember:
+      name: "{{ fortigate_name }}"
+      vdom: "{{ domain }}"
+    group: Group1
+    state: present
+    ignore_errors: true
 
 # System Settings
+
+- name: Enable FortiAnalyzer discovery port (fgfm)
+  fortinet.fortianalyzer.faz_cli_system_interface:
+    cli_system_interface:
+      name: port1
+      allowaccess:
+      - ping
+      - ssh
+      - https
+      - http
+      - fgfm
+    state: present
 
 - name: Config System Settings (Admin -> Admin Settings)
   fortinet.fortianalyzer.faz_cli_system_admin_setting:
