@@ -3,9 +3,9 @@ fortianalyzer: fortianalyzer-1
 fortimanager: fortimanager-1
 domain: "root"
 
-fortigate_name: "FortiGate-VM64-AWS"
+fortigate_name: "FGTAWSROXR_OKS4D"
 fortianalyzer_name: "FAZVM64-AWS"
-fortimanager_name: "FortiManager-VM64-AWS"
+fortimanager_name: "FMG-VM64-AWS"
 
 controller_host: 172.16.1.45:443
 controller_username: admin

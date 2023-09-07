@@ -10,12 +10,12 @@
       name: port1
       allowaccess:
       - ping
-      - https
       - ssh
+      - https
       - http
       - fgfm
     state: present
-  delegate_to: "{{ hostvars[groups['fortianalyzer'][0]].private_ip_address }}"
+  delegate_to: "{{ groups['fortianalyzer'][0] }}"
   ignore_errors: true
 
 - name: Discovering FortiAnalyzer device from FortiManager 

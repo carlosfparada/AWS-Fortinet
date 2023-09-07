@@ -16,7 +16,9 @@
       - fgfm
       status: up
     state: present
-  delegate_to: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
+  delegate_to: "{{ groups['fortigate'][0] }}"
+  ignore_errors: true
+
 
 - name: Discovering FortiGate device from FortiManager 
   fortinet.fortimanager.fmgr_dvm_cmd_discover_device:
