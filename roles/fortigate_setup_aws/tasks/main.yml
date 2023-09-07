@@ -14,7 +14,10 @@
       'FGT': "exit"
   no_log: false # hide passwords on logs
   ignore_errors: true
-  
+
+- name: Reset ssh connection
+  ansible.builtin.meta: reset_connection
+
 # - name: Change admin password
 #   ansible.builtin.expect:
 #     command: "ssh -o StrictHostKeyChecking=no admin@{{ groups['fortigate'][0] }}"
