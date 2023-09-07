@@ -5,7 +5,7 @@
     var: hostvars[groups['fortigate'][0]].private_ip_address
 
 - name: Enable FortiGate discovery access (fgfm)
-  fortinet.fortianalyzer.faz_cli_system_interface:
+  fortinet.fortios.fortios_system_interface:
     cli_system_interface:
       name: port1
       allowaccess:
