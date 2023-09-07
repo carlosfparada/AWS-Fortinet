@@ -17,7 +17,9 @@
       # (admin@ec2-3-91-235-22.compute-1.amazonaws.com) Enter new password: 
       # (admin@ec2-3-91-235-22.compute-1.amazonaws.com) Enter it again: 
       # FAZVM64-AWSOnDemand # 
-      'Password:': "{{ hostvars[groups['fortimanager'][0]].instance_id }}" 
+      'Password:': 
+        - "{{ hostvars[groups['fortimanager'][0]].instance_id }}" 
+        - "{{ new_password }}"
       'Enter old password:': "{{ hostvars[groups['fortimanager'][0]].instance_id }}" 
       'Enter new password:': "{{ new_password }}"
       'Enter it again:': "{{ new_password }}"
