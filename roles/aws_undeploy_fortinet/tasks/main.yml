@@ -82,6 +82,7 @@
     subnet_id: "{{ subnet1.subnets[0].subnet_id }}"
     region: "{{ ec2_vpc_region }}"
     state: absent
+  when: subnet1.subnets | length > 0
 
 - name: Delete ENI 2
   amazon.aws.ec2_eni:
@@ -89,6 +90,7 @@
     subnet_id: "{{ subnet2.subnets[0].subnet_id }}"
     region: "{{ ec2_vpc_region }}"
     state: absent
+  when: subne2.subnets | length > 0
 
 - name: Delete Subnet default in VPC
   amazon.aws.ec2_vpc_subnet:
