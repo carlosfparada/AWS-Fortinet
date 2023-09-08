@@ -6,12 +6,15 @@
 
 - name: Discovering FortiGate device from FortiManager 
   fortinet.fortimanager.fmgr_dvm_cmd_discover_device:
+    bypass_validation: true
+    enable_log: true
     dvm_cmd_discover_device:
       device:
         adm_pass: "{{ adm_pass }}"
         adm_usr: "{{ adm_usr }}"
         ip: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
   register: _probed_fortigate
+  ignore_errors: true
 
 - name: Debug FortiGate device discovery
   debug:
@@ -29,3 +32,4 @@
         mgmt_mode: 'fmg'
         name: '{{ _probed_fortigate.meta.response_data.device.name }}'
         sn: '{{ _probed_fortigate.meta.response_data.device.sn }}'
+  ignore_errors: true
