@@ -37,5 +37,5 @@
         name: fortimanager_gather_facts
     - include_role: 
         name: fortimanager_add_fortianalyzer
-    # - include_role:
-    #     name: fortimanager_add_fortigate
+    - include_role:
+        name: fortimanager_add_fortigate
