@@ -1,8 +1,5 @@
 ---
 
-- debug: 
-    var: hostvars[groups['fortigate'][0]].private_ip_address
-
 - name: FortiAnalyzer to Authorize Fortigate add
   fortinet.fortianalyzer.faz_dvm_cmd_add_device:
     dvm_cmd_add_device:
@@ -13,10 +10,9 @@
         desc: 'The device is added via FortiAnalyzer Ansible'
         ip: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
         name: "{{ fortigate_name }}"
-        sn: "{{ fortigate_serial }}"
+        # sn: "{{ fortigate_serial }}"
         mgmt_mode: faz
-        #device action: "promote_unreg"
-        device action: "add_model"
+        device action: "promote_unreg"
       flags:
       - create_task
       - nonblocking
