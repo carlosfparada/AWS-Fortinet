@@ -8,14 +8,11 @@
         adm_pass: "{{ adm_pass }}"
         adm_usr: "{{ adm_usr }}"
         desc: 'The device is added via FortiAnalyzer Ansible'
-        #ip: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
+        ip: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
         name: "{{ fortigate_name }}"
         sn: "{{ fortigate_serial }}" 
         mgmt_mode: faz
         device action: "promote_unreg"
-      flags:
-      - create_task
-      - nonblocking
   register: _add_fortigate
 
 - name: Debug FortiAnalyzer to Authorize Fortigate add
