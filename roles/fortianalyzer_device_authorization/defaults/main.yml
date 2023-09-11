@@ -1,7 +1,6 @@
 ---
 
 domain: "root"
-fortigate_name: "FortiGate-VM64-AWS"
 
 adm_usr: admin
 adm_pass: adminadmin
