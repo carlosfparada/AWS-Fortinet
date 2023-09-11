@@ -11,7 +11,7 @@
         # name: "{{ fortigate_name }}"
         # sn: "{{ fortigate_serial }}"
         name: FGTAWSD_8C95QY48
-        sn: FGTAWSD_8C95QY48
+        #sn: FGTAWSD_8C95QY48
         mgmt_mode: faz
         "device action": "promote_unreg"
   register: _add_fortigate
