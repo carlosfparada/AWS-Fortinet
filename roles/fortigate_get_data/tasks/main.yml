@@ -53,8 +53,8 @@
 
 - name: Set FortiGate Name variable
   set_fact:
-    fortigate_serial: "{{ _fortinet_facts.meta[0].serial }}"
+    fortigate_serial: "{{ _fortinet_facts.meta[1].results.hostname }}"
 
 - name: Debug FortiGate Name
   debug:
-    var: _fortinet_facts.meta[0].serial
+    var: _fortinet_facts.meta[1].results.hostname
