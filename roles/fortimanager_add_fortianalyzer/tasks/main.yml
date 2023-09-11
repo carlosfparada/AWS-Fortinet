@@ -6,6 +6,8 @@
 
 - name: Discovering FortiAnalyzer device from FortiManager 
   fortinet.fortimanager.fmgr_dvm_cmd_discover_device:
+    bypass_validation: true
+    enable_log: true
     dvm_cmd_discover_device:
       device:
         adm_pass: "{{ adm_pass }}"
