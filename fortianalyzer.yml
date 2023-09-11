@@ -33,7 +33,7 @@
       when: infra == 'aws'
     # to generate and fortigate token and serial
     - include_role: 
-        name: fortigate_get_serial
+        name: fortigate_get_data
         apply:
           delegate_to: "{{ groups['fortigate'][0] }}"
       when: infra == 'aws'
