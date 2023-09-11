@@ -34,6 +34,7 @@
     selectors:
       - selector: "firewall_policy"
       - selector: "system_global"
+    #  - selector: "system_interface"
     #  - selector: "firewall_address"
   register: _fortinet_facts
   ignore_errors: yes
@@ -50,10 +51,10 @@
   debug:
     var: _fortinet_facts.meta[0].serial
 
-# - name: Set FortiGate Name variable
-#   set_fact:
-#     fortigate_serial: "{{ _fortinet_facts.meta[0].serial }}"
+- name: Set FortiGate Name variable
+  set_fact:
+    fortigate_serial: "{{ _fortinet_facts.meta[0].serial }}"
 
-# - name: Debug FortiGate Name
-#   debug:
-#     var: _fortinet_facts.meta[0].serial
+- name: Debug FortiGate Name
+  debug:
+    var: _fortinet_facts.meta[0].serial
