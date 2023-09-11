@@ -1,8 +1,5 @@
 ---
 
-- debug: 
-    var: fortigate_name
-
 - name: FortiAnalyzer to Authorize Fortigate add
   fortinet.fortianalyzer.faz_dvm_cmd_add_device:
     dvm_cmd_add_device:
@@ -11,8 +8,10 @@
         adm_pass: "{{ adm_pass }}"
         adm_usr: "{{ adm_usr }}"
         ip: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
-        name: "{{ fortigate_name }}"
-        sn: "{{ fortigate_serial }}"
+        # name: "{{ fortigate_name }}"
+        # sn: "{{ fortigate_serial }}"
+        name: FGTAWSD_8C95QY48
+        sn: FGTAWSD_8C95QY48
         mgmt_mode: faz
         "device action": "promote_unreg"
   register: _add_fortigate
