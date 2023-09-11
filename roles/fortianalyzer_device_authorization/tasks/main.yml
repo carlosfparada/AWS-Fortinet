@@ -10,11 +10,10 @@
       device:
         adm_pass: "{{ adm_pass }}"
         adm_usr: "{{ adm_usr }}"
+        desc: 'The device is added via FortiAnalyzer Ansible'
         ip: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
         name: "{{ fortigate_name }}"
         sn: "{{ fortigate_serial }}"
-        #name: FGTAWSD_8C95QY48
-        #sn: FGTAWSD_8C95QY48
         mgmt_mode: faz
         "device action": "promote_unreg"
       flags:
