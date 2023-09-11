@@ -15,7 +15,7 @@
         name: "{{ fortigate_name }}"
         sn: "{{ fortigate_serial }}"
         mgmt_mode: faz
-        "device action": "promote_unreg"
+        #"device action": "promote_unreg"
       flags:
       - create_task
       - nonblocking
