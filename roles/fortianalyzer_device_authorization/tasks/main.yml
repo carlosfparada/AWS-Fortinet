@@ -11,7 +11,8 @@
         ip: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
         name: "{{ fortigate_name }}"
         sn: "{{ fortigate_serial }}" 
-        mgmt_mode: faz
+        #mgmt_mode: faz
+        mgmt_mode: unreg
         device action: "promote_unreg"
   register: _add_fortigate
 
