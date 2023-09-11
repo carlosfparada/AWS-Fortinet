@@ -17,6 +17,7 @@
         mgmt_mode: faz
         device action: "promote_unreg"
   register: _add_fortigate
+  ignore_errors: true
 
 - name: Debug FortiAnalyzer to Authorize Fortigate add
   debug:
