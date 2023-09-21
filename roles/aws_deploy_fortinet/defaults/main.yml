@@ -46,7 +46,7 @@ ec2_fgt_instance_name: fortigate-1
 # AMI - byol
 ec2_faz_image_name: FortiAnalyzer-VM64-AWS build2308 (7.4.1) GA-a0cc1ba3-1642-429d-adfa-6b6c66dfacb9
 # Flavour 
-ec2_faz_flavor_name: m5.2xlarge
+ec2_faz_flavor_name: m5.xlarge
 # Key Pair
 ec2_faz_key_name: "KeyPair-Virginia"
 # Instance
@@ -56,7 +56,7 @@ ec2_faz_instance_name: fortianalyzer-1
 # AMI
 ec2_fmg_image_name: FortiManager VM64-AWS build2308 (7.4.1) GA-0ba08f70-6838-4190-9961-0b00d77b74fc
 # Flavour 
-ec2_fmg_flavor_name: m5.2xlarge
+ec2_fmg_flavor_name: m5.xlarge
 # Key Pair
 ec2_fmg_key_name: "KeyPair-Virginia"
 # Instance
