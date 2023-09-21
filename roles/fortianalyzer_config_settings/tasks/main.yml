@@ -34,6 +34,7 @@
       - http
       - fgfm
     state: present
+  ignore_errors: true
 
 - name: Config System Settings (Admin -> Admin Settings)
   fortinet.fortianalyzer.faz_cli_system_admin_setting:

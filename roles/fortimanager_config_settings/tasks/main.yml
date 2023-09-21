@@ -2,21 +2,21 @@
 
 # Device Management
 
-- name: Creation of a FortiManager Device Group
-  fortinet.fortimanager.fmgr_dvmdb_group:
-    adom: "{{ domain }}"
-    dvmdb_group:
-      name: Group1
-      os_type: unknown
-      type: normal
-    state: present
+# - name: Creation of a FortiManager Device Group
+#   fortinet.fortimanager.fmgr_dvmdb_group:
+#     adom: "{{ domain }}"
+#     dvmdb_group:
+#       name: Group1
+#       os_type: unknown
+#       type: normal
+#     state: present
 
-- name: Get FortiAnalyzer facts cli_system_global
-  fortinet.fortianalyzer.faz_fact:
-    facts:
-      selector: cli_system_global
-  register: system_global
-  delegate_to: "{{ groups['fortianalyzer'][0] }}"
+# - name: Get FortiAnalyzer facts cli_system_global
+#   fortinet.fortianalyzer.faz_fact:
+#     facts:
+#       selector: cli_system_global
+#   register: system_global
+#   delegate_to: "{{ groups['fortianalyzer'][0] }}"
 
 - name: fortianalyzer_name var
   debug:
