@@ -131,60 +131,60 @@
     msg: "Instance DNS name is: {{ ec2_fgt_instance.instances[0].public_dns_name }} with IP address {{ ec2_fgt_instance.instances[0].public_ip_address }}"
 
 # FortiAnalyzer
-- name: Get AMI by Name (FortiAnalyzer)
-  amazon.aws.ec2_ami_info:
-    filters:
-      name: "{{ ec2_faz_image_name }}"
-    region: "{{ ec2_vpc_region }}"
-  register: ami_faz_find
+# - name: Get AMI by Name (FortiAnalyzer)
+#   amazon.aws.ec2_ami_info:
+#     filters:
+#       name: "{{ ec2_faz_image_name }}"
+#     region: "{{ ec2_vpc_region }}"
+#   register: ami_faz_find
 
-- name: Create FortiAnalyzer instance
-  amazon.aws.ec2_instance:
-    image_id: "{{ ami_faz_find.images[-1].image_id | default('') }}"
-    instance_type: "{{ ec2_faz_flavor_name }}"
-    security_group: "{{ ec2_sg_name }}"
-    name: "{{ ec2_faz_instance_name }}"
-    key_name: "{{ ec2_faz_key_name }}"
-    region: "{{ ec2_vpc_region }}"
-    vpc_subnet_id: "{{ subnet.subnet.id }}"
-    network:
-      assign_public_ip: true
-    tags:
-      name: "{{ ec2_faz_instance_name }}"
-    state: running
-  register: ec2_faz_instance
+# - name: Create FortiAnalyzer instance
+#   amazon.aws.ec2_instance:
+#     image_id: "{{ ami_faz_find.images[-1].image_id | default('') }}"
+#     instance_type: "{{ ec2_faz_flavor_name }}"
+#     security_group: "{{ ec2_sg_name }}"
+#     name: "{{ ec2_faz_instance_name }}"
+#     key_name: "{{ ec2_faz_key_name }}"
+#     region: "{{ ec2_vpc_region }}"
+#     vpc_subnet_id: "{{ subnet.subnet.id }}"
+#     network:
+#       assign_public_ip: true
+#     tags:
+#       name: "{{ ec2_faz_instance_name }}"
+#     state: running
+#   register: ec2_faz_instance
 
-- name: Print FortiAnalyzer instance details
-  ansible.builtin.debug:
-    msg: "Instance DNS name is: {{ ec2_faz_instance.instances[0].public_dns_name }} with IP address {{ ec2_faz_instance.instances[0].public_ip_address }}"
+# - name: Print FortiAnalyzer instance details
+#   ansible.builtin.debug:
+#     msg: "Instance DNS name is: {{ ec2_faz_instance.instances[0].public_dns_name }} with IP address {{ ec2_faz_instance.instances[0].public_ip_address }}"
 
 # FortiManager
-- name: Get AMI by Name (FortiManager)
-  amazon.aws.ec2_ami_info:
-    filters:
-      name: "{{ ec2_fmg_image_name }}"
-    region: "{{ ec2_vpc_region }}"
-  register: ami_fmg_find
+# - name: Get AMI by Name (FortiManager)
+#   amazon.aws.ec2_ami_info:
+#     filters:
+#       name: "{{ ec2_fmg_image_name }}"
+#     region: "{{ ec2_vpc_region }}"
+#   register: ami_fmg_find
 
-- name: Create FortiManager instance
-  amazon.aws.ec2_instance:
-    image_id: "{{ ami_fmg_find.images[-1].image_id | default('') }}"
-    instance_type: "{{ ec2_fmg_flavor_name }}"
-    security_group: "{{ ec2_sg_name }}"
-    name: "{{ ec2_fmg_instance_name }}"
-    key_name: "{{ ec2_fmg_key_name }}"
-    region: "{{ ec2_vpc_region }}"
-    vpc_subnet_id: "{{ subnet.subnet.id }}"
-    network:
-      assign_public_ip: true
-    tags:
-      name: "{{ ec2_fmg_instance_name }}"
-    state: running
-  register: ec2_fmg_instance
+# - name: Create FortiManager instance
+#   amazon.aws.ec2_instance:
+#     image_id: "{{ ami_fmg_find.images[-1].image_id | default('') }}"
+#     instance_type: "{{ ec2_fmg_flavor_name }}"
+#     security_group: "{{ ec2_sg_name }}"
+#     name: "{{ ec2_fmg_instance_name }}"
+#     key_name: "{{ ec2_fmg_key_name }}"
+#     region: "{{ ec2_vpc_region }}"
+#     vpc_subnet_id: "{{ subnet.subnet.id }}"
+#     network:
+#       assign_public_ip: true
+#     tags:
+#       name: "{{ ec2_fmg_instance_name }}"
+#     state: running
+#   register: ec2_fmg_instance
 
-- name: Print FortiManager instance details
-  ansible.builtin.debug:
-    msg: "Instance DNS name is: {{ ec2_fmg_instance.instances[0].public_dns_name }} with IP address {{ ec2_fmg_instance.instances[0].public_ip_address }}"
+# - name: Print FortiManager instance details
+#   ansible.builtin.debug:
+#     msg: "Instance DNS name is: {{ ec2_fmg_instance.instances[0].public_dns_name }} with IP address {{ ec2_fmg_instance.instances[0].public_ip_address }}"
 
 # Wait for boot ups
 - name: Wait until FortiGate boots up
@@ -195,19 +195,19 @@
     delay: 30
     host: "{{ ec2_fgt_instance.instances[0].public_dns_name }}"
 
-- name: Wait until FortiAnalyzer boots up
-  wait_for:
-    port: 22
-    state: started
-    timeout: 600
-    delay: 30
-    host: "{{ ec2_faz_instance.instances[0].public_dns_name }}"
+# - name: Wait until FortiAnalyzer boots up
+#   wait_for:
+#     port: 22
+#     state: started
+#     timeout: 600
+#     delay: 30
+#     host: "{{ ec2_faz_instance.instances[0].public_dns_name }}"
 
-- name: Wait until FortiManager boots up
-  wait_for:
-    port: 22
-    state: started
-    timeout: 600
-    delay: 30
-    host: "{{ ec2_fmg_instance.instances[0].public_dns_name }}"
+# - name: Wait until FortiManager boots up
+#   wait_for:
+#     port: 22
+#     state: started
+#     timeout: 600
+#     delay: 30
+#     host: "{{ ec2_fmg_instance.instances[0].public_dns_name }}"
 
