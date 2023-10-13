@@ -195,6 +195,11 @@
     delay: 30
     host: "{{ ec2_fgt_instance.instances[0].public_dns_name }}"
 
+- name: Sleep for 30 seconds and continue with play
+  wait_for:
+    timeout: 30
+  delegate_to: localhost
+  
 # - name: Wait until FortiAnalyzer boots up
 #   wait_for:
 #     port: 22
