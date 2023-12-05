@@ -18,6 +18,7 @@
       selector: cli_system_global
   register: system_global
   delegate_to: "{{ groups['fortianalyzer'][0] }}"
+  ignore_errors: true
 
 - name: fortianalyzer_name var
   debug:
