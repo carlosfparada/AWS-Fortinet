@@ -10,6 +10,7 @@
       os_type: unknown
       type: normal
     state: present
+  ignore_errors: true
 
 - name: Get FortiAnalyzer facts cli_system_global
   fortinet.fortianalyzer.faz_fact:
