@@ -22,15 +22,15 @@
     - main.yml
     - "{{infra}}.yml"
   tasks:
-    - include_role: 
-        name: fortianalyzer_setup_wmware
-      when: infra == 'vmware'
-    - include_role: 
-        name: fortianalyzer_setup_aws
-      when: infra == 'aws'
-    - include_role: 
-        name: fortianalyzer_access_aws
-      when: infra == 'aws'
+    # - include_role: 
+    #     name: fortianalyzer_setup_wmware
+    #   when: infra == 'vmware'
+    # - include_role: 
+    #     name: fortianalyzer_setup_aws
+    #   when: infra == 'aws'
+    # - include_role: 
+    #     name: fortianalyzer_access_aws
+    #   when: infra == 'aws'
     # generate fortigate token and get data
     # - include_role: 
     #     name: fortigate_get_data
