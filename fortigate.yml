@@ -35,8 +35,8 @@
         name: fortigate_config_network
     - include_role: 
         name: fortigate_create_rules
-    # - include_role: 
-    #     name: fortigate_connect_fortianalyzer
+    - include_role: 
+        name: fortigate_connect_fortianalyzer
     - include_role: 
         name: fortigate_gather_facts
 
