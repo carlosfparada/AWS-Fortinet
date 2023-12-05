@@ -130,7 +130,7 @@
   ansible.builtin.debug:
     msg: "Instance DNS name is: {{ ec2_fgt_instance.instances[0].public_dns_name }} with IP address {{ ec2_fgt_instance.instances[0].public_ip_address }}"
 
-FortiAnalyzer
+#FortiAnalyzer
 - name: Get AMI by Name (FortiAnalyzer)
   amazon.aws.ec2_ami_info:
     filters:
@@ -158,7 +158,7 @@ FortiAnalyzer
   ansible.builtin.debug:
     msg: "Instance DNS name is: {{ ec2_faz_instance.instances[0].public_dns_name }} with IP address {{ ec2_faz_instance.instances[0].public_ip_address }}"
 
-FortiManager
+#FortiManager
 - name: Get AMI by Name (FortiManager)
   amazon.aws.ec2_ami_info:
     filters:
