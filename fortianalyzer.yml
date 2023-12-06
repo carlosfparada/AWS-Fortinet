@@ -31,7 +31,7 @@
     - include_role: 
         name: fortianalyzer_access_aws
       when: infra == 'aws'
-    generate fortigate token and get data
+    # generate fortigate token and get data
     - include_role: 
         name: fortigate_get_data
         apply:
