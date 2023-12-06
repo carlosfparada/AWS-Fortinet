@@ -38,6 +38,7 @@
       fortinet.fortimanager.fmgr_dvm_cmd_add_device:
         dvm_cmd_add_device:
           adom: "root"
+          device:
             adm_usr: "admin"
             adm_pass: "admin"
             desc: 'The device was added using Ansible'
