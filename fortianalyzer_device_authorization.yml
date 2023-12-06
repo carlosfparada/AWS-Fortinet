@@ -75,6 +75,7 @@
           show-fct-manager: disable
           show-hostname: disable
           show-log-forwarding: disable
+      ignore_errors: true
 
     - name: Create System Settings profile (Admin -> Profile)
       fortinet.fortianalyzer.faz_cli_system_admin_profile:
@@ -92,6 +93,7 @@
           run-report: read-write
           triage-events: read-write
         state: present
+      ignore_errors: true
 
     - name: Create System Settings admin (Admin -> Administrators)
       fortinet.fortianalyzer.faz_cli_system_admin_user:
@@ -103,6 +105,7 @@
           profileid: MyProfile
           two-factor-auth: disable
         state: present
+      ignore_errors: true
 
     - name: Create System Settings Log File Management (Advanced -> File Management)
       fortinet.fortianalyzer.faz_cli_system_autodelete:
@@ -127,4 +130,5 @@
             runat: 5 #2:00
             value: 500
             status: enable
+      ignore_errors: true
 
