@@ -38,9 +38,9 @@
       register: _add_fortigate
       ignore_errors: true
 
-    - name: Debug FortiAnalyzer to Authorize Fortigate add
-      debug:
-        var: _add_fortigate
+    # - name: Debug FortiAnalyzer to Authorize Fortigate add
+    #   debug:
+    #     var: _add_fortigate
 
     - name: FortiAnalyzer discovery port (fgfm)
       fortinet.fortianalyzer.faz_cli_system_interface:
