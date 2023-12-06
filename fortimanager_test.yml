@@ -73,3 +73,28 @@
             name: 'FAZVM64-AWS'
             sn: 'FAZ-VMTM23017706'
       ignore_errors: yes
+
+- name: Get FortiManager facts
+  fortinet.fortimanager.fmgr_fact:
+    facts:
+        selector: dvmdb_adom
+        params:
+          adom: "{{ domain }}"
+  ignore_errors: yes 
+
+- name: "Get FortiManager facts dvmdb_adom {{ domain }}"
+  fortinet.fortimanager.fmgr_fact:
+    facts:
+        selector: dvmdb_adom
+        params:
+          adom: "{{ domain }}"
+  ignore_errors: yes
+
+- name: Get FortiManager facts dvmdb_device
+  fortinet.fortimanager.fmgr_fact:
+    facts:
+        selector: dvmdb_device
+        params:
+            adom: "{{ domain }}"
+            device: ""
+  ignore_errors: yes
