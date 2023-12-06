@@ -132,7 +132,7 @@
             status: enable
       ignore_errors: true
 
-- name: "Get FortiAnalyzer facts dvmdb_adom {{ domain }}"
+- name: "Get FortiAnalyzer facts dvmdb_adom root"
   fortinet.fortianalyzer.faz_fact:
     facts:
         selector: dvmdb_adom
