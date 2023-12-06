@@ -22,4 +22,22 @@
     - main.yml
     - "{{infra}}.yml"
   tasks:
+    - name: FortiAnalyzer to Authorize Fortigate add
+      fortinet.fortianalyzer.faz_dvm_cmd_add_device:
+        dvm_cmd_add_device:
+          adom: "root"
+          device:
+            adm_pass: "admin"
+            adm_usr: "adminadmin"
+            desc: 'The device is added via FortiAnalyzer Ansible'
+            ip: "10.0.0.104"
+            name: "FGTAWSXFPH0A7X9D"
+            sn: "FGTAWSXFPH0A7X9D" 
+            mgmt_mode: faz
+            device action: "promote_unreg"
+      register: _add_fortigate
+      ignore_errors: true
 
+    - name: Debug FortiAnalyzer to Authorize Fortigate add
+      debug:
+        var: _add_fortigate
