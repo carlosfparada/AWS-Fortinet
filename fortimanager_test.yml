@@ -79,15 +79,15 @@
     facts:
         selector: dvmdb_adom
         params:
-          adom: "{{ domain }}"
+          adom: "root"
   ignore_errors: yes 
 
-- name: "Get FortiManager facts dvmdb_adom {{ domain }}"
+- name: "Get FortiManager facts dvmdb_adom root"
   fortinet.fortimanager.fmgr_fact:
     facts:
         selector: dvmdb_adom
         params:
-          adom: "{{ domain }}"
+          adom: "root"
   ignore_errors: yes
 
 - name: Get FortiManager facts dvmdb_device
@@ -95,6 +95,6 @@
     facts:
         selector: dvmdb_device
         params:
-            adom: "{{ domain }}"
+            adom: "root"
             device: ""
   ignore_errors: yes
