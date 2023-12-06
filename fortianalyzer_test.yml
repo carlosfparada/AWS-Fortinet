@@ -132,3 +132,19 @@
             status: enable
       ignore_errors: true
 
+- name: "Get FortiAnalyzer facts dvmdb_adom {{ domain }}"
+  fortinet.fortianalyzer.faz_fact:
+    facts:
+        selector: dvmdb_adom
+        params:
+          adom: "root"
+  ignore_errors: yes
+
+- name: Get FortiAnalyzer facts dvmdb_device
+  fortinet.fortianalyzer.faz_fact:
+    facts:
+        selector: dvmdb_device
+        params:
+            adom: "root"
+            device: ""
+  ignore_errors: yes
