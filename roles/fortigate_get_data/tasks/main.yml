@@ -33,10 +33,11 @@
     access_token: "{{ fortigate_token }}"
     selectors:
     #  - selector: "firewall_policy"
-    #  - selector: "system_global"
+      - selector: "system_global"
     #  - selector: "system_interface"
     #  - selector: "firewall_address"
   register: _fortinet_facts
+  delegate_to: "{{ groups['fortigate'][0] }}"
   ignore_errors: yes
 
 - name: Debug FortiGate Facts
