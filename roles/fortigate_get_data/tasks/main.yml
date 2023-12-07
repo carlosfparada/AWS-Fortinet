@@ -27,10 +27,6 @@
   debug:
     var: fortigate_token
 
-- name: Fortigate
-  debug:
-    var: groups['fortigate'][0]
-
 - name: Gather facts from Fortinet FortiGate
   fortinet.fortios.fortios_configuration_fact:
     vdom: "{{ domain }}"
