@@ -43,7 +43,7 @@
     #  - selector: "firewall_policy"
       - selector: "system_global"
   register: _fortinet_facts
-  delegate_to: "{{ groups['fortigate'][0] }}"
+  #delegate_to: "{{ groups['fortigate'][0] }}"
   ignore_errors: yes
 
 - name: Debug FortiGate Facts

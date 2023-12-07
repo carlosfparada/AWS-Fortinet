@@ -14,6 +14,20 @@
       name: utils_hosts_aws
     when: infra == 'aws'
 
+- name: Fortinet FortiGate roles
+  hosts: fortigate
+  connection: httpapi
+  gather_facts: no
+  vars_files: 
+    - main.yml
+    - "{{infra}}.yml"
+  tasks:
+    - include_role: 
+        name: fortigate_get_data
+        #apply:
+        #  delegate_to: "{{ groups['fortigate'][0] }}"
+      when: infra == 'aws'
+
 - name: Fortinet FortiAnalyzer roles
   hosts: fortianalyzer
   connection: httpapi
@@ -32,11 +46,11 @@
         name: fortianalyzer_access_aws
       when: infra == 'aws'
     # generate fortigate token and get data
-    - include_role: 
-        name: fortigate_get_data
-        #apply:
-        #  delegate_to: "{{ groups['fortigate'][0] }}"
-      when: infra == 'aws'
+    # - include_role: 
+    #     name: fortigate_get_data
+    #     #apply:
+    #     #  delegate_to: "{{ groups['fortigate'][0] }}"
+    #   when: infra == 'aws'
     - include_role: 
         name: fortianalyzer_device_authorization
     - include_role: 
