@@ -27,21 +27,13 @@
   debug:
     var: fortigate_token
 
-- name: Fortigate Domain
-  debug:
-    var: domain
-
-- name: Fortigate fortigate
-  debug:
-    var: groups['fortigate'][0]
-
 - name: Gather facts from Fortinet FortiGate
   fortinet.fortios.fortios_configuration_fact:
     vdom: "{{ domain }}"
     access_token: "{{ fortigate_token }}"
     selectors:
-    #  - selector: "firewall_policy"
-      - selector: "system_global"
+      - selector: "firewall_policy"
+     # - selector: "system_global"
   register: _fortinet_facts
   #delegate_to: "{{ groups['fortigate'][0] }}"
   ignore_errors: yes
