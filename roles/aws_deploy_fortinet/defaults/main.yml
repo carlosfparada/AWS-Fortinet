@@ -17,11 +17,11 @@ ec2_eni_name1: ENI1
 # ENI2
 ec2_eni_name2: ENI2
 # IGW
-ec2_igw_name: IGW1
+ec2_igw_name: IGW
 # Route Table
-ec2_rt_name: RT1
+ec2_rt_name: RT
 # RHEL Open ports
-ec2_sg_name: SG1
+ec2_sg_name: SG
 ec2_sg_openports:
   - 80
   - 443
