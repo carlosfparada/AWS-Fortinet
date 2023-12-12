@@ -7,7 +7,7 @@
     region: "{{ ec2_vpc_region }}"
     state: present
     tags:
-      name: "{{ ec2_vpc_name }}"
+      Name: "{{ ec2_vpc_name }}"
   register: vpc
 
 - name: Create Subnet default in VPC
@@ -18,7 +18,7 @@
     az: "{{ ec2_subnet_az }}"
     state: present
     tags:
-      name: "{{ ec2_subnet_name }}"
+      Name: "{{ ec2_subnet_name }}"
   register: subnet
 
 - name: Create Subnet 1 in VPC
@@ -29,7 +29,7 @@
     az: "{{ ec2_subnet_az }}"
     state: present
     tags:
-      name: "{{ ec2_subnet_name1 }}"
+      Name: "{{ ec2_subnet_name1 }}"
   register: subnet1
 
 - name: Create Subnet 2 in VPC
@@ -40,7 +40,7 @@
     az: "{{ ec2_subnet_az }}"
     state: present
     tags:
-      name: "{{ ec2_subnet_name2 }}"
+      Name: "{{ ec2_subnet_name2 }}"
   register: subnet2
 
 - name: Create Internet Gateway (IGW)
@@ -49,7 +49,7 @@
     region: "{{ ec2_vpc_region }}"
     state: present
     tags:
-      name: "{{ ec2_igw_name }}"
+      Name: "{{ ec2_igw_name }}"
   register: igw
 
 - name: Create Route Table and IGW route
@@ -58,7 +58,7 @@
     region: "{{ ec2_vpc_region }}"
     state: present
     tags:
-      name: "{{ ec2_rt_name }}"
+      Name: "{{ ec2_rt_name }}"
     subnets:
       - "{{ subnet.subnet.id }}"
     routes:
@@ -78,7 +78,7 @@
     region: "{{ ec2_vpc_region }}"
     vpc_id: "{{ vpc.vpc.id }}"
     tags:
-      name: "{{ ec2_sg_name }}"
+      Name: "{{ ec2_sg_name }}"
 
 # FortiGate
 - name: Get AMI by Name (FortiGate)
@@ -100,7 +100,7 @@
     network:
       assign_public_ip: true
     tags:
-      name: "{{ ec2_fgt_instance_name }}"
+      Name: "{{ ec2_fgt_instance_name }}"
     state: running
   register: ec2_fgt_instance
 
@@ -150,7 +150,7 @@
     network:
       assign_public_ip: true
     tags:
-      name: "{{ ec2_faz_instance_name }}"
+      Name: "{{ ec2_faz_instance_name }}"
     state: running
   register: ec2_faz_instance
 
@@ -178,7 +178,7 @@
     network:
       assign_public_ip: true
     tags:
-      name: "{{ ec2_fmg_instance_name }}"
+      Name: "{{ ec2_fmg_instance_name }}"
     state: running
   register: ec2_fmg_instance
 
