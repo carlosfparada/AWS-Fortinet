@@ -16,6 +16,7 @@ fg_services:
 
 fg_fw_rules:
   - name: rule_D
+    self: 4
     src:
       interface: "port3"
       addresses:
@@ -39,6 +40,7 @@ fg_fw_rules:
       logging_close: true
       ips_sensor: "default"
   - name: rule_C
+    self: 3
     src:
       interface: "port2"
       addresses:
@@ -61,30 +63,8 @@ fg_fw_rules:
       logging_init: false
       logging_close: true
       ips_sensor: "default"
-  - name: rule_A
-    src:
-      interface: "port2"
-      addresses:
-        - name: "inside_host_A"
-          ipv4: "10.10.2.1"
-    dest:
-      interface: "port3"
-      addresses:
-        - name: "pub_host_A"
-          type: host
-          ipv4: "7.7.7.1"
-        - name: "pub_host_B"
-          type: host
-          ipv4: "7.7.7.2"
-    services:
-      - http
-      - https
-    rule:
-      action: "permit"
-      logging_init: false
-      logging_close: true
-      ips_sensor: "default"
   - name: rule_B
+    self: 2
     src:
       interface: "port3"
       addresses:
@@ -99,6 +79,30 @@ fg_fw_rules:
       addresses:
         - name: "inside_host_B"
           ipv4: "10.10.2.8"
+    services:
+      - http
+      - https
+    rule:
+      action: "permit"
+      logging_init: false
+      logging_close: true
+      ips_sensor: "default"
+  - name: rule_A
+    self: 1
+    src:
+      interface: "port2"
+      addresses:
+        - name: "inside_host_A"
+          ipv4: "10.10.2.1"
+    dest:
+      interface: "port3"
+      addresses:
+        - name: "pub_host_A"
+          type: host
+          ipv4: "7.7.7.1"
+        - name: "pub_host_B"
+          type: host
+          ipv4: "7.7.7.2"
     services:
       - http
       - https
