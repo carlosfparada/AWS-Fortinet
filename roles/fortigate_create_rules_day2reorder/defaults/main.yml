@@ -16,7 +16,7 @@ fg_services:
 
 fg_fw_rules:
   - name: rule_D
-    policyid: 1
+    policyid: 4
     src:
       interface: "port3"
       addresses:
@@ -40,7 +40,7 @@ fg_fw_rules:
       logging_close: true
       ips_sensor: "default"
   - name: rule_C
-    policyid: 2
+    policyid: 3
     src:
       interface: "port2"
       addresses:
@@ -64,7 +64,7 @@ fg_fw_rules:
       logging_close: true
       ips_sensor: "default"
   - name: rule_B
-    policyid: 3
+    policyid: 2
     src:
       interface: "port3"
       addresses:
@@ -88,7 +88,7 @@ fg_fw_rules:
       logging_close: true
       ips_sensor: "default"
   - name: rule_A
-    policyid: 4
+    policyid: 1
     src:
       interface: "port2"
       addresses:
