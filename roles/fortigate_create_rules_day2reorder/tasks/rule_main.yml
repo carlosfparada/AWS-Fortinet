@@ -8,3 +8,14 @@
     label: "{{ _rule.name }}"
     loop_var: _rule
   when: fg_fw_rules | length > 0 
+
+
+- name: Reoder Rules
+  fortios_firewall_policy:
+    vdom:  "root"
+    action: "move"
+    self: "4"
+    #after: "1"
+    before: "1"
+  #when: item.mkey > 
+  #loop: "{{ fg_fw_rules }}"
