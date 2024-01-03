@@ -81,7 +81,7 @@
 - name: "Generate add rule {{ _rule.name }} with policyID: {{ _next_policyid }}"
   fortinet.fortios.fortios_firewall_policy:
     vdom: "{{ domain }}"
-    self: "{{ _rule.mkey }}" 
+    #self: "{{ _rule.mkey }}" 
     access_token: "{{ fortigate_token }}"
     state: present
     firewall_policy: 
