@@ -40,7 +40,7 @@ fg_fw_rules:
       logging_close: true
       ips_sensor: "default"
   - name: rule_E
-    mkey: 3
+    mkey: 5
     src:
       interface: "port2"
       addresses:
