@@ -10,13 +10,15 @@
   when: fg_fw_rules | length > 0 
 
 
-# - name: Reoder Rules
-#   fortios_firewall_policy:
-#     vdom: "{{ domain }}"
-#     access_token: "{{ fortigate_token }}"
-#     action: "move"
-#     self: "4"
-#     #after: "1"
-#     before: "1"
-#   #when: item.mkey > 
-#   loop: "{{ fg_fw_rules | reverse }}"
+- name: Reoder Rules
+  fortios_firewall_policy:
+    vdom: "{{ domain }}"
+    access_token: "{{ fortigate_token }}"
+    action: "move"
+    self: "4"
+    #after: "1"
+    after: "{{ fg_fw_rules|length + 1 - index}}"
+  loop: "{{ fg_fw_rules|reverse }}"
+  loop_control:
+    index_var: index
+
