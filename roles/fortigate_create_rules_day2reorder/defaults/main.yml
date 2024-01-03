@@ -1,0 +1,109 @@
+---
+
+domain: "root"
+
+ansible_network_os: fortinet.fortios.fortios
+ansible_connection: httpapi
+ansible_httpapi_use_ssl: yes
+ansible_httpapi_validate_certs: no
+ansible_httpapi_port: 443
+
+fg_services:
+  dns-tcp: service-dns-tcp
+  dns-udp: service-dns-udp
+  http: HTTP
+  https: HTTPS
+
+fg_fw_rules:
+  - name: rule_C
+    src:
+      interface: "port2"
+      addresses:
+        - name: "inside_host_D"
+          ipv4: "10.10.2.3"
+    dest:
+      interface: "port3"
+      addresses:
+        - name: "pub_host_A"
+          type: host
+          ipv4: "7.7.7.1"
+        - name: "pub_host_B"
+          type: host
+          ipv4: "7.7.7.2"
+    services:
+      - http
+      - https
+    rule:
+      action: "permit"
+      logging_init: false
+      logging_close: true
+      ips_sensor: "default"
+  - name: rule_A
+    src:
+      interface: "port2"
+      addresses:
+        - name: "inside_host_A"
+          ipv4: "10.10.2.1"
+    dest:
+      interface: "port3"
+      addresses:
+        - name: "pub_host_A"
+          type: host
+          ipv4: "7.7.7.1"
+        - name: "pub_host_B"
+          type: host
+          ipv4: "7.7.7.2"
+    services:
+      - http
+      - https
+    rule:
+      action: "permit"
+      logging_init: false
+      logging_close: true
+      ips_sensor: "default"
+  - name: rule_D
+    src:
+      interface: "port3"
+      addresses:
+        - name: "pub_host_E"
+          type: host
+          ipv4: "7.7.7.3"
+        - name: "pub_host_F"
+          type: host
+          ipv4: "7.7.7.4"
+    dest:
+      interface: "port2"
+      addresses:
+        - name: "inside_host_C"
+          ipv4: "10.10.2.4"
+    services:
+      - http
+      - https
+    rule:
+      action: "permit"
+      logging_init: false
+      logging_close: true
+      ips_sensor: "default"
+  - name: rule_B
+    src:
+      interface: "port3"
+      addresses:
+        - name: "pub_host_I"
+          type: host
+          ipv4: "7.7.7.5"
+        - name: "pub_host_H"
+          type: host
+          ipv4: "7.7.7.6"
+    dest:
+      interface: "port2"
+      addresses:
+        - name: "inside_host_B"
+          ipv4: "10.10.2.8"
+    services:
+      - http
+      - https
+    rule:
+      action: "permit"
+      logging_init: false
+      logging_close: true
+      ips_sensor: "default"
