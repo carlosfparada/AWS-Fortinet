@@ -14,7 +14,7 @@
     access_token: "{{ fortigate_token }}"
     action: "move"
     self: "{{ item.0.policyid }}"
-    before: "{{ item.1.mkey }}"
+    before: "{{ fg_fw_rules|length - index}}"
     #after: "{{ fg_fw_rules|length - index}}"
   when: item.0.policyid != item.1.mkey
   # with_nested:
