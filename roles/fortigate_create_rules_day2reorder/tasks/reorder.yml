@@ -1,5 +1,7 @@
 ---
 
+# https://community.fortinet.com/t5/Support-Forum/Moving-Policies-up-or-down/m-p/159611
+
 - name: Reoder Rules (before)
   fortios_firewall_policy:
     vdom: "{{ domain }}"
