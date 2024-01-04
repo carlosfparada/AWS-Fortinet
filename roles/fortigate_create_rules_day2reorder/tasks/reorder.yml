@@ -13,14 +13,14 @@
     vdom: "{{ domain }}"
     access_token: "{{ fortigate_token }}"
     action: "move"
-    self: "{{ item.0.order }}"
-    after: "{{ fg_fw_rules|length - index}}"
+    self: "{{ index + 1 }}"
+    after: "{{ item.0.order }}"
     #before: "{{ fg_fw_rules|length - index}}"
-  when: item.0.policyid != item.1.mkey
+  when: (index + 1) != item.0.order
   # with_nested:
   #   - "{{ _fg_facts.results|reverse }}"
   #   - "{{ fg_fw_rules|reverse }}"
-  loop: "{{ _fg_facts.meta[0].results|reverse|product(fg_fw_rules|reverse)|list }}"
+  loop: "{{ _fg_facts.meta[0].results|product(fg_fw_rules)|list }}"
   loop_control:
     index_var: index
 
