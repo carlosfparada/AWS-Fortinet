@@ -15,8 +15,56 @@ fg_services:
   https: HTTPS
 
 fg_fw_rules:
-  - name: rule_E
-    after: 5
+  - name: rule_A
+    after: 1
+    src:
+      interface: "port2"
+      addresses:
+        - name: "inside_host_A"
+          ipv4: "10.10.2.1"
+    dest:
+      interface: "port3"
+      addresses:
+        - name: "pub_host_A"
+          type: host
+          ipv4: "7.7.7.1"
+        - name: "pub_host_B"
+          type: host
+          ipv4: "7.7.7.2"
+    services:
+      - http
+      - https
+    rule:
+      action: "permit"
+      logging_init: false
+      logging_close: true
+      ips_sensor: "default"
+  - name: rule_B
+    after: 2
+    src:
+      interface: "port3"
+      addresses:
+        - name: "pub_host_I"
+          type: host
+          ipv4: "7.7.7.5"
+        - name: "pub_host_H"
+          type: host
+          ipv4: "7.7.7.6"
+    dest:
+      interface: "port2"
+      addresses:
+        - name: "inside_host_B"
+          ipv4: "10.10.2.8"
+    services:
+      - http
+      - https
+    rule:
+      action: "permit"
+      logging_init: false
+      logging_close: true
+      ips_sensor: "default"
+  - name: rule_C
+    after: 3
     src:
       interface: "port2"
       addresses:
@@ -63,61 +111,13 @@ fg_fw_rules:
       logging_init: false
       logging_close: true
       ips_sensor: "default"
-  - name: rule_C
-    after: 3
+  - name: rule_E
+    after: 5
     src:
       interface: "port2"
       addresses:
         - name: "inside_host_D"
           ipv4: "10.10.2.3"
-    dest:
-      interface: "port3"
-      addresses:
-        - name: "pub_host_A"
-          type: host
-          ipv4: "7.7.7.1"
-        - name: "pub_host_B"
-          type: host
-          ipv4: "7.7.7.2"
-    services:
-      - http
-      - https
-    rule:
-      action: "permit"
-      logging_init: false
-      logging_close: true
-      ips_sensor: "default"
-  - name: rule_B
-    after: 2
-    src:
-      interface: "port3"
-      addresses:
-        - name: "pub_host_I"
-          type: host
-          ipv4: "7.7.7.5"
-        - name: "pub_host_H"
-          type: host
-          ipv4: "7.7.7.6"
-    dest:
-      interface: "port2"
-      addresses:
-        - name: "inside_host_B"
-          ipv4: "10.10.2.8"
-    services:
-      - http
-      - https
-    rule:
-      action: "permit"
-      logging_init: false
-      logging_close: true
-      ips_sensor: "default"
-  - name: rule_A
-    after: 1
-    src:
-      interface: "port2"
-      addresses:
-        - name: "inside_host_A"
-          ipv4: "10.10.2.1"
     dest:
       interface: "port3"
       addresses:
