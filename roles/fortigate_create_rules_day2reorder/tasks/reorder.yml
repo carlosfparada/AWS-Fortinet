@@ -13,7 +13,7 @@
     vdom: "{{ domain }}"
     access_token: "{{ fortigate_token }}"
     action: "move"
-    self: "{{ item.policyid | string }}"
+    self: "{{ item.policyid }}"
     before: "{{ item.before }}"
     #before: "{{ fg_fw_rules|length - index}}"
   #when: (index + 1) != item.0.order

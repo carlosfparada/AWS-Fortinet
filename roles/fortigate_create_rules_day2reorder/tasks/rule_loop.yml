@@ -86,7 +86,7 @@
     state: present
     firewall_policy: 
       #policyid: "{{ _next_policyid }}"
-      policyid: "{{ _rule.name }}"
+      policyid: "{{ _rule.policyid }}"
       name: "{{ _rule.name }}" 
       srcaddr: "{{ _src_names }}"
       srcintf:
