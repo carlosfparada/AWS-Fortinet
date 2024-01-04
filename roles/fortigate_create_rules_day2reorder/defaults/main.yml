@@ -70,7 +70,7 @@ fg_fw_rules:
   - name: rule_C
     policyid: 3
     #before:
-    after: 2
+    after: 5
     src:
       interface: "port2"
       addresses:
