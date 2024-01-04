@@ -62,29 +62,31 @@
     var:  _services
     verbosity: 2
 
-- name: Gather policy ids from Fortigate
-  fortinet.fortios.fortios_configuration_fact: 
-    vdom: "{{ domain }}"
-    access_token: "{{ fortigate_token }}"
-    selectors:
-      - selector: firewall_policy
-  register: _fg_facts
+# - name: Gather policy ids from Fortigate
+#   fortinet.fortios.fortios_configuration_fact: 
+#     vdom: "{{ domain }}"
+#     access_token: "{{ fortigate_token }}"
+#     selectors:
+#       - selector: firewall_policy
+#   register: _fg_facts
 
-- name: Find duplicate policy name and set ID
-  set_fact: 
-    _next_policyid: "{{ item.policyid }}"
-  when: item.name == _rule.name
-  loop: "{{ _fg_facts.meta[0].results }}"
-  loop_control:
-    label: "{{ item.name }}"
+# - name: Find duplicate policy name and set ID
+#   set_fact: 
+#     _next_policyid: "{{ item.policyid }}"
+#   when: item.name == _rule.name
+#   loop: "{{ _fg_facts.meta[0].results }}"
+#   loop_control:
+#     label: "{{ item.name }}"
 
-- name: "Generate add rule {{ _rule.name }} with policyID: {{ _next_policyid }}"
+# - name: "Generate add rule {{ _rule.name }} with policyID: {{ _next_policyid }}"
+- name: "Generate add rule {{ _rule.name }} with policyID: {{ _rule.policy }}"
   fortinet.fortios.fortios_firewall_policy:
     vdom: "{{ domain }}"
     access_token: "{{ fortigate_token }}"
     state: present
     firewall_policy: 
-      policyid: "{{ _next_policyid }}"
+      #policyid: "{{ _next_policyid }}"
+      policyid: "{{ _rule.name }}"
       name: "{{ _rule.name }}" 
       srcaddr: "{{ _src_names }}"
       srcintf:
