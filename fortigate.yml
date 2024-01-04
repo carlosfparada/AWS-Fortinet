@@ -39,4 +39,3 @@
     #     name: fortigate_connect_fortianalyzer
     - include_role: 
         name: fortigate_gather_facts
-
