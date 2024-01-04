@@ -67,7 +67,7 @@ fg_fw_rules:
       ips_sensor: "default"
   - name: rule_C
     policyid: 3
-    before: 3
+    #before: 3
     src:
       interface: "port2"
       addresses:

@@ -16,7 +16,7 @@
     self: "{{ item.policyid }}"
     before: "{{ item.before }}"
     #before: "{{ fg_fw_rules|length - index}}"
-  #when: (index + 1) != item.0.order
+  # when: (index + 1) != item.0.order
   # with_nested:
   #   - "{{ _fg_facts.results|reverse }}"
   #   - "{{ fg_fw_rules|reverse }}"
