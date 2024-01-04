@@ -119,29 +119,4 @@ fg_fw_rules:
       logging_init: false
       logging_close: true
       ips_sensor: "default"
-  - name: rule_E
-    policyid: 5
-    before: 1
-    #after: 
-    src:
-      interface: "port2"
-      addresses:
-        - name: "inside_host_D"
-          ipv4: "10.10.2.3"
-    dest:
-      interface: "port3"
-      addresses:
-        - name: "pub_host_A"
-          type: host
-          ipv4: "7.7.7.1"
-        - name: "pub_host_B"
-          type: host
-          ipv4: "7.7.7.2"
-    services:
-      - http
-      - https
-    rule:
-      action: "permit"
-      logging_init: false
-      logging_close: true
-      ips_sensor: "default"
+
