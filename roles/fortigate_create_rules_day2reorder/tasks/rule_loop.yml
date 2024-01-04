@@ -107,7 +107,7 @@
     self: "{{ _next_policyid }}"
     after: "{{ _rule.after }}"
   #when: policy.changed == true
-  when: _rule.after id defined
+  when: _rule.after is defined
 
 - name: Reoder Policy Rule (before)
   fortios_firewall_policy:
@@ -117,4 +117,4 @@
     self: "{{ _next_policyid }}"
     before: "{{ _rule.before }}"
   #when: policy.changed == true
-  when: _rule.before id defined
+  when: _rule.before is defined
