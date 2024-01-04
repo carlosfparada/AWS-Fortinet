@@ -121,8 +121,8 @@ fg_fw_rules:
       ips_sensor: "default"
   - name: rule_E
     policyid: 5
-    before: 1
-    #after: 
+    #before: 1
+    after: 3
     src:
       interface: "port2"
       addresses:
