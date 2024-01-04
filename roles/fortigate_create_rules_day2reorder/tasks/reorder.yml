@@ -14,13 +14,14 @@
     access_token: "{{ fortigate_token }}"
     action: "move"
     self: "{{ item.policyid }}"
-    before: "{{ item.order }}"
+    before: "{{ item.before }}"
     #before: "{{ fg_fw_rules|length - index}}"
   #when: (index + 1) != item.0.order
   # with_nested:
   #   - "{{ _fg_facts.results|reverse }}"
   #   - "{{ fg_fw_rules|reverse }}"
   # loop: "{{ _fg_facts.meta[0].results|product(fg_fw_rules)|list }}"
+  when: item.before is defined
   loop: "{{ fg_fw_rules }}"
   # loop_control:
   #   index_var: index
