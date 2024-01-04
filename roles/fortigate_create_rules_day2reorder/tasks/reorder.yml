@@ -20,7 +20,7 @@
   # with_nested:
   #   - "{{ _fg_facts.results|reverse }}"
   #   - "{{ fg_fw_rules|reverse }}"
-  loop: "{{ _fg_facts.meta.results|product(fg_fw_rules)|list }}"
+  loop: "{{ _fg_facts.meta[0].results|product(fg_fw_rules)|list }}"
   loop_control:
     index_var: index
 
