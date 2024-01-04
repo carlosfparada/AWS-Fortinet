@@ -100,23 +100,3 @@
       utm_status: "{{ _utm_status | default(omit) }}"
       schedule: always
   register: policy
-
-# - name: Reoder Policy Rule (after)
-#   fortios_firewall_policy:
-#     vdom: "{{ domain }}"
-#     access_token: "{{ fortigate_token }}"
-#     action: "move"
-#     self: "{{ _next_policyid }}"
-#     after: "{{ _rule.after }}"
-#   #when: policy.changed == true
-#   when: _rule.after is defined and _next_policyid != _rule.after
-
-# - name: Reoder Policy Rule (before)
-#   fortios_firewall_policy:
-#     vdom: "{{ domain }}"
-#     access_token: "{{ fortigate_token }}"
-#     action: "move"
-#     self: "{{ _next_policyid }}"
-#     before: "{{ _rule.before }}"
-#   #when: policy.changed == true
-#   when: _rule.before is defined
