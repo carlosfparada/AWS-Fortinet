@@ -81,7 +81,6 @@
 - name: "Generate add rule {{ _rule.name }} with policyID: {{ _next_policyid }}"
   fortinet.fortios.fortios_firewall_policy:
     vdom: "{{ domain }}"
-    self: "{{ _rule.mkey }}" 
     access_token: "{{ fortigate_token }}"
     state: present
     firewall_policy: 
@@ -99,3 +98,12 @@
       utm_status: "{{ _utm_status | default(omit) }}"
       schedule: always
   register: policy
+
+- name: Reoder Policy Rule
+  fortios_firewall_policy:
+    vdom: "{{ domain }}"
+    access_token: "{{ fortigate_token }}"
+    action: "move"
+    self: "{{ _next_policyid }}"
+    after: "{{ _rule.order }}"
+  when: policy.changed == true
