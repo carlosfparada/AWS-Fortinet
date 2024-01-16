@@ -47,12 +47,14 @@ ipv4_address:
     interface: port2
     mode: static
     ip: 10.0.1.16 255.255.255.0
-    allowaccess: ping
+    allowaccess:
+      - ping
   - name: port3
     interface: port3
     mode: static
     ip: 10.0.2.16 255.255.255.0
-    allowaccess: ping
+    allowaccess:
+      - ping
 
 ipv4_routing:
   - device: port2
