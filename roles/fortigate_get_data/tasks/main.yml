@@ -25,7 +25,7 @@
 
 - name: Fortigate Token
   debug:
-    msg: "Fortigate: {{ groups['fortigate'][0] }}, Token: {{ fortigate_token }}"
+    msg: "Token: {{ fortigate_token }}"
 
 - name: Gather facts from Fortinet FortiGate
   fortinet.fortios.fortios_configuration_fact:
