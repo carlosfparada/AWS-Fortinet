@@ -6,6 +6,8 @@
   gather_facts: no
   vars_files: 
     - main.yml
+  vars:
+    ansible_command_timeout: 300
   tasks:
   - include_role: 
       name: utils_hosts_vmware
@@ -21,6 +23,8 @@
   vars_files: 
     - main.yml
     - "{{infra}}.yml"
+  vars:
+    ansible_command_timeout: 300    
   tasks:
     - include_role: 
         name: fortigate_get_data
@@ -33,6 +37,8 @@
   vars_files: 
     - main.yml
     - "{{infra}}.yml"
+  vars:
+    ansible_command_timeout: 300   
   tasks:
     - include_role: 
         name: fortianalyzer_setup_wmware
