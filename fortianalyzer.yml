@@ -24,8 +24,6 @@
   tasks:
     - include_role: 
         name: fortigate_get_data
-        apply:
-         delegate_to: "{{ groups['fortigate'][0] }}"
       when: infra == 'aws'
 
 - name: Fortinet FortiAnalyzer roles

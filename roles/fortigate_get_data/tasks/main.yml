@@ -9,19 +9,19 @@
       'password:': "{{ new_password }}"
       '# ': "{{ api_config }}"
   register: output
-  #delegate_to: localhost
+  delegate_to: localhost
 
 - name: Sleep for 30 seconds and continue with play
   wait_for:
     timeout: 30
-  #delegate_to: localhost
+  delegate_to: localhost
 
 - name: Set Fortigate Token variable
   set_fact:
     fortigate_token: "{{ item.split(' ')[3] }}"
   loop: "{{ output.stdout_lines }}"
   when: "'New API key' in item"
-  #delegate_to: localhost
+  delegate_to: localhost
 
 - name: Fortigate Token
   debug:
@@ -32,11 +32,8 @@
     vdom: "{{ domain }}"
     access_token: "{{ fortigate_token }}"
     selectors:
-      - selector: firewall_policy
-      #- selector: "system_global"
+      - selector: "system_global"
   register: _fortinet_facts
-  # delegate_to: "{{ groups['fortigate'][0] }}"
-  # delegate_facts: true
 
 - name: Debug FortiGate Facts
   debug:
@@ -57,3 +54,4 @@
 - name: Debug FortiGate Name
   debug:
     var: _fortinet_facts.meta[1].results.hostname
+
