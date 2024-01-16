@@ -24,8 +24,8 @@
   tasks:
     - include_role: 
         name: fortigate_get_data
-        #apply:
-        #  delegate_to: "{{ groups['fortigate'][0] }}"
+        apply:
+         delegate_to: "{{ groups['fortigate'][0] }}"
       when: infra == 'aws'
 
 - name: Fortinet FortiAnalyzer roles
@@ -46,13 +46,13 @@
         name: fortianalyzer_access_aws
       when: infra == 'aws'
     # generate fortigate token and get data
-    # - include_role: 
-    #     name: fortigate_get_data
-    #     apply:
-    #      delegate_to: "{{ groups['fortigate'][0] }}"
-    #   when: infra == 'aws'
-    # - include_role: 
-    #     name: fortianalyzer_device_authorization
+    - include_role: 
+        name: fortigate_get_data
+        apply:
+         delegate_to: "{{ groups['fortigate'][0] }}"
+      when: infra == 'aws'
+    - include_role: 
+        name: fortianalyzer_device_authorization
     - include_role: 
         name: fortianalyzer_config_settings
     - include_role: 
