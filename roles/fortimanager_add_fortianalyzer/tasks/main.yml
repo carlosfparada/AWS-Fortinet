@@ -19,6 +19,7 @@
 - name: Debug FortiAnalyzer device discovery
   debug:
     var: _probed_fortianalyzer
+  ignore_errors: true
 
 - name: Add FortiAnalyzer device to FortiManager
   fortinet.fortimanager.fmgr_dvm_cmd_add_device:

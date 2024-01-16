@@ -16,20 +16,20 @@
   fortinet.fortianalyzer.faz_fact:
     facts:
       selector: cli_system_global
-  register: system_global
+  register: _system_global
   delegate_to: "{{ groups['fortianalyzer'][0] }}"
   ignore_errors: true
 
 - name: fortianalyzer_name var
   debug:
-    msg: "{{ system_global.meta.system_information.Hostname }}"
+    msg: "{{ _system_global.meta.system_information.Hostname }}"
   ignore_errors: true
 
 - name: Add FortiAnalyzer as a Group member
   fortinet.fortimanager.fmgr_dvmdb_group_objectmember:
     adom: "{{ domain }}"
     dvmdb_group_objectmember:
-      name: "{{ system_global.meta.system_information.Hostname }}"
+      name: "{{ _system_global.meta.system_information.Hostname }}"
       vdom: "{{ domain }}"
     group: Group1
     state: present
@@ -56,6 +56,7 @@
       show-device-import-export: disable
       show-fct-manager: disable
       show-hostname: disable
+  ignore_errors: true
 
 - name: Create System Settings profile (Admin -> Profile)
   fortinet.fortimanager.fmgr_system_admin_profile:
@@ -71,6 +72,7 @@
       fgd-center-licensing: read-write
       fgd-center-fmw-mgmt: read-write
     state: present
+  ignore_errors: true
 
 - name: Create System Settings admin (Admin -> Administrators)
   fortinet.fortimanager.fmgr_system_admin_user:
@@ -82,3 +84,4 @@
       profileid: MyProfile
       two-factor-auth: disable
     state: present
+  ignore_errors: true

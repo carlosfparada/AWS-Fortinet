@@ -19,6 +19,7 @@
 - name: Debug FortiGate device discovery
   debug:
     var: _probed_fortigate
+  ignore_errors: true
 
 - name: Add FortiGate device to FortiManager
   fortinet.fortimanager.fmgr_dvm_cmd_add_device:
