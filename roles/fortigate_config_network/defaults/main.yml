@@ -35,11 +35,19 @@ ansible_httpapi_validate_certs: no
 ansible_httpapi_port: 443
 
 ipv4_address:
+  - name: port1
+    interface: port1
+    allowaccess:
+      - ping
+      - https
+      - ssh
+      - http
+      - fgfm
   - name: port2
     interface: port2
     mode: static
     ip: 10.0.1.16 255.255.255.0
-    allowaccess: ping
+    allowaccess: 
   - name: port3
     interface: port3
     mode: static
