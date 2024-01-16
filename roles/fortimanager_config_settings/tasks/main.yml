@@ -23,6 +23,7 @@
 - name: fortianalyzer_name var
   debug:
     msg: "{{ system_global.meta.system_information.Hostname }}"
+  ignore_errors: true
 
 - name: Add FortiAnalyzer as a Group member
   fortinet.fortimanager.fmgr_dvmdb_group_objectmember:
