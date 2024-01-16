@@ -33,9 +33,10 @@ ec2_sg_openports:
 
 # Fortigate
 # AMI
-ec2_fgt_image_name: FortiGate-VM64-AWSONDEMAND build2463 (7.4.1) GA-3124a694-441c-4ff1-8bf7-4d153be424a6
 # AMI - byol
 #ec2_fgt_image_name: FortiGate-VM64-AWS build2463 (7.4.1) GA-e5936f4a-0d69-479f-919c-d5e158bd4d12
+#ec2_fgt_image_name: FortiGate-VM64-AWSONDEMAND build2463 (7.4.1) GA-3124a694-441c-4ff1-8bf7-4d153be424a6
+ec2_fgt_image_name: FortiGate-VM64-AWS build2571 (7.4.2) GA-e5936f4a-0d69-479f-919c-d5e158bd4d12
 # Flavour 
 ec2_fgt_flavor_name: c6i.xlarge
 # Key Pair
@@ -45,7 +46,8 @@ ec2_fgt_instance_name: fortigate-1
 
 # FortiAnalyzer
 # AMI - byol
-ec2_faz_image_name: FortiAnalyzer-VM64-AWS build2308 (7.4.1) GA-a0cc1ba3-1642-429d-adfa-6b6c66dfacb9
+#ec2_faz_image_name: FortiAnalyzer-VM64-AWS build2308 (7.4.1) GA-a0cc1ba3-1642-429d-adfa-6b6c66dfacb9
+ec2_faz_image_name: FortiAnalyzer VM64-AWS build2397 (7.4.2) GA-a0cc1ba3-1642-429d-adfa-6b6c66dfacb9
 # Flavour 
 ec2_faz_flavor_name: m5.xlarge
 # Key Pair
@@ -55,7 +57,8 @@ ec2_faz_instance_name: fortianalyzer-1
 
 # FortiManager
 # AMI
-ec2_fmg_image_name: FortiManager VM64-AWS build2308 (7.4.1) GA-0ba08f70-6838-4190-9961-0b00d77b74fc
+#ec2_fmg_image_name: FortiManager VM64-AWS build2308 (7.4.1) GA-0ba08f70-6838-4190-9961-0b00d77b74fc
+ec2_fmg_image_name: FortiManager VM64-AWS build2397 (7.4.2) GA-0ba08f70-6838-4190-9961-0b00d77b74fc
 # Flavour 
 ec2_fmg_flavor_name: m5.xlarge
 # Key Pair
