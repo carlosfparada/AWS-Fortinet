@@ -36,6 +36,7 @@
       #- selector: "system_global"
   register: _fortinet_facts
   delegate_to: "{{ groups['fortigate'][0] }}"
+  delegate_facts: true
 
 - name: Debug FortiGate Facts
   debug:
