@@ -1,15 +1,15 @@
-fortigate: fortigate-1
-fortianalyzer: fortianalyzer-1
-fortimanager: fortimanager-1
-domain: "root"
+# fortigate: fortigate-1
+# fortianalyzer: fortianalyzer-1
+# fortimanager: fortimanager-1
+# domain: "root"
 
-controller_host: 172.16.1.45:443
-controller_username: admin
-fortinet_username: admin
-fortinet_password: adminadmin
+# controller_host: 172.16.1.45:443
+# controller_username: admin
+# fortinet_username: admin
+# fortinet_password: adminadmin
 
-ansible_network_os: fortinet.fortios.fortios
-ansible_connection: httpapi
-ansible_httpapi_use_ssl: yes
-ansible_httpapi_validate_certs: no
-ansible_httpapi_port: 443
+# ansible_network_os: fortinet.fortios.fortios
+# ansible_connection: httpapi
+# ansible_httpapi_use_ssl: yes
+# ansible_httpapi_validate_certs: no
+# ansible_httpapi_port: 443
