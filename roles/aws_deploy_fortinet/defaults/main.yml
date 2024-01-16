@@ -38,8 +38,8 @@ ec2_fgt_image_name: FortiGate-VM64-AWSONDEMAND build2571 (7.4.2) GA-3124a694-441
 # AMI - byol
 #ec2_fgt_image_name: FortiGate-VM64-AWS build2463 (7.4.1) GA-e5936f4a-0d69-479f-919c-d5e158bd4d12
 # Flavour 
-ec2_fgt_flavor_name: c5.large
-#ec2_fgt_flavor_name: c6i.xlarge
+#ec2_fgt_flavor_name: c5.large
+ec2_fgt_flavor_name: c6i.xlarge
 # Key Pair
 ec2_fgt_key_name: "KeyPair-Virginia"
 # Instance
