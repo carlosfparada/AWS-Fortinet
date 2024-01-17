@@ -39,7 +39,7 @@
   fortinet.fortimanager.fmgr_dvmdb_group:
     adom: "{{ domain }}"
     dvmdb_group:
-      name: "Group FortiGate"
+      name: "GroupFortiGate"
       os_type: unknown
       type: normal
     state: present
@@ -51,7 +51,7 @@
     dvmdb_group_objectmember:
       name: "{{ _probed_fortigate.meta.response_data.device.hostname }}"
       vdom: "{{ domain }}"
-    group: "Group FortiGate"
+    group: "GroupFortiGate"
     state: present
   ignore_errors: true
   
