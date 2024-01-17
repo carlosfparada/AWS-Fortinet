@@ -24,8 +24,8 @@
   tasks:
     - name: Gather facts from Fortinet FortiGate
       fortinet.fortios.fortios_configuration_fact:
-        vdom: "{{ domain }}"
-        access_token: "{{ fortigate_token }}"
+        vdom: "root"
+        access_token: "t4zmkN3b93095hcNwm9jgy1qct06j1"
         selectors:
           - selector: system_global
       register: _fortinet_facts
