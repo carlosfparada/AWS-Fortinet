@@ -1,40 +1,4 @@
 ---
-
-# Device Management
-
-# - name: Creation of a FortiManager Device Group
-#   fortinet.fortimanager.fmgr_dvmdb_group:
-#     adom: "{{ domain }}"
-#     dvmdb_group:
-#       name: Group1
-#       os_type: unknown
-#       type: normal
-#     state: present
-#   ignore_errors: true
-
-# # - name: Get FortiAnalyzer facts cli_system_global
-# #   fortinet.fortianalyzer.faz_fact:
-# #     facts:
-# #       selector: cli_system_global
-# #   register: _system_global
-# #   delegate_to: "{{ groups['fortianalyzer'][0] }}"
-# #   ignore_errors: true
-
-# # - name: fortianalyzer_name var
-# #   debug:
-# #     msg: "{{ _system_global.meta.system_information.Hostname }}"
-# #   ignore_errors: true
-
-# - name: Add FortiGate as a Group member
-#   fortinet.fortimanager.fmgr_dvmdb_group_objectmember:
-#     adom: "{{ domain }}"
-#     dvmdb_group_objectmember:
-#       #name: "{{ _system_global.meta.system_information.Hostname }}"
-#       name: "{{ groups['fortigate'][0] }}"
-#       vdom: "{{ domain }}"
-#     group: Group1
-#     state: present
-#   ignore_errors: true
   
 # System Settings
 
@@ -57,7 +21,6 @@
       show-device-import-export: disable
       show-fct-manager: disable
       show-hostname: disable
-  ignore_errors: true
 
 - name: Create System Settings profile (Admin -> Profile)
   fortinet.fortimanager.fmgr_system_admin_profile:
@@ -73,7 +36,6 @@
       fgd-center-licensing: read-write
       fgd-center-fmw-mgmt: read-write
     state: present
-  ignore_errors: true
 
 - name: Create System Settings admin (Admin -> Administrators)
   fortinet.fortimanager.fmgr_system_admin_user:
@@ -85,4 +47,3 @@
       profileid: MyProfile
       two-factor-auth: disable
     state: present
-  ignore_errors: true

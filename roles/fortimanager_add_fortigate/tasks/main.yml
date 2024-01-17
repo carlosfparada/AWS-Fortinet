@@ -14,12 +14,10 @@
         adm_usr: "{{ adm_usr }}"
         ip: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
   register: _probed_fortigate
-  ignore_errors: true
 
 - name: Debug FortiGate device discovery
   debug:
     var: _probed_fortigate
-  ignore_errors: true
 
 - name: Add FortiGate device to FortiManager
   fortinet.fortimanager.fmgr_dvm_cmd_add_device:
@@ -33,7 +31,6 @@
         mgmt_mode: 'fmg'
         name: '{{ _probed_fortigate.meta.response_data.device.name }}'
         sn: '{{ _probed_fortigate.meta.response_data.device.sn }}'
-  ignore_errors: true
 
 - name: Creation of a FortiManager Device Group
   fortinet.fortimanager.fmgr_dvmdb_group:
@@ -43,7 +40,6 @@
       os_type: unknown
       type: normal
     state: present
-  ignore_errors: true
 
 - name: Add FortiGate as a Group member
   fortinet.fortimanager.fmgr_dvmdb_group_objectmember:
@@ -53,5 +49,4 @@
       vdom: "{{ domain }}"
     group: "GroupFortiGate"
     state: present
-  ignore_errors: true
   
