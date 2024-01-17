@@ -25,7 +25,7 @@
 #     msg: "{{ _system_global.meta.system_information.Hostname }}"
 #   ignore_errors: true
 
-- name: Add FortiAnalyzer as a Group member
+- name: Add FortiGate as a Group member
   fortinet.fortimanager.fmgr_dvmdb_group_objectmember:
     adom: "{{ domain }}"
     dvmdb_group_objectmember:
