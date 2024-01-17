@@ -12,29 +12,30 @@
     state: present
   ignore_errors: true
 
-- name: Get FortiAnalyzer facts cli_system_global
-  fortinet.fortianalyzer.faz_fact:
-    facts:
-      selector: cli_system_global
-  register: _system_global
-  delegate_to: "{{ groups['fortianalyzer'][0] }}"
-  ignore_errors: true
+# - name: Get FortiAnalyzer facts cli_system_global
+#   fortinet.fortianalyzer.faz_fact:
+#     facts:
+#       selector: cli_system_global
+#   register: _system_global
+#   delegate_to: "{{ groups['fortianalyzer'][0] }}"
+#   ignore_errors: true
 
-- name: fortianalyzer_name var
-  debug:
-    msg: "{{ _system_global.meta.system_information.Hostname }}"
-  ignore_errors: true
+# - name: fortianalyzer_name var
+#   debug:
+#     msg: "{{ _system_global.meta.system_information.Hostname }}"
+#   ignore_errors: true
 
 - name: Add FortiAnalyzer as a Group member
   fortinet.fortimanager.fmgr_dvmdb_group_objectmember:
     adom: "{{ domain }}"
     dvmdb_group_objectmember:
-      name: "{{ _system_global.meta.system_information.Hostname }}"
+      #name: "{{ _system_global.meta.system_information.Hostname }}"
+      name: "{{ groups['fortigate'][0] }}"
       vdom: "{{ domain }}"
     group: Group1
     state: present
   ignore_errors: true
-
+  
 # System Settings
 
 - name: Config System Settings (Admin -> Admin Settings)
