@@ -16,19 +16,19 @@
       name: utils_hosts_aws
     when: infra == 'aws'
 
-- name: Fortinet FortiGate roles
-  hosts: fortigate
-  connection: httpapi
-  gather_facts: no
-  vars_files: 
-    - main.yml
-    - "{{infra}}.yml"
-  vars:
-    ansible_command_timeout: 300    
-  tasks:
-    - include_role: 
-        name: fortigate_get_data
-      when: infra == 'aws'
+# - name: Fortinet FortiGate roles
+#   hosts: fortigate
+#   connection: httpapi
+#   gather_facts: no
+#   vars_files: 
+#     - main.yml
+#     - "{{infra}}.yml"
+#   vars:
+#     ansible_command_timeout: 300    
+#   tasks:
+#     - include_role: 
+#         name: fortigate_get_data
+#       when: infra == 'aws'
 
 - name: Fortinet FortiAnalyzer roles
   hosts: fortianalyzer
