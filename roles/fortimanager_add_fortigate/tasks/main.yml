@@ -34,3 +34,37 @@
         name: '{{ _probed_fortigate.meta.response_data.device.name }}'
         sn: '{{ _probed_fortigate.meta.response_data.device.sn }}'
   ignore_errors: true
+
+- name: Creation of a FortiManager Device Group
+  fortinet.fortimanager.fmgr_dvmdb_group:
+    adom: "{{ domain }}"
+    dvmdb_group:
+      name: Group FortiGate
+      os_type: unknown
+      type: normal
+    state: present
+  ignore_errors: true
+
+# - name: Get FortiAnalyzer facts cli_system_global
+#   fortinet.fortianalyzer.faz_fact:
+#     facts:
+#       selector: cli_system_global
+#   register: _system_global
+#   delegate_to: "{{ groups['fortianalyzer'][0] }}"
+#   ignore_errors: true
+
+# - name: fortianalyzer_name var
+#   debug:
+#     msg: "{{ _system_global.meta.system_information.Hostname }}"
+#   ignore_errors: true
+
+- name: Add FortiGate as a Group member
+  fortinet.fortimanager.fmgr_dvmdb_group_objectmember:
+    adom: "{{ domain }}"
+    dvmdb_group_objectmember:
+      name: "{{ _probed_fortigate.meta.response_data.device.hostname }}"
+      vdom: "{{ domain }}"
+    group: Group FortiGate
+    state: present
+  ignore_errors: true
+  
