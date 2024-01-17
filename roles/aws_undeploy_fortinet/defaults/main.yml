@@ -65,7 +65,7 @@ ec2_faz_instance_name: fortianalyzer-1
 #ec2_fmg_image_name: FortiManager VM64-AWSOnDemand build2397 (7.4.2) GA-699721cb-aa98-4257-b591-42ead5c55849
 # AMI - byol
 #ec2_fmg_image_name: FortiManager VM64-AWS build2308 (7.4.1) GA-0ba08f70-6838-4190-9961-0b00d77b74fc
-ec2_faz_image_name: FortiManager VM64-AWS build2397 (7.4.2) GA-0ba08f70-6838-4190-9961-0b00d77b74fc
+ec2_fmg_image_name: FortiManager VM64-AWS build2397 (7.4.2) GA-0ba08f70-6838-4190-9961-0b00d77b74fc
 # Flavour 
 #ec2_fmg_flavor_name: t2.large
 ec2_fmg_flavor_name: m5.xlarge
