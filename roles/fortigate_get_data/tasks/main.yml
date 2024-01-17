@@ -9,23 +9,23 @@
       'password:': "{{ new_password }}"
       '# ': "{{ api_config }}"
   register: output
-  #delegate_to: localhost
+  delegate_to: localhost
 
 - name: Reset ssh connection
   ansible.builtin.meta: reset_connection
-  #delegate_to: localhost
+  delegate_to: localhost
 
 - name: Sleep for 10 seconds and continue with play
   wait_for:
     timeout: 10
-  #delegate_to: localhost
+  delegate_to: localhost
 
 - name: Set Fortigate Token variable
   set_fact:
     fortigate_token: "{{ item.split(' ')[3] }}"
   loop: "{{ output.stdout_lines }}"
   when: "'New API key' in item"
-  #delegate_to: localhost
+  delegate_to: localhost
 
 - name: Fortigate Token
   debug:
