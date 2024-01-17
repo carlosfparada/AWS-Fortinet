@@ -14,6 +14,15 @@
       name: utils_hosts_aws
     when: infra == 'aws'
 
+- name: Gather facts from Fortinet FortiGate
+  fortinet.fortios.fortios_configuration_fact:
+    vdom: "{{ domain }}"
+    access_token: "{{ fortigate_token }}"
+    selectors:
+      - selector: system_global
+  register: _fortinet_facts
+  delegate_to: "{{ groups['fortigate'][0] }}"
+
 - name: Fortinet FortiAnalyzer roles
   hosts: fortianalyzer
   connection: httpapi
