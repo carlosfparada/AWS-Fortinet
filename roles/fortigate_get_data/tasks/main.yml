@@ -53,7 +53,7 @@
 
 - name: Set FortiGate Name variable
   set_fact:
-    fortigate_name: "{{ _fortinet_facts.meta[1].results.hostname }}"
+    fortigate_name: "{{ _fortinet_facts.meta[0].results.hostname }}"
 
 - name: Debug FortiGate Name
   debug:
