@@ -30,7 +30,6 @@
 - name: Reset ssh connection
   ansible.builtin.meta: reset_connection
 
-- name: Sleep for 30 seconds and continue with play
+- name: Sleep for 10 seconds and continue with play
   wait_for:
-    timeout: 30
-  delegate_to: localhost
+    timeout: 10

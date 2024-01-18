@@ -14,12 +14,10 @@
         adm_usr: "{{ adm_usr }}"
         ip: "{{ hostvars[groups['fortianalyzer'][0]].private_ip_address }}"
   register: _probed_fortianalyzer
-  ignore_errors: yes
 
 - name: Debug FortiAnalyzer device discovery
   debug:
     var: _probed_fortianalyzer
-  ignore_errors: true
 
 - name: Add FortiAnalyzer device to FortiManager
   fortinet.fortimanager.fmgr_dvm_cmd_add_device:
@@ -33,4 +31,3 @@
         mgmt_mode: 'fmg'
         name: '{{ _probed_fortianalyzer.meta.response_data.device.name }}'
         sn: '{{ _probed_fortianalyzer.meta.response_data.device.sn }}'
-  ignore_errors: yes

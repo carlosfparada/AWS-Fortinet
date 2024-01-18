@@ -1,8 +1,5 @@
 ---
 
-# - debug: 
-#     msg: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}, {{ fortigate_name }}, {{ fortigate_serial }}" 
-
 - name: FortiAnalyzer to Authorize Fortigate add
   fortinet.fortianalyzer.faz_dvm_cmd_add_device:
     dvm_cmd_add_device:
