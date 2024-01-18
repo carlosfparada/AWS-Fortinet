@@ -162,7 +162,8 @@
 - name: Get AMI by Name (FortiManager)
   amazon.aws.ec2_ami_info:
     filters:
-      name: "{{ ec2_fmg_image_name }}"
+      id: "{{ ec2_fmg_image_id }}"
+      #name: "{{ ec2_fmg_image_name }}"
     region: "{{ ec2_vpc_region }}"
   register: ami_fmg_find
 
