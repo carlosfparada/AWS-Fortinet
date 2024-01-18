@@ -12,6 +12,7 @@
       upload_option: realtime
       status: enable
   register: _fortinet_log_settings
+  when: groups['fortianalyzer'] is defined
 
 - name: Debug FortiGate connect FortiAnalyzer logs settings
   debug:
