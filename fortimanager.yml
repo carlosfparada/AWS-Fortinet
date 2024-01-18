@@ -6,8 +6,8 @@
   gather_facts: no
   vars_files: 
     - main.yml
-  vars:
-    ansible_command_timeout: 300
+  # vars:
+  #   ansible_command_timeout: 300
   tasks:
   - include_role: 
       name: utils_hosts_vmware
@@ -23,8 +23,8 @@
   vars_files: 
     - main.yml
     - "{{infra}}.yml"
-  vars:
-    ansible_command_timeout: 300
+  # vars:
+  #   ansible_command_timeout: 300
   tasks:
     - include_role:
         name: fortimanager_setup_wmware
@@ -35,8 +35,8 @@
     - include_role: 
         name: fortimanager_access_aws
       when: infra == 'aws'
-    # - include_role: 
-    #     name: fortimanager_add_fortianalyzer
+    - include_role: 
+        name: fortimanager_add_fortianalyzer
     - include_role:
         name: fortimanager_add_fortigate
     - include_role: 
