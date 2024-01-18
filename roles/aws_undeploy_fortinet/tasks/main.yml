@@ -55,6 +55,7 @@
     region: "{{ ec2_vpc_region }}"
     filters:
       "tag:Name": "{{ ec2_fmg_instance_name }}"
+  tags: full
 
 - name: Terminate FortiAnalyzer instance
   amazon.aws.ec2_instance:
@@ -62,6 +63,7 @@
     region: "{{ ec2_vpc_region }}"
     filters:
       "tag:Name": "{{ ec2_faz_instance_name }}"
+  tags: full
 
 - name: Terminate FortiGate instance
   amazon.aws.ec2_instance:

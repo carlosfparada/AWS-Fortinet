@@ -139,6 +139,7 @@
       #name: "{{ ec2_faz_image_name }}"
     region: "{{ ec2_vpc_region }}"
   register: ami_faz_find
+  tags: full
 
 - name: Create FortiAnalyzer instance
   amazon.aws.ec2_instance:
@@ -155,10 +156,12 @@
       Name: "{{ ec2_faz_instance_name }}"
     state: running
   register: ec2_faz_instance
+  tags: full
 
 - name: Print FortiAnalyzer instance details
   ansible.builtin.debug:
     msg: "Instance DNS name is: {{ ec2_faz_instance.instances[0].public_dns_name }} with IP address {{ ec2_faz_instance.instances[0].public_ip_address }}"
+  tags: full
 
 #FortiManager
 - name: Get AMI by Name (FortiManager)
@@ -168,6 +171,7 @@
       #name: "{{ ec2_fmg_image_name }}"
     region: "{{ ec2_vpc_region }}"
   register: ami_fmg_find
+  tags: full
 
 - name: Create FortiManager instance
   amazon.aws.ec2_instance:
@@ -184,10 +188,12 @@
       Name: "{{ ec2_fmg_instance_name }}"
     state: running
   register: ec2_fmg_instance
+  tags: full
 
 - name: Print FortiManager instance details
   ansible.builtin.debug:
     msg: "Instance DNS name is: {{ ec2_fmg_instance.instances[0].public_dns_name }} with IP address {{ ec2_fmg_instance.instances[0].public_ip_address }}"
+  tags: full
 
 # Wait for boot ups
 - name: Wait until FortiGate boots up
@@ -205,6 +211,7 @@
     timeout: 600
     delay: 30
     host: "{{ ec2_faz_instance.instances[0].public_dns_name }}"
+  tags: full
 
 - name: Wait until FortiManager boots up
   wait_for:
@@ -213,6 +220,7 @@
     timeout: 600
     delay: 30
     host: "{{ ec2_fmg_instance.instances[0].public_dns_name }}"
+  tags: full
 
 - name: Sleep for 30 seconds and continue with play
   wait_for:
