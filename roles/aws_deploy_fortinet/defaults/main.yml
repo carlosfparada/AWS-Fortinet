@@ -62,7 +62,8 @@ ec2_faz_instance_name: fortianalyzer-1
 # FortiManager
 # AMI
 # 2 Managed Nodes
-ec2_fmg_image_id: ami-06449afb90e1524e0
+#ec2_fmg_image_id: ami-06449afb90e1524e0 #v6.4.13
+ec2_fmg_image_id: ami-0ff257f1ea4a341c8 #v7.0.9
 #ec2_fmg_image_name: FortiManager VM64-AWSOnDemand build2397 (7.4.2) GA-5d6aff10-05ff-4cc5-ac93-ef8a6ce51c77
 # 10 Managed Nodes
 #ec2_fmg_image_name: FortiManager VM64-AWSOnDemand build2397 (7.4.2) GA-699721cb-aa98-4257-b591-42ead5c55849
