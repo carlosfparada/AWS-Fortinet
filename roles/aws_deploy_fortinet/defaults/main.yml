@@ -33,7 +33,8 @@ ec2_sg_openports:
 
 # Fortigate
 # AMI
-ec2_fgt_image_name: FortiGate-VM64-AWSONDEMAND build2571 (7.4.2) GA-3124a694-441c-4ff1-8bf7-4d153be424a6
+ec2_fgt_image_id: ami-08ddb86a9817b419a # v7.0.13
+#ec2_fgt_image_name: FortiGate-VM64-AWSONDEMAND build2571 (7.4.2) GA-3124a694-441c-4ff1-8bf7-4d153be424a6
 # AMI - byol
 #ec2_fgt_image_name: FortiGate-VM64-AWS build2571 (7.4.2) GA-e5936f4a-0d69-479f-919c-d5e158bd4d12
 # Flavour 
@@ -45,7 +46,8 @@ ec2_fgt_instance_name: fortigate-1
 
 # FortiAnalyzer
 # 2 Managed Nodes
-ec2_faz_image_name: FortiAnalyzer VM64-AWSOnDemand build2397 (7.4.2) GA-9e82717a-78e4-4f57-9ef9-d50bdc2838a4
+ec2_faz_image_id: ami-0f4ef674bd83d052a # v7.0.10
+#ec2_faz_image_name: FortiAnalyzer VM64-AWSOnDemand build2397 (7.4.2) GA-9e82717a-78e4-4f57-9ef9-d50bdc2838a4
 # 10 Managed Nodes
 #ec2_faz_image_name: FortiAnalyzer VM64-AWSOnDemand build2397 (7.4.2) GA-5bc06b01-2e8b-4205-b84c-8ac24e5925cb
 # AMI - byol
@@ -62,7 +64,6 @@ ec2_faz_instance_name: fortianalyzer-1
 # FortiManager
 # AMI
 # 2 Managed Nodes
-#ec2_fmg_image_id: ami-06449afb90e1524e0 #v6.4.13
 ec2_fmg_image_id: ami-0be53223769fdebde #v7.0.10
 #ec2_fmg_image_name: FortiManager VM64-AWSOnDemand build2397 (7.4.2) GA-5d6aff10-05ff-4cc5-ac93-ef8a6ce51c77
 # 10 Managed Nodes
