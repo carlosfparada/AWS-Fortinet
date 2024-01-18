@@ -7,5 +7,6 @@
   vars_files: 
     - main.yml
     - "{{infra}}.yml"
-  roles:
-    - aws_deploy_fortinet
+  tasks:
+    - include_role: 
+        name: aws_deploy_fortinet
