@@ -6,7 +6,7 @@
   fortinet.fortianalyzer.faz_dvmdb_group:
     adom: "{{ domain }}"
     dvmdb_group:
-      name: Group1
+      name: GroupFortiGate
       os_type: unknown
       type: normal
     state: present
@@ -17,9 +17,8 @@
     dvmdb_group_objectmember:
       name: "{{ fortigate_name }}"
       vdom: "{{ domain }}"
-    group: Group1
+    group: GroupFortiGate
     state: present
-  ignore_errors: true
 
 # System Settings
 
@@ -34,7 +33,6 @@
       - http
       - fgfm
     state: present
-  ignore_errors: true
 
 - name: Config System Settings (Admin -> Admin Settings)
   fortinet.fortianalyzer.faz_cli_system_admin_setting:

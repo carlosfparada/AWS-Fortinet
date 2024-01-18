@@ -52,7 +52,6 @@
             mgmt_mode: faz
             device action: "promote_unreg"
       register: _add_fortigate
-      ignore_errors: true
 
     # - name: Debug FortiAnalyzer to Authorize Fortigate add
     #   debug:
@@ -69,7 +68,6 @@
           - http
           - fgfm
         state: present
-      ignore_errors: true
 
     - name: Config System Settings (Admin -> Admin Settings)
       fortinet.fortianalyzer.faz_cli_system_admin_setting:
@@ -91,7 +89,6 @@
           show-fct-manager: disable
           show-hostname: disable
           show-log-forwarding: disable
-      ignore_errors: true
 
     - name: Create System Settings profile (Admin -> Profile)
       fortinet.fortianalyzer.faz_cli_system_admin_profile:
@@ -109,7 +106,6 @@
           run-report: read-write
           triage-events: read-write
         state: present
-      ignore_errors: true
 
     - name: Create System Settings admin (Admin -> Administrators)
       fortinet.fortianalyzer.faz_cli_system_admin_user:
@@ -121,7 +117,6 @@
           profileid: MyProfile
           two-factor-auth: disable
         state: present
-      ignore_errors: true
 
     - name: Create System Settings Log File Management (Advanced -> File Management)
       fortinet.fortianalyzer.faz_cli_system_autodelete:
@@ -146,7 +141,6 @@
             runat: 5 #2:00
             value: 500
             status: enable
-      ignore_errors: true
 
     - name: Get FortiAnalyzer facts dvmdb_adom root
       fortinet.fortianalyzer.faz_fact:
@@ -154,7 +148,6 @@
             selector: dvmdb_adom
             params:
               adom: "root"
-      ignore_errors: yes
 
     - name: Get FortiAnalyzer facts dvmdb_device
       fortinet.fortianalyzer.faz_fact:
@@ -163,4 +156,3 @@
             params:
                 adom: "root"
                 device: ""
-      ignore_errors: yes
