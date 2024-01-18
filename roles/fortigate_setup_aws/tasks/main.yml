@@ -13,12 +13,26 @@
         - "{{ new_password }}"  # in case setup was already run
       'New Password:': "{{ new_password }}" 
       'Confirm Password:': "{{ new_password }}"
+      'FGT': 'get system status'
       'FGT': "exit"
   no_log: false # hide passwords on logs
   ignore_errors: true
 
 - name: Reset ssh connection
   ansible.builtin.meta: reset_connection
+
+- name: Set Fortigate Serial Number variable
+  set_fact:
+    fortigate_serial: "{{ item.split(' ')[1] }}"
+  loop: "{{ output.stdout_lines }}"
+  when: "'Serial-Number:' in item"
+  delegate_to: localhost
+
+- name: Add a FortiCare license.
+  fortinet.fortios.fortios_registration_forticare:
+    vdom:  "{{ vdom }}"
+    registration_forticare:
+      registration_code: "{{ fortigate_serial }}"
 
 # - name: Change admin password
 #   ansible.builtin.expect:
@@ -43,8 +57,8 @@
 #   timeout: 60
 #   ignore_errors: yes
 
-- name: Sleep for 30 seconds and continue with play
+- name: Sleep for 10 seconds and continue with play
   wait_for:
-    timeout: 30
+    timeout: 10
   delegate_to: localhost
   
