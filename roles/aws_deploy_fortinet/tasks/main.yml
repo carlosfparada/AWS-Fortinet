@@ -214,7 +214,7 @@
     delay: 30
     host: "{{ ec2_fmg_instance.instances[0].public_dns_name }}"
 
-- name: Sleep for 60 seconds and continue with play
+- name: Sleep for 30 seconds and continue with play
   wait_for:
-    timeout: 60
+    timeout: 30
   delegate_to: localhost
