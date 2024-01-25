@@ -57,7 +57,6 @@ fg_fw_rules:
           type: host
           ipv4: "7.7.7.2"
     services:
-      - http
       - https
     rule:
       action: "permit"
