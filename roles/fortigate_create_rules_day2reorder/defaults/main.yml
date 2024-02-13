@@ -17,7 +17,7 @@ fg_services:
 fg_fw_rules:
   - name: rule_A
     policyid: 1
-    before: 5
+    #before: 5
     #after:
     src:
       interface: "port2"
@@ -43,7 +43,7 @@ fg_fw_rules:
       ips_sensor: "default"
   - name: rule_B
     policyid: 2
-    before: 4
+    #before: 4
     #after: 1
     src:
       interface: "port3"
@@ -69,7 +69,7 @@ fg_fw_rules:
       ips_sensor: "default"
   - name: rule_C
     policyid: 3
-    before: 1
+    #before: 1
     #after: 5
     src:
       interface: "port2"
@@ -95,7 +95,7 @@ fg_fw_rules:
       ips_sensor: "default"
   - name: rule_D
     policyid: 4
-    before: 2
+    #before: 2
     #after: 1
     src:
       interface: "port3"
@@ -121,7 +121,7 @@ fg_fw_rules:
       ips_sensor: "default"
   - name: rule_E
     policyid: 5
-    before: 1
+    #before: 1
     #after: 3
     src:
       interface: "port2"
