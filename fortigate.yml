@@ -34,7 +34,8 @@
     - include_role: 
         name: fortigate_config_network
     - include_role: 
-        name: fortigate_create_rules
+        #name: fortigate_create_rules
+        name: fortigate_create_rules_reorder
     - include_role: 
         name: fortigate_gather_facts
     - include_role: 
