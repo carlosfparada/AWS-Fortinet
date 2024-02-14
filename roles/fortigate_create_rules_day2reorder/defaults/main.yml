@@ -18,7 +18,7 @@ fg_fw_rules:
   - name: rule_A
     policyid: 1
     #before: 5
-    #after: 5
+    after: 5
     src:
       interface: "port2"
       addresses:
