@@ -226,7 +226,3 @@
   wait_for:
     timeout: 30
   delegate_to: localhost
-
-- ansible.builtin.assert:
-    that:
-      - "'foo' in some_command_result.stdout"
