@@ -46,7 +46,8 @@ ec2_fgt_instance_name: fortigate-1
 
 # FortiAnalyzer
 # 2 Managed Nodes
-ec2_faz_image_id: ami-0f4ef674bd83d052a # v7.0.10
+#ec2_faz_image_id: ami-0f4ef674bd83d052a # v7.0.10
+ec2_faz_image_id: ami-0d08c3856bc470ff7 # v 7.6.1
 #ec2_faz_image_name: FortiAnalyzer VM64-AWSOnDemand build2397 (7.4.2) GA-9e82717a-78e4-4f57-9ef9-d50bdc2838a4
 # 10 Managed Nodes
 #ec2_faz_image_name: FortiAnalyzer VM64-AWSOnDemand build2397 (7.4.2) GA-5bc06b01-2e8b-4205-b84c-8ac24e5925cb
