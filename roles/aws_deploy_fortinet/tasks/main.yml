@@ -167,7 +167,7 @@
 - name: Get AMI by Name (FortiManager)
   amazon.aws.ec2_ami_info:
     filters:
-      image-id: "{{ ec2_faz_image_id }}"
+      image-id: "{{ ec2_fmg_image_id }}"
       #name: "{{ ec2_fmg_image_name }}"
     region: "{{ ec2_vpc_region }}"
   register: ami_fmg_find
@@ -175,7 +175,8 @@
 
 - name: Create FortiManager instance
   amazon.aws.ec2_instance:
-    image_id: "{{ ami_fmg_find.images[-1].image_id | default('') }}"
+    #image_id: "{{ ami_fmg_find.images[-1].image_id | default('') }}"
+    image_id: "{{ ec2_fmg_image_id }}"
     instance_type: "{{ ec2_fmg_flavor_name }}"
     security_group: "{{ ec2_sg_name }}"
     name: "{{ ec2_fmg_instance_name }}"
