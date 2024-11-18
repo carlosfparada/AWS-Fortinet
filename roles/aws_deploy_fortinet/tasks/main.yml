@@ -84,8 +84,8 @@
 - name: Get AMI by Name (FortiGate)
   amazon.aws.ec2_ami_info:
     filters:
-      image-id: "{{ ec2_fgt_image_id }}"
-      #name: "{{ ec2_fgt_image_name }}"
+      #image_id: "{{ ec2_fgt_image_id }}"
+      name: "{{ ec2_fgt_image_name }}"
     region: "{{ ec2_vpc_region }}"
   register: ami_fgt_find
 
@@ -135,7 +135,7 @@
 - name: Get AMI by Name (FortiAnalyzer)
   amazon.aws.ec2_ami_info:
     filters:
-      image-id: "{{ ec2_faz_image_id }}"
+      image_id: "{{ ec2_faz_image_id }}"
       #name: "{{ ec2_faz_image_name }}"
     region: "{{ ec2_vpc_region }}"
   register: ami_faz_find
