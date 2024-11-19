@@ -34,8 +34,8 @@ ec2_sg_openports:
 # Fortigate
 # AMI
 #ec2_fgt_image_id: ami-08ddb86a9817b419a # v7.0.13
-ec2_fgt_image_id: "ami-0d33aefd9570ef336" # v7.6.1
-ec2_fgt_image_name: "FortiAnalyzer-VM64-AWSONDEMAND build3344 (7.6.1) GA-9e82717a-78e4-4f57-9ef9-d50bdc2838a4"
+ec2_fgt_image_id: "ami-011e11079bc4fa3f7" # v7.4.5
+ec2_fgt_image_name: "FortiGate-VM64-AWSONDEMAND build2702 (7.4.5) GA-3124a694-441c-4ff1-8bf7-4d153be424a6"
 #ec2_fgt_image_name: FortiGate-VM64-AWSONDEMAND build2095 (6.4.15) GA-3124a694-441c-4ff1-8bf7-4d153be424a6
 # AMI - byol
 #ec2_fgt_image_name: FortiGate-VM64-AWS build2571 (7.4.2) GA-e5936f4a-0d69-479f-919c-d5e158bd4d12
