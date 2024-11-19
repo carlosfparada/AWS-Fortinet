@@ -34,12 +34,14 @@ ec2_sg_openports:
 # Fortigate
 # AMI
 #ec2_fgt_image_id: ami-08ddb86a9817b419a # v7.0.13
-ec2_fgt_image_id: ami-0d33aefd9570ef336 # v7.6.0
+ec2_fgt_image_id: "ami-0d33aefd9570ef336" # v7.6.1
+ec2_fgt_image_name: "FortiAnalyzer-VM64-AWSONDEMAND build3344 (7.6.1) GA-9e82717a-78e4-4f57-9ef9-d50bdc2838a4"
 #ec2_fgt_image_name: FortiGate-VM64-AWSONDEMAND build2095 (6.4.15) GA-3124a694-441c-4ff1-8bf7-4d153be424a6
 # AMI - byol
 #ec2_fgt_image_name: FortiGate-VM64-AWS build2571 (7.4.2) GA-e5936f4a-0d69-479f-919c-d5e158bd4d12
 # Flavour 
-ec2_fgt_flavor_name: c6i.xlarge
+#ec2_fgt_flavor_name: c6i.xlarge
+ec2_fgt_flavor_name: m5.large
 # Key Pair
 ec2_fgt_key_name: "KeyPair-Virginia"
 # Instance
@@ -48,16 +50,15 @@ ec2_fgt_instance_name: fortigate-1
 # FortiAnalyzer
 # 2 Managed Nodes
 #ec2_faz_image_id: ami-0f4ef674bd83d052a # v7.0.10
-ec2_faz_image_id: ami-0d08c3856bc470ff7 # new v7.0.10
-ec2_faz_image_name: FortiAnalyzer VM64-AWSOnDemand build2397 (7.4.2) GA-9e82717a-78e4-4f57-9ef9-d50bdc2838a4
+ec2_faz_image_id: "ami-0d08c3856bc470ff7" # v7.6.1
+ec2_faz_image_name: "FortiAnalyzer-VM64-AWSONDEMAND build3344 (7.6.1) GA-9e82717a-78e4-4f57-9ef9-d50bdc2838a4"
 # 10 Managed Nodes
 #ec2_faz_image_name: FortiAnalyzer VM64-AWSOnDemand build2397 (7.4.2) GA-5bc06b01-2e8b-4205-b84c-8ac24e5925cb
 # AMI - byol
 #ec2_faz_image_name: FortiAnalyzer VM64-AWS build2397 (7.4.2) GA-a0cc1ba3-1642-429d-adfa-6b6c66dfacb9
 # Flavour 
-#ec2_faz_flavor_name: m5.large
-#ec2_faz_flavor_name: t2.large
-ec2_faz_flavor_name: m5.xlarge
+#ec2_faz_flavor_name: m5.xlarge
+ec2_faz_flavor_name: m5.large
 # Key Pair
 ec2_faz_key_name: "KeyPair-Virginia"
 # Instance
@@ -66,8 +67,9 @@ ec2_faz_instance_name: fortianalyzer-1
 # FortiManager
 # AMI
 # 2 Managed Nodes
-ec2_fmg_image_id: "ami-0be53223769fdebde" #v7.0.10
-ec2_fmg_image_name: FortiManager VM64-AWSOnDemand build0561 (7.0.10) GA-5d6aff10-05ff-4cc5-ac93-ef8a6ce51c77
+#ec2_fmg_image_id: "ami-0be53223769fdebde" #v7.0.10
+ec2_fmg_image_id: "ami-0eb28387205c08d95"
+ec2_fmg_image_name: "FortiManager-VM64-AWSONDEMAND build3344 (7.6.1) GA-5d6aff10-05ff-4cc5-ac93-ef8a6ce51c77"
 #ec2_fmg_image_name: FortiManager VM64-AWSOnDemand build2397 (7.4.2) GA-5d6aff10-05ff-4cc5-ac93-ef8a6ce51c77
 # 10 Managed Nodes
 #ec2_fmg_image_name: FortiManager VM64-AWSOnDemand build2397 (7.4.2) GA-699721cb-aa98-4257-b591-42ead5c55849
