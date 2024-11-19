@@ -99,8 +99,8 @@
     key_name: "{{ ec2_fgt_key_name }}"
     region: "{{ ec2_vpc_region }}"
     vpc_subnet_id: "{{ subnet.subnet.id }}"
-    network:
-      assign_public_ip: true
+    network_interfaces:
+      - assign_public_ip: true
     tags:
       Name: "{{ ec2_fgt_instance_name }}"
     state: running
@@ -152,8 +152,8 @@
     key_name: "{{ ec2_faz_key_name }}"
     region: "{{ ec2_vpc_region }}"
     vpc_subnet_id: "{{ subnet.subnet.id }}"
-    network:
-      assign_public_ip: true
+    network_interfaces:
+      - assign_public_ip: true
     tags:
       Name: "{{ ec2_faz_instance_name }}"
     state: running
@@ -185,8 +185,8 @@
     key_name: "{{ ec2_fmg_key_name }}"
     region: "{{ ec2_vpc_region }}"
     vpc_subnet_id: "{{ subnet.subnet.id }}"
-    network:
-      assign_public_ip: true
+    network_interfaces:
+      - assign_public_ip: true
     tags:
       Name: "{{ ec2_fmg_instance_name }}"
     state: running
