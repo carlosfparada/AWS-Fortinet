@@ -57,5 +57,5 @@
 
 - name: Debug FortiGate Name
   debug:
-    var: _fortinet_facts.meta[1].results.hostname
+    var: _fortinet_facts.meta[0].results.hostname
 
