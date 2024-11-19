@@ -36,8 +36,8 @@ ec2_sg_openports:
 #ec2_fgt_image_id: ami-08ddb86a9817b419a # v7.0.13
 ec2_fgt_image_id: "ami-011e11079bc4fa3f7" # v7.4.5
 ec2_fgt_image_name: "FortiGate-VM64-AWSONDEMAND build2702 (7.4.5) GA-3124a694-441c-4ff1-8bf7-4d153be424a6"
-ec2_fgt_image_id: "ami-0d33aefd9570ef336" # v7.6.0
-ec2_fgt_image_name: "FortiGate-VM64-AWSONDEMAND build3401 (7.6.0) GA-3124a694-441c-4ff1-8bf7-4d153be424a6"
+#ec2_fgt_image_id: "ami-0d33aefd9570ef336" # v7.6.0
+#ec2_fgt_image_name: "FortiGate-VM64-AWSONDEMAND build3401 (7.6.0) GA-3124a694-441c-4ff1-8bf7-4d153be424a6"
 # Flavour 
 ec2_fgt_flavor_name: c6i.xlarge
 #ec2_fgt_flavor_name: m5.large
@@ -56,8 +56,8 @@ ec2_faz_image_name: "FortiAnalyzer-VM64-AWSONDEMAND build3344 (7.6.1) GA-9e82717
 # AMI - byol
 #ec2_faz_image_name: FortiAnalyzer VM64-AWS build2397 (7.4.2) GA-a0cc1ba3-1642-429d-adfa-6b6c66dfacb9
 # Flavour 
-#ec2_faz_flavor_name: m5.xlarge
-ec2_faz_flavor_name: m5.large
+ec2_faz_flavor_name: m5.xlarge
+#ec2_faz_flavor_name: m5.large
 # Key Pair
 ec2_faz_key_name: "KeyPair-Virginia"
 # Instance
