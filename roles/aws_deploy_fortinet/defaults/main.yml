@@ -33,16 +33,16 @@ ec2_sg_openports:
 
 # Fortigate
 # AMI
-#ec2_fgt_image_id: "ami-0d2e1dbd88cb90d88" # v6.4.13
-#ec2_fgt_image_name: "FortiGate-VM64-AWSONDEMAND build2092 (6.4.13) GA-3124a694-441c-4ff1-8bf7-4d153be424a6"
+ec2_fgt_image_id: "ami-0d2e1dbd88cb90d88" # v6.4.13
+ec2_fgt_image_name: "FortiGate-VM64-AWSONDEMAND build2092 (6.4.13) GA-3124a694-441c-4ff1-8bf7-4d153be424a6"
 # ec2_fgt_image_id: "ami-0d07df5d15e85e47e" # v6.4.15
 # ec2_fgt_image_name: "FortiGate-VM64-AWSONDEMAND build2095 (6.4.15) GA-3124a694-441c-4ff1-8bf7-4d153be424a6"
 #ec2_fgt_image_id: "ami-08ddb86a9817b419a" # v7.0.13
 #ec2_fgt_image_name: "FortiGate-VM64-AWSONDEMAND build0566 (7.0.13) GA-3124a694-441c-4ff1-8bf7-4d153be424a6"
 #ec2_fgt_image_id: "ami-011e11079bc4fa3f7" # v7.4.5
 #ec2_fgt_image_name: "FortiGate-VM64-AWSONDEMAND build2702 (7.4.5) GA-3124a694-441c-4ff1-8bf7-4d153be424a6"
-ec2_fgt_image_id: "ami-0d33aefd9570ef336" # v7.6.0
-ec2_fgt_image_name: "FortiGate-VM64-AWSONDEMAND build3401 (7.6.0) GA-3124a694-441c-4ff1-8bf7-4d153be424a6"
+#ec2_fgt_image_id: "ami-0d33aefd9570ef336" # v7.6.0
+#ec2_fgt_image_name: "FortiGate-VM64-AWSONDEMAND build3401 (7.6.0) GA-3124a694-441c-4ff1-8bf7-4d153be424a6"
 # Flavour 
 #ec2_fgt_flavor_name: c6i.xlarge
 ec2_fgt_flavor_name: c6i.xlarge
