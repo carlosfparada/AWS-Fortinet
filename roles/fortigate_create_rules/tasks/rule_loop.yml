@@ -9,7 +9,7 @@
     _services: []
     _action: "{{ 'accept' if _rule.rule.action == 'permit' else 'deny' }}"
     _utm_status: "{{ 'enable' if _rule.rule.ips_sensor != '' else 'disable' }}"
-    _next_policyid: 0
+    _next_policyid: 1
     _intf: "{{ _rule.src.interface }}"
 
 - name: Loop src IP address list
