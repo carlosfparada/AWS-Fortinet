@@ -43,7 +43,7 @@
       when: infra == 'aws'
     # - include_role: 
     #     name: fortianalyzer_device_authorization
-    - include_role: 
-        name: fortianalyzer_config_settings
+    # - include_role: 
+    #     name: fortianalyzer_config_settings
     - include_role: 
         name: fortianalyzer_gather_facts
