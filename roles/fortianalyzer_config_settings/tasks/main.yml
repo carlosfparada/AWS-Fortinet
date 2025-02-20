@@ -68,7 +68,7 @@
       access_banner: disable
       admin_https_redirect: disable
       objects_force_deletion: disable
-      shell_access: disable
+      #shell_access: disable
       show_add_multiple: disable
       show_checkbox_in_table: disable
       show_device_import_export: disable
