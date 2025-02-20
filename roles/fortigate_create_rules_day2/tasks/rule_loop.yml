@@ -84,7 +84,8 @@
     access_token: "{{ fortigate_token }}"
     state: present
     firewall_policy: 
-      policyid: "{{ _next_policyid }}"
+      #policyid: "{{ _next_policyid }}"
+      policyid: "{{ _rule.policyid }}"
       name: "{{ _rule.name }}" 
       srcaddr: "{{ _src_names }}"
       srcintf:
