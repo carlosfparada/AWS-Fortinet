@@ -7,8 +7,6 @@
   vars_files: 
     - main.yml
   tasks:
-  - debug:
-      var: hostvars
   - include_role: 
       name: utils_hosts_vmware
     when: infra == 'vmware'
