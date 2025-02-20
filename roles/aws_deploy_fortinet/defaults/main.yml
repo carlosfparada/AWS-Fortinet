@@ -47,10 +47,10 @@ ec2_fgt_instance_name: fortigate-1
 
 # FortiAnalyzer
 # 2 Managed Nodes
-ec2_faz_image_id: "ami-08d6a29f00002634f" # v7.2.9
-ec2_faz_image_name: "FortiAnalyzer-VM64-AWSONDEMAND build1638 (7.2.9) GA-9e82717a-78e4-4f57-9ef9-d50bdc2838a4"
-# ec2_faz_image_id: "ami-0f4ef674bd83d052a" # v7.2.9
+# ec2_faz_image_id: "ami-08d6a29f00002634f" # v7.2.9
 # ec2_faz_image_name: "FortiAnalyzer-VM64-AWSONDEMAND build1638 (7.2.9) GA-9e82717a-78e4-4f57-9ef9-d50bdc2838a4"
+ec2_faz_image_id: "ami-0f4ef674bd83d052a" # v7.2.9
+ec2_faz_image_name: "FortiAnalyzer-VM64-AWSONDEMAND build1638 (7.2.9) GA-9e82717a-78e4-4f57-9ef9-d50bdc2838a4"
 # Flavour 
 ec2_faz_flavor_name: m5.xlarge
 #ec2_faz_flavor_name: m5.large
@@ -62,10 +62,10 @@ ec2_faz_instance_name: fortianalyzer-1
 # FortiManager
 # AMI
 # 2 Managed Nodes
-ec2_fmg_image_id: "ami-0152ae3e040649e4c" #v7.2.9
-ec2_fmg_image_name: "FortiManager-VM64-AWSONDEMAND build1638 (7.2.9) GA-5d6aff10-05ff-4cc5-ac93-ef8a6ce51c77"
-# ec2_fmg_image_id: "ami-0be53223769fdebde" #v7.0.10
-# ec2_fmg_image_name: "FortiManager VM64-AWSOnDemand build0561 (7.0.10) GA-5d6aff10-05ff-4cc5-ac93-ef8a6ce51c77"
+# ec2_fmg_image_id: "ami-0152ae3e040649e4c" #v7.2.9
+# ec2_fmg_image_name: "FortiManager-VM64-AWSONDEMAND build1638 (7.2.9) GA-5d6aff10-05ff-4cc5-ac93-ef8a6ce51c77"
+ec2_fmg_image_id: "ami-0be53223769fdebde" #v7.0.10
+ec2_fmg_image_name: "FortiManager VM64-AWSOnDemand build0561 (7.0.10) GA-5d6aff10-05ff-4cc5-ac93-ef8a6ce51c77"
 # Flavour 
 #ec2_fmg_flavor_name: t2.large
 ec2_fmg_flavor_name: m5.xlarge
