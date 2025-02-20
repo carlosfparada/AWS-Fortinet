@@ -34,6 +34,27 @@
       - fgfm
     state: present
 
+# - name: Config System Settings (Admin -> Admin Settings) DEPRECATED
+#   fortinet.fortianalyzer.faz_cli_system_admin_setting:
+#     cli_system_admin_setting:
+#       idle_timeout: 28800
+#       idle_timeout_api: 28800
+#       idle_timeout_gui: 28800
+#       webadmin_language: english
+#       https_port: 443
+#       http_port: 80
+#       gui-theme: red
+#       access-banner: disable
+#       admin-https-redirect: disable
+#       objects-force-deletion: disable
+#       shell-access: disable
+#       show-add-multiple: disable
+#       show-checkbox-in-table: disable
+#       show-device-import-export: disable
+#       show-fct-manager: disable
+#       show-hostname: disable
+#       show-log-forwarding: disable
+
 - name: Config System Settings (Admin -> Admin Settings)
   fortinet.fortianalyzer.faz_cli_system_admin_setting:
     cli_system_admin_setting:
@@ -43,65 +64,117 @@
       webadmin_language: english
       https_port: 443
       http_port: 80
-      gui-theme: red
-      access-banner: disable
-      admin-https-redirect: disable
-      objects-force-deletion: disable
-      shell-access: disable
-      show-add-multiple: disable
-      show-checkbox-in-table: disable
-      show-device-import-export: disable
-      show-fct-manager: disable
-      show-hostname: disable
-      show-log-forwarding: disable
+      gui_theme: red
+      access_banner: disable
+      admin_https_redirect: disable
+      objects_force_deletion: disable
+      shell_access: disable
+      show_add_multiple: disable
+      show_checkbox_in_table: disable
+      show_device_import_export: disable
+      show_fct_manager: disable
+      show_hostname: disable
+      show_log_forwarding: disable
+
+# - name: Create System Settings profile (Admin -> Profile) DEPRECATED
+#   fortinet.fortianalyzer.faz_cli_system_admin_profile:
+#     cli_system_admin_profile:
+#       profileid: MyProfile
+#       description: This is MyProfile created by Ansible
+#       system-setting: read
+#       adom-switch: read
+#       device-manager: read-write
+#       update-incidents: read-write
+#       realtime-monitor: read-write
+#       execute-playbook: read-write
+#       fabric-viewer: read
+#       report-viewer: read-write
+#       run-report: read-write
+#       triage-events: read-write
+#     state: present
 
 - name: Create System Settings profile (Admin -> Profile)
   fortinet.fortianalyzer.faz_cli_system_admin_profile:
     cli_system_admin_profile:
       profileid: MyProfile
       description: This is MyProfile created by Ansible
-      system-setting: read
-      adom-switch: read
-      device-manager: read-write
-      update-incidents: read-write
-      realtime-monitor: read-write
-      execute-playbook: read-write
-      fabric-viewer: read
-      report-viewer: read-write
-      run-report: read-write
-      triage-events: read-write
+      system_setting: read
+      adom_switch: read
+      device_manager: read-write
+      update_incidents: read-write
+      realtime_monitor: read-write
+      execute_playbook: read-write
+      fabric_viewer: read
+      report_viewer: read-write
+      run_report: read-write
+      triage_events: read-write
     state: present
+
+# - name: Create System Settings admin (Admin -> Administrators) DEPRECATED
+#   fortinet.fortianalyzer.faz_cli_system_admin_user:
+#     cli_system_admin_user:
+#       userid: myadmin
+#       description: 'My admin user created by Ansible'
+#       change-password: disable
+#       email-address: 'myadmin@ansible.com'
+#       profileid: MyProfile
+#       two-factor-auth: disable
+#     state: present
 
 - name: Create System Settings admin (Admin -> Administrators)
   fortinet.fortianalyzer.faz_cli_system_admin_user:
     cli_system_admin_user:
       userid: myadmin
       description: 'My admin user created by Ansible'
-      change-password: disable
-      email-address: 'myadmin@ansible.com'
+      change_password: disable
+      email_address: 'myadmin@ansible.com'
       profileid: MyProfile
-      two-factor-auth: disable
+      two_factor_auth: disable
     state: present
+
+# - name: Create System Settings Log File Management (Advanced -> File Management) DEPRECATED
+#   fortinet.fortianalyzer.faz_cli_system_autodelete:
+#     cli_system_autodelete:
+#       log-auto-deletion:
+#         retention: days
+#         runat: 2 #2:00
+#         value: 200
+#         status: enable
+#       report-auto-deletion:
+#         retention: days
+#         runat: 3 #3:00
+#         value: 300
+#         status: enable
+#       dlp-files-auto-deletion:
+#         retention: days
+#         runat: 4 #4:00
+#         value: 400
+#         status: enable
+#       quarantine-files-auto-deletion:
+#         retention: days
+#         runat: 5 #2:00
+#         value: 500
+#         status: enable
 
 - name: Create System Settings Log File Management (Advanced -> File Management)
   fortinet.fortianalyzer.faz_cli_system_autodelete:
     cli_system_autodelete:
-      log-auto-deletion:
+      log_auto_deletion:
         retention: days
         runat: 2 #2:00
         value: 200
         status: enable
-      report-auto-deletion:
+      report_auto_deletion:
         retention: days
         runat: 3 #3:00
         value: 300
         status: enable
-      dlp-files-auto-deletion:
+      dlp_files_auto_deletion:
         retention: days
         runat: 4 #4:00
         value: 400
         status: enable
-      quarantine-files-auto-deletion:
+      quarantine_files_auto_deletion:
         retention: days
         runat: 5 #2:00
         value: 500
