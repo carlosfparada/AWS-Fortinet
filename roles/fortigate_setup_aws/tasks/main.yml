@@ -10,9 +10,9 @@
       # 'You are forced to change your password. Please input a new password.'
       's password:':
         - "{{ hostvars[groups['fortigate'][0]].instance_id }}"
-        - "{{ new_password }}"  # in case setup was already run
-      'New Password:': "{{ new_password }}" 
-      'Confirm Password:': "{{ new_password }}"
+        - "{{ fortinet_admin_password }}"  # in case setup was already run
+      'New Password:': "{{ fortinet_admin_password }}" 
+      'Confirm Password:': "{{ fortinet_admin_password }}"
       'FGT': "exit"
   no_log: false # hide passwords on logs
   ignore_errors: true
@@ -28,7 +28,7 @@
 #       'FortiGate-VM64 # ': "config system admin"
 #       'FortiGate-VM64 \(admin\) #':
 #         - "edit admin"
-#         - "set password {{ new_password }}"
+#         - "set password {{ fortinet_admin_password }}"
 #         - "end"
 #   no_log: false # hide passwords on logs 
       
@@ -36,7 +36,7 @@
 #   ansible.builtin.expect:
 #     command: "ssh -o StrictHostKeyChecking=no admin@{{ hostvars[groups['fortigate'][0]].ansible_host }}"
 #     responses:
-#       '.* password': "{{ new_password }}" 
+#       '.* password': "{{ fortinet_admin_password }}" 
 #       'FortiGate-VM64 # ': "execute restore vmlicense ftp {{ lic_filemame }} {{ lic_ftp_server }}"
 #       'Do you want to continue\? \(y/n\)': "y"
 #   no_log: false # hide passwords on logs 
