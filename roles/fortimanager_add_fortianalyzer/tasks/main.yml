@@ -10,8 +10,8 @@
     enable_log: true
     dvm_cmd_discover_device:
       device:
-        adm_pass: "{{ adm_pass }}"
-        adm_usr: "{{ adm_usr }}"
+        adm_pass: "{{ fortinet_admin_password }}"
+        adm_usr: "{{ fortinet_admin_user }}"
         ip: "{{ hostvars[groups['fortianalyzer'][0]].private_ip_address }}"
   register: _probed_fortianalyzer
 

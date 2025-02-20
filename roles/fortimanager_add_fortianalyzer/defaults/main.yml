@@ -3,8 +3,8 @@
 domain: "root"
 
 
-adm_usr: admin
-adm_pass: adminadmin
+fortinet_admin_user: admin
+fortinet_admin_password: adminadmin
 
 ansible_network_os: fortinet.fortimanager.fortimanager
 ansible_connection: httpapi
