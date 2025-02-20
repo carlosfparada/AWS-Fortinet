@@ -62,6 +62,7 @@
     region: "{{ ec2_vpc_region }}"
     filters:
       "tag:Name": "{{ ec2_faz_instance_name }}"
+  tags: full
 
 - name: Terminate FortiManager instance
   amazon.aws.ec2_instance:
@@ -69,6 +70,7 @@
     region: "{{ ec2_vpc_region }}"
     filters:
       "tag:Name": "{{ ec2_fmg_instance_name }}"
+  tags: full
 
 - name: Delete Security Group
   amazon.aws.ec2_group:
