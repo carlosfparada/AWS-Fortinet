@@ -8,7 +8,7 @@
     - main.yml
   tasks:
   - debug:
-      var: ansible_password
+      var: ansible_ssh_pass
   - include_role: 
       name: utils_hosts_vmware
     when: infra == 'vmware'
