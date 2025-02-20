@@ -7,6 +7,8 @@
   vars_files: 
     - main.yml
   tasks:
+  - debug:
+      var: ansible_password
   - include_role: 
       name: utils_hosts_vmware
     when: infra == 'vmware'
@@ -22,8 +24,6 @@
     - main.yml
     - "{{infra}}.yml"  
   tasks:
-    - debug:
-        var: ansible_password
     - include_role: 
         name: fortigate_setup_wmware
       when: infra == 'vmware'
