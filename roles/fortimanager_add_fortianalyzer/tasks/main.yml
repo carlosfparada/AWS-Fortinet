@@ -14,9 +14,9 @@
         adm_usr: "{{ fortinet_admin_user }}"
         ip: "{{ hostvars[groups['fortianalyzer'][0]].private_ip_address }}"
   register: _probed_fortianalyzer
-  retries: 5
-  delay: 5
-  until: _probed_fortianalyzer.rc == 0
+  # retries: 5
+  # delay: 5
+  # until: _probed_fortianalyzer.rc == 0
 
 - name: Debug FortiAnalyzer device discovery
   debug:
@@ -34,8 +34,8 @@
         mgmt_mode: 'fmg'
         name: '{{ _probed_fortianalyzer.meta.response_data.device.name }}'
         sn: '{{ _probed_fortianalyzer.meta.response_data.device.sn }}'
-  register: _add_fortianalyzer
-  retries: 5
-  delay: 5
-  until: _add_fortianalyzer.rc == 0
-  ignore_errors: true
+  # register: _add_fortianalyzer
+  # retries: 5
+  # delay: 5
+  # until: _add_fortianalyzer.rc == 0
+  # ignore_errors: true

@@ -14,9 +14,9 @@
         adm_usr: "{{ fortinet_admin_user }}"
         ip: "{{ hostvars[groups['fortigate'][0]].private_ip_address }}"
   register: _probed_fortigate
-  retries: 5
-  delay: 5
-  until: _probed_fortigate.rc == 0
+  # retries: 5
+  # delay: 5
+  # until: _probed_fortigate.rc == 0
 
 - name: Debug FortiGate device discovery
   debug:
@@ -34,11 +34,11 @@
         mgmt_mode: 'fmg'
         name: '{{ _probed_fortigate.meta.response_data.device.name }}'
         sn: '{{ _probed_fortigate.meta.response_data.device.sn }}'
-  register: _add_fortigate
-  retries: 5
-  delay: 5
-  until: _add_fortigate.rc == 0
-  ignore_errors: true
+  # register: _add_fortigate
+  # retries: 5
+  # delay: 5
+  # until: _add_fortigate.rc == 0
+  # ignore_errors: true
 
 - name: Creation of a FortiManager Device Group
   fortinet.fortimanager.fmgr_dvmdb_group:
