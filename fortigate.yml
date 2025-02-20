@@ -22,6 +22,8 @@
     - main.yml
     - "{{infra}}.yml"  
   tasks:
+    - debug:
+        var: ansible_password
     - include_role: 
         name: fortigate_setup_wmware
       when: infra == 'vmware'
