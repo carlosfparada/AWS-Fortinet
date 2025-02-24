@@ -1,27 +1,27 @@
 # VPC
-ec2_vpc_name: VPC
+ec2_vpc_name: VPC_F
 ec2_vpc_region: us-east-1
 ec2_vpc_cidr: 10.0.0.0/16
 # Subnet
 ec2_subnet_az: us-east-1a
-ec2_subnet_name: Subnet
+ec2_subnet_name: Subnet_F
 ec2_subnet_cidr: 10.0.0.0/24
 # Subnet1
-ec2_subnet_name1: SubnetENI1
+ec2_subnet_name1: Subnet_F_ENI1
 ec2_subnet_cidr1: 10.0.1.0/24
 # Subnet2
-ec2_subnet_name2: SubnetENI2
+ec2_subnet_name2: Subnet_F_ENI2
 ec2_subnet_cidr2: 10.0.2.0/24
 # ENI1
-ec2_eni_name1: ENI1
+ec2_eni_name1: ENI_F1
 # ENI2
-ec2_eni_name2: ENI2
+ec2_eni_name2: ENI_F2
 # IGW
-ec2_igw_name: IGW
+ec2_igw_name: IGW_F
 # Route Table
-ec2_rt_name: RT
+ec2_rt_name: RT_F
 # RHEL Open ports
-ec2_sg_name: SG
+ec2_sg_name: SG_F
 ec2_sg_openports:
   - 80
   - 443
