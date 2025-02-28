@@ -16,5 +16,10 @@ api_config:
   - "set rpc-permit read-write"
   - "next"
   - "end"
+  # # Skip pop up in most recent versions
+  # - config fmupdate fds-setting
+  # - set fortiguard-anycast enable
+  # - set fortiguard-anycast-source aws
+  # - end
   - "exit"
 
