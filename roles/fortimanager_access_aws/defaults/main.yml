@@ -11,15 +11,15 @@ ansible_httpapi_port: 443
 fortinet_admin_password: "{{ ansible_password | default('adminadmin') }}" 
 
 api_config:
-  - "config system admin user"
-  - "edit admin"
-  - "set rpc-permit read-write"
-  - "next"
-  - "end"
   # # Skip pop up in most recent versions
   # - config fmupdate fds-setting
   # - set fortiguard-anycast enable
   # - set fortiguard-anycast-source aws
   # - end
+  - "config system admin user"
+  - "edit admin"
+  - "set rpc-permit read-write"
+  - "next"
+  - "end"
   - "exit"
 
