@@ -29,4 +29,4 @@
     - include_role: 
         name: fortimanager_access_aws
     - include_role: 
-        name: fortimanager_test
+        name: fortimanager_gather_facts_fortigate
