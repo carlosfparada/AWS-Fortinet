@@ -17,5 +17,6 @@
         selector: system_interface
         params:
             interface: ""
-            device: "{{ item }}"
+            device: "{{ item.hostname }}"
   loop: "{{ _devices.meta.response_data }}"
+
