@@ -34,7 +34,7 @@
         facts:
             selector: dvmdb_device
             params:
-                adom: ""
+                adom: "root"
                 device: ""
       register: _devices
 
