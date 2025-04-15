@@ -34,7 +34,7 @@
         facts:
             selector: dvmdb_device
             params:
-                adom: "{{ domain }}"
+                adom: ""
                 device: ""
       register: _devices
 
