@@ -17,12 +17,11 @@
     msg: "Device Name: {{ item.name }}, OS Version: {{ item.os_ver }}, Mgm_Int: {{ item.mgmt_if }}, Mgm IP: {{ item.ip }}"
   loop: "{{ _devices.meta.response_data }}"
 
-- name: Get FortiManager facts system_interface
+- name: Get FortiManager devices
   fortinet.fortimanager.fmgr_fact:
     facts:
-        selector: system_interface
+        selector: user_device
         params:
-            interface: ""
-            device: "{{ item.name }}"
-  loop: "{{ _devices.meta.response_data }}"
-
+            adom: "root"
+            device: ""
+  register: _devices
