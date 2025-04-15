@@ -29,25 +29,4 @@
     - include_role: 
         name: fortimanager_access_aws
     - include_role: 
-        name: fortimanager_gather_facts
-        
-    - name: Get FortiManager devices
-      fortinet.fortimanager.fmgr_fact:
-        facts:
-            selector: dvmdb_device
-            params:
-                adom: "root"
-                device: ""
-      register: _devices
-
-    - debug: 
-        var: _devices
-
-    - name: Get FortiManager facts system_interface
-      fortinet.fortimanager.fmgr_fact:
-        facts:
-            selector: system_interface
-            params:
-                interface: ""
-                device: "{{ item }}"
-      loop: "{{ _devices.meta.response_data }}"
+        name: fortimanager_test
