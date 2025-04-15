@@ -17,11 +17,14 @@
     msg: "Device Name: {{ item.name }}, OS Version: {{ item.os_ver }}, Mgm_Int: {{ item.mgmt_if }}, Mgm IP: {{ item.ip }}"
   loop: "{{ _devices.meta.response_data }}"
 
-- name: Get FortiManager devices
-  fortinet.fortimanager.fmgr_fact:
-    facts:
-        selector: user_device
-        params:
-            adom: "root"
-            device: ""
-  register: _devices
+- name: Discovering devices from FortiManager 
+  fortinet.fortimanager.fmgr_dvm_cmd_discover_device:
+    bypass_validation: true
+    enable_log: true
+    dvm_cmd_discover_device:
+      device:
+        adm_pass: "{{ fortinet_admin_password }}"
+        adm_usr: "{{ fortinet_admin_user }}"
+        ip: "{{ item.ip }}"
+  loop: "{{ _devices.meta.response_data }}"
+  register: _probed_devices
