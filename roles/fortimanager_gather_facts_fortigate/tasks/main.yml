@@ -31,4 +31,4 @@
 
 - name: Debug Probed Devices full var 
   ansible.builtin.debug:
-    var: _probed_devices.meta.response_data
+    var: _probed_devices
