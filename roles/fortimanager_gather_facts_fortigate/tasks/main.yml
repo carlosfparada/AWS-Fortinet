@@ -28,3 +28,7 @@
         ip: "{{ item.ip }}"
   loop: "{{ _devices.meta.response_data }}"
   register: _probed_devices
+
+- name: Debug Probed Devices full var 
+  ansible.builtin.debug:
+    var: _probed_devices.meta.response_data
