@@ -8,8 +8,9 @@
             device: ""
   register: _devices
 
-- debug: 
-    var: _devices
+- name: Debug Devices 
+  debug:
+    var: _devices.meta.response_data
 
 - debug:
     msg: "Device Name: {{ item.name }}, OS Version: {{ item.os_ver }}, Mgm_Int: {{ item.mgmt_if }}, Mgm IP: {{ item.ip }}"
