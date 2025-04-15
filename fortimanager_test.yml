@@ -26,8 +26,8 @@
   tasks:
     - include_role:
         name: fortimanager_setup_aws
-    # - include_role: 
-    #     name: fortimanager_access_aws
+    - include_role: 
+        name: fortimanager_access_aws
 
     - name: Get FortiManager devices
       fortinet.fortimanager.fmgr_fact:
