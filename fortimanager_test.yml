@@ -1,0 +1,56 @@
+---
+
+- name: Get dynamic Fortinet nodes and assign them to groups
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars_files: 
+    - main.yml
+  vars:
+    ansible_command_timeout: 300
+  tasks:
+  - include_role: 
+      name: utils_hosts_vmware
+    when: infra == 'vmware'
+  - include_role:
+      name: utils_hosts_aws
+    when: infra == 'aws'
+
+- name: Fortinet FortiManager roles
+  hosts: fortimanager
+  connection: httpapi
+  gather_facts: no
+  vars_files: 
+    - main.yml
+    - "{{infra}}.yml"
+  tasks:
+    - include_role:
+        name: fortimanager_setup_wmware
+      when: infra == 'vmware'
+    - include_role:
+        name: fortimanager_setup_aws
+      when: infra == 'aws'
+    - include_role: 
+        name: fortimanager_access_aws
+      when: infra == 'aws'
+
+    - name: Get FortiManager devices
+      fortinet.fortimanager.fmgr_fact:
+        facts:
+            selector: dvmdb_device
+            params:
+                adom: "{{ domain }}"
+                device: ""
+      register: _devices
+
+    - debug: 
+        var: _devices
+
+    - name: Get FortiManager facts system_interface
+      fortinet.fortimanager.fmgr_fact:
+        facts:
+            selector: system_interface
+            params:
+                interface: ""
+                device: "{{ item }}"
+      loop: "{{ _devices.meta.response_data }}"
