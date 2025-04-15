@@ -11,6 +11,11 @@
 - debug: 
     var: _devices
 
+- debug:
+    msg: "Device Name: {{ item.name }}, OS Version: {{ item.os_ver }}, Mgm_Int: {{ item.mgmt_if }}, Mgm IP: {{ item.ip }}"
+  loop: "{{ _devices.meta.response_data }}"
+
+
 - name: Get FortiManager facts system_interface
   fortinet.fortimanager.fmgr_fact:
     facts:
