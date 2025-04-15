@@ -7,3 +7,6 @@ ansible_connection: httpapi
 ansible_httpapi_use_ssl: yes
 ansible_httpapi_validate_certs: no
 ansible_httpapi_port: 443
+
+fortinet_admin_user: admin
+fortinet_admin_password: "{{ ansible_password | default('adminadmin') }}" 
