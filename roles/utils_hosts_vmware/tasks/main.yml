@@ -7,7 +7,8 @@
   set_fact:
     fortigate: "{{ item }}"
   loop: "{{ groups['all'] }}"
-  when: item | regex_search("^fortigate-1_(.*)$")
+  #when: item | regex_search("^fortigate-1_(.*)$")
+  when: item is match("^fortigate-1_(.*)$")
 
 - name: Add FortiGate node to the fortigate group
   add_host:
@@ -19,7 +20,8 @@
   set_fact:
     fortianalyzer: "{{ item }}"
   loop: "{{ groups['all'] }}"
-  when: item | regex_search("^fortianalyzer-1_(.*)$") 
+  #when: item | regex_search("^fortianalyzer-1_(.*)$") 
+  when: item is match("^fortianalyzer-1_(.*)$") 
 
 - name: Add FortiAnalyzer node to the fortianalyzer group
   add_host:
@@ -31,7 +33,8 @@
   set_fact:
     fortimanager: "{{ item }}"
   loop: "{{ groups['all'] }}"
-  when: item | regex_search("^fortimanager-1_(.*)$") 
+  #when: item | regex_search("^fortimanager-1_(.*)$") 
+  when: item is match("^fortimanager-1_(.*)$")
 
 - name: Add FortiManager node to the fortimanager group
   add_host:
@@ -43,7 +46,8 @@
   set_fact:
     vsphere: "{{ item }}"
   loop: "{{ groups['all'] }}"
-  when: item | regex_search("^VMware vCenter Server_(.*)$") 
+  #when: item | regex_search("^VMware vCenter Server_(.*)$") 
+  when: item is match("^VMware vCenter Server_(.*)$") 
 
 - name: Add vSphere node to the vsphere group
   add_host:
@@ -55,7 +59,8 @@
   set_fact:
     controller: "{{ item }}"
   loop: "{{ groups['all'] }}"
-  when: item | regex_search("^aap2-ctrl1.my-lab.local_(.*)$") 
+  #when: item | regex_search("^aap2-ctrl1.my-lab.local_(.*)$")
+  when: item is match("^aap2-ctrl1.my-lab.local_(.*)$") 
 
 - name: Add Controller node to the controller group
   add_host:
