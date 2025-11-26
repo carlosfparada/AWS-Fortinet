@@ -36,10 +36,10 @@
         name: fortimanager_access_aws
       when: infra == 'aws'
     - include_role: 
+        name: fortimanager_gather_facts
+    - include_role: 
         name: fortimanager_add_fortianalyzer
     - include_role:
         name: fortimanager_add_fortigate
     - include_role: 
         name: fortimanager_config_settings
-    - include_role: 
-        name: fortimanager_gather_facts
