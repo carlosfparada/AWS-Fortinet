@@ -1,6 +1,13 @@
 ---
 
-- name: Get FortiManager facts
+- name: "Get FortiManager facts sys_status {{ domain }}"
+  fortinet.fortimanager.fmgr_fact:
+    facts:
+        selector: sys_status
+        params:
+          adom: "{{ domain }}"
+
+- name: "Get FortiManager facts dvmdb_adom {{ domain }}"
   fortinet.fortimanager.fmgr_fact:
     facts:
         selector: dvmdb_adom
