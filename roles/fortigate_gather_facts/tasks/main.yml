@@ -51,3 +51,10 @@
   debug:
     var: _fortinet_system_admin_facts
 
+- name: Execute a command
+  fortinet.fortios.fortios_switch_controller_custom_command:
+    vdom: "{{ domain }}"
+    access_token: "{{ fortigate_token }}"
+    state: "present"
+    switch_controller_custom_command:
+      command: "get system fortiguard-service status"
