@@ -57,7 +57,8 @@
     access_token: "{{ fortigate_token }}"
     state: "present"
     switch_controller_custom_command:
-      command: "get system fortiguard-service status"
+      #command: "get system fortiguard-service status"
+      command: "get system fortiguard"
       command_name: "get system fortiguard-service status"
   register: _fortinet_system_fortiguard_service_facts
 
