@@ -1,6 +1,6 @@
 ---
 
-- name: Gather facts from Fortinet FortiGate
+- name: Gather policy facts from Fortinet FortiGate
   fortinet.fortios.fortios_configuration_fact:
     vdom: "{{ domain }}"
     access_token: "{{ fortigate_token }}"
@@ -8,9 +8,21 @@
       - selector: "firewall_policy"
     #  - selector: "system_interface"
     #  - selector: "firewall_address"
-  register: _fortinet_facts
+  register: _fortinet_policy_facts
 
-- name: Debug FortiGate Facts
+- name: Debug FortiGate Policy Facts
   debug:
-    var: _fortinet_facts
+    var: _fortinet_policy_facts
+
+- name: Gather system status from Fortinet FortiGate
+  fortinet.fortios.fortios_configuration_fact:
+    vdom: "{{ domain }}"
+    access_token: "{{ fortigate_token }}"
+    selectors:
+      - selector: "system status"
+  register: _fortinet_system_status_facts
+
+- name: Debug FortiGate System Status Facts
+  debug:
+    var: _fortinet_system_status_facts
 
