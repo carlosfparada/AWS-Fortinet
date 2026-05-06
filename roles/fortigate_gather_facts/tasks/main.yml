@@ -1,5 +1,6 @@
 ---
 
+# https://galaxy.ansible.com/ui/repo/published/fortinet/fortios/content/module/fortios_configuration_fact/
 - name: Gather policy facts from Fortinet FortiGate
   fortinet.fortios.fortios_configuration_fact:
     vdom: "{{ domain }}"
