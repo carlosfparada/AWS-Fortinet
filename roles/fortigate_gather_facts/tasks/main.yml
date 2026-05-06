@@ -58,3 +58,4 @@
     state: "present"
     switch_controller_custom_command:
       command: "get system fortiguard-service status"
+      command_name: "get system fortiguard-service status"
