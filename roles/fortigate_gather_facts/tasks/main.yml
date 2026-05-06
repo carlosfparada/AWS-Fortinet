@@ -59,3 +59,8 @@
     switch_controller_custom_command:
       command: "get system fortiguard-service status"
       command_name: "get system fortiguard-service status"
+  register: _fortinet_system_fortiguard_service_facts
+
+- name: Debug FortiGate System Fortiguard Service Facts
+  debug:
+    var: _fortinet_system_fortiguard_service_facts
