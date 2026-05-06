@@ -3,18 +3,18 @@
 - debug:
     var: fortigate_token
 
-# - name: Configure IPv4 addresses and open ports
-#   fortinet.fortios.fortios_system_interface:
-#     vdom: "{{ domain }}"
-#     access_token: "{{ fortigate_token }}"
-#     state: present
-#     system_interface:
-#       "{{ item }}"
-#   loop: "{{ ipv4_address }}"
-#   ignore_errors: true
-#   vars:
-#     ansible_httpapi_reconnect: true
-#     ansible_connect_timeout: 60
+- name: Configure IPv4 addresses and open ports
+  fortinet.fortios.fortios_system_interface:
+    vdom: "{{ domain }}"
+    access_token: "{{ fortigate_token }}"
+    state: present
+    system_interface:
+      "{{ item }}"
+  loop: "{{ ipv4_address }}"
+  ignore_errors: true
+  vars:
+    ansible_httpapi_reconnect: true
+    ansible_connect_timeout: 60
 
 - name: Configure IPv4 static routing
   fortinet.fortios.fortios_router_static:
