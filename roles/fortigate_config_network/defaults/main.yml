@@ -39,10 +39,10 @@ ipv4_address:
     interface: port1
     allowaccess:
       - ping
-      - https
-      - ssh
-      - http
-      - fgfm
+      # - https
+      # - ssh
+      # - http
+      # - fgfm
   - name: port2
     interface: port2
     mode: static
