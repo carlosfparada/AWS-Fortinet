@@ -31,6 +31,14 @@
   debug:
     msg: "Token: {{ fortigate_token }}"
 
+- name: Test system status (fails the first time!) 
+  fortinet.fortios.fortios_configuration_fact:
+    vdom: "{{ domain }}"
+    access_token: "{{ fortigate_token }}"
+    selectors:
+      - selector: "system_status"
+  ignore_errors: true
+  
 - name: Gather facts from Fortinet FortiGate
   fortinet.fortios.fortios_configuration_fact:
     vdom: "{{ domain }}"
