@@ -17,8 +17,15 @@
   loop: "{{ output.stdout_lines }}"
   when: "'New API key' in item"
   delegate_to: localhost
-
+ 
 - name: Fortigate Token
   debug:
     var: fortigate_token
 
+- name: Test system status from Fortinet FortiGate
+  fortinet.fortios.fortios_configuration_fact:
+    vdom: "{{ domain }}"
+    access_token: "{{ fortigate_token }}"
+    selectors:
+      - selector: "system_status"
+ 
