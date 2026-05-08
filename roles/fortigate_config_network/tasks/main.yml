@@ -11,7 +11,6 @@
     system_interface:
       "{{ item }}"
   loop: "{{ ipv4_address }}"
-  ignore_errors: true
 
 - name: Configure IPv4 static routing
   fortinet.fortios.fortios_router_static:
@@ -21,5 +20,4 @@
     router_static:
       "{{ item }}"
   loop: "{{ ipv4_routing }}"
-  ignore_errors: true
 
