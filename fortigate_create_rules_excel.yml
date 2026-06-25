@@ -23,7 +23,7 @@
     - "{{infra}}.yml"  
   tasks:
     - ansible.builtin.set_fact:
-        fw_rules: "{{ lookup('rules', 'files/rules.xlsx') }}"
+        fg_fw_rules: "{{ lookup('rules', 'files/rules.xlsx') }}"
     - include_role: 
         name: fortigate_access_aws
       when: infra == 'aws'
