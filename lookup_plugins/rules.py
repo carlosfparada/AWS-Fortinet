@@ -100,7 +100,7 @@ class LookupModule(LookupBase):
     def run(self, terms, variables=None, **kwargs):
         for term in terms:
             display.debug("File lookup term: %s" % term)
-            lookupfile = self.find_file_in_search_path(variables, 'files', term, ignore_missing=True)
+            lookupfile = self.find_file_in_search_path(variables, 'files', term)
             display.vvvv(u"File lookup using %s as file" % lookupfile)
             try:
                 if lookupfile:
