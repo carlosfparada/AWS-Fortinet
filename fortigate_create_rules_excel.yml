@@ -1,0 +1,32 @@
+---
+
+- name: Get dynamic Fortinet nodes and assign them to groups
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  vars_files: 
+    - main.yml
+  tasks:
+  - include_role: 
+      name: utils_hosts_vmware
+    when: infra == 'vmware'
+  - include_role:
+      name: utils_hosts_aws
+    when: infra == 'aws'
+
+- name: Fortinet FortiGate roles (excel)
+  hosts: fortigate
+  connection: httpapi
+  gather_facts: no
+  vars_files: 
+    - main.yml
+    - "{{infra}}.yml"  
+  tasks:
+    - ansible.builtin.set_fact:
+        fw_rules: "{{ lookup('rules', 'files/rules.xlsx') }}"
+    - include_role: 
+        name: fortigate_access_aws
+      when: infra == 'aws'
+    - include_role: 
+        name: fortigate_create_rules_day2
+
