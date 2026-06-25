@@ -22,7 +22,8 @@
     - main.yml
     - "{{infra}}.yml"  
   tasks:
-    - ansible.builtin.set_fact:
+    - name: Read Excel file
+      ansible.builtin.set_fact:
         fg_fw_rules: "{{ lookup('rules', 'files/rules.xlsx') }}"
     - debug:
         var: fg_fw_rules
