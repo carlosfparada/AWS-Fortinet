@@ -24,6 +24,8 @@
   tasks:
     - ansible.builtin.set_fact:
         fg_fw_rules: "{{ lookup('rules', 'files/rules.xlsx') }}"
+    - debug:
+        var: fg_fw_rules
     - include_role: 
         name: fortigate_access_aws
       when: infra == 'aws'
