@@ -100,6 +100,8 @@ class LookupModule(LookupBase):
     def run(self, terms, variables=None, **kwargs):
         for term in terms:
             display.debug("File lookup term: %s" % term)
+            # playbook_dir = variables.get('playbook_dir', os.getcwd())
+            # lookupfile = os.path.abspath(os.path.join(playbook_dir, term))
             lookupfile = self.find_file_in_search_path(variables, 'files', term)
             display.vvvv(u"File lookup using %s as file" % lookupfile)
             try:
