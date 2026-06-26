@@ -22,11 +22,6 @@
     - main.yml
     - "{{infra}}.yml"  
   tasks:
-    - name: Read Excel file
-      ansible.builtin.set_fact:
-        fg_fw_rules: "{{ lookup('rules', 'rules.xlsx') }}"
-    - debug:
-        var: fg_fw_rules
     - include_role: 
         name: fortigate_access_aws
       when: infra == 'aws'
