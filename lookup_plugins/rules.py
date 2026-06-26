@@ -81,11 +81,11 @@ def generate_rules(df):
         fw_rule={ 
                "name":rule_name,
                "src":{
-                   "zone": src_zone,
+                   "interface": src_zone,
                    "addresses": src_adresses
                },
                "dest":{
-                   "zone": dst_zone,
+                   "interface": dst_zone,
                    "addresses": dst_adresses
                },
                "services": services,
