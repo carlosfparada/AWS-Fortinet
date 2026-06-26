@@ -31,5 +31,5 @@
         name: fortigate_access_aws
       when: infra == 'aws'
     - include_role: 
-        name: fortigate_create_rules_day2_excel
+        name: fortigate_create_rules_day2
 
