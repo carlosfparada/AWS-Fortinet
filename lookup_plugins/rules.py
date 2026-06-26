@@ -51,6 +51,10 @@ def generate_rules(df):
             "ips_sensor":row["ips_sensor"],
         })
     fw_rules=[]
+
+    # added
+    policy_counter = 1
+    
     for line in lines:
         rule_name=line["rule_name"]
         src_adresses=[]
@@ -80,7 +84,7 @@ def generate_rules(df):
 
         fw_rule={ 
                "name": rule_name,
-               "policyid": 1,
+               "policyid": policy_counter,
                "src":{
                    "interface": src_zone,
                    "addresses": src_adresses
@@ -94,7 +98,8 @@ def generate_rules(df):
             }
         if fw_rule not in fw_rules:
             fw_rules.append(fw_rule)
-
+            # added
+            policy_counter += 1
     return fw_rules
 
 class LookupModule(LookupBase):
