@@ -26,6 +26,8 @@
       ansible.builtin.set_fact:
         # fg_fw_rules: "{{ lookup('file', 'rules.xlsx') }}"
         fg_fw_rules: "{{ lookup('rules', 'rules.xlsx') }}"
+        # fg_fw_rules: "{{ lookup('rules', 'files/rules.xlsx') }}"
+        # fg_fw_rules: "{{ lookup('rules', '../files/rules.xlsx') }}"
     - debug:
         var: fg_fw_rules
     - include_role: 
