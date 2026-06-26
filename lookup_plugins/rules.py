@@ -84,7 +84,7 @@ def generate_rules(df):
 
         fw_rule={ 
                "name": rule_name,
-               "policyid": policy_counter,
+               "policyid": 1,
                "src":{
                    "interface": src_zone,
                    "addresses": src_adresses
