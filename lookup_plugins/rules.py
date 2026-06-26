@@ -52,9 +52,6 @@ def generate_rules(df):
         })
     fw_rules=[]
 
-    # added
-    policy_counter = 1
-    
     for line in lines:
         rule_name=line["rule_name"]
         src_adresses=[]
@@ -98,8 +95,6 @@ def generate_rules(df):
             }
         if fw_rule not in fw_rules:
             fw_rules.append(fw_rule)
-            # added
-            policy_counter += 1
     return fw_rules
 
 class LookupModule(LookupBase):
